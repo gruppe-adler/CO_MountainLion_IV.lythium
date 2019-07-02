@@ -292,7 +292,8 @@ sleep 5;
 if (_debug) then {hint "Start color correction";};
 _hndl1 = ppEffectCreate ["colorCorrections", 1550];
 _hndl1 ppEffectEnable true;
-_hndl1 ppEffectAdjust [0.6, 1, 0, [0.8, 0.7, 0.4, 0.3], [0.8, 0.7, 0.4, 0.4], [0.8, 0.7, 0.4, 0.3]];
+_hndl1 ppEffectAdjust [0.875,0.875,-0.1,[1.652,0.764,0,0.2],[1,1,1,0.8],[0.835,0,0,0],[0,0,-0.265,-0.194,-0.017,0.279,0.624]];
+// _hndl1 ppEffectAdjust [0.6, 1, 0, [0.8, 0.7, 0.4, 0.3], [0.8, 0.7, 0.4, 0.4], [0.8, 0.7, 0.4, 0.3]];
 _hndl1 ppEffectCommit 15;
 
 sleep 15;

@@ -10,6 +10,11 @@ params ["_trigger", "_speed", "_dir"];
 
 [_trigger] remoteExec ["ODE_sandStorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
 
+0 setWindDir _dir;
+private _wSpeed = [wind, 10] call BIS_fnc_vectorMultiply;
+setWind [_wSpeed select 0, _wSpeed select 1, true];
+5 setGusts 0.75;
+
 [{
     params ["_args", "_handle"];
     _args params ["_trigger", "_speed", "_dir"];

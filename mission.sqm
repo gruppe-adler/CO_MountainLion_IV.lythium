@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={6858.5781,256.07227,4489.9058};
-		dir[]={-0.25778785,-0.52391851,0.81182593};
-		up[]={-0.15856344,0.85176605,0.49934888};
-		aside[]={0.95310354,1.3579847e-007,0.30264914};
+		dir[]={-0.54438901,-0.53547907,0.6456852};
+		up[]={-0.34516424,0.84454554,0.40939036};
+		aside[]={0.7645306,1.8210267e-007,0.64458919};
 	};
 };
 binarizationWanted=0;
@@ -16335,9 +16335,9 @@ class Mission
 			class Attributes
 			{
 				name="trg_sandstorm_1";
+				condition="call{this}";
 				sizeA=1000;
 				sizeB=1000;
-				isRectangle=1;
 			};
 			id=589;
 			type="EmptyDetectorAreaR250";

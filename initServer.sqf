@@ -9,7 +9,7 @@ if (isMultiplayer) then {
 };
 
 
-[["mrk_ied_1", "mrk_ied_2", "mrk_ied_3"], 3, true] call GRAD_ambient_fnc_ied;
+// [["mrk_ied_1", "mrk_ied_2", "mrk_ied_3"], 3, true] call GRAD_ambient_fnc_ied;
 
 { 
     _x setSkill ["aimingShake", 0.2]; 
