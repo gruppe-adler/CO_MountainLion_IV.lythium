@@ -24,7 +24,7 @@ private _sandWall = "#particlesource" createVehicleLocal _position;
 _sandWall setParticleCircle [0,[0,0,0]];
 _sandWall setParticleRandom [5,[100,100,0],[0,0,0],10,0.5,[0.1,0.1,0.1,0.1],0,0];
 _sandWall setParticleParams [
-    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 7, 
+    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 3 + random 3, 
     [0,0,-100], //position
     [0,0,150], // move velocity
     60,         // rotation
@@ -50,6 +50,6 @@ _sandWall setParticleParams [
     [0.08], 
     0.1, 
     0.1, "", "", _sandWall];
-_sandWall setDropInterval 0.5;
+_sandWall setDropInterval _dropInterval;
 
 [_sandWall]

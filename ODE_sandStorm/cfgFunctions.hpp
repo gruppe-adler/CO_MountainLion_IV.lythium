@@ -10,8 +10,8 @@ class ODE_sandStorm {
 
           class createParticleBorder;
           class createParticleClose;
-          class createParticleEmitterBorder;
-          class createParticleEmitterBorderInner;
+          class createParticleEmitterBorderBottom;
+          class createParticleEmitterBorderTop;
           class createParticleEmitterClose;
           class createParticleFiller;
 

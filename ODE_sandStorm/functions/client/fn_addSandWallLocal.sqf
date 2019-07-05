@@ -28,7 +28,7 @@ params ["_trigger"];
                 vehicle player setHitPointDamage ["HitEngine", _damage];
             };
         };
-        1 setFog [0.1,0.003,500];
+        1 setFog [0.3 + random 0.5,0,0];
 
         playSound "A3WindFast";
 

@@ -1,6 +1,6 @@
 params ["_position"];
 
-private _dropInterval = 0.3;
+private _dropInterval = 0.5;
 
 private _distanceToPlayer = _position distance player;
 
@@ -26,37 +26,38 @@ if (_distanceToPlayer > 2500) then {
     };
 };
 
-private _sandWall = "#particlesource" createVehicleLocal _position;
-_sandWall setParticleCircle [2,[0,0,0]];
-_sandWall setParticleRandom [0,[0,0,2],[0,0,0],3,0.5,[0,0,0,0],0,0];
-_sandWall setParticleParams [
-    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 7, 
+private _sandWall2 = "#particlesource" createVehicleLocal _position;
+_sandWall2 setParticleCircle [2,[0,0,0]];
+_sandWall2 setParticleRandom [0,[0,0,2],[0,0,0],3,0.5,[0,0,0,0],0,0];
+_sandWall2 setParticleParams [
+    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 5, 
     [0,0,0], //position
-    [0,0,40 + random 100], // move velocity
-    random 5,         // rotation
-    25, // weight
+    [random 2 - random 4,random 2 - random 4,40 + random 40], // move velocity
+    2,         // rotation
+    10, // weight
     30, // volume
     10, // rubbing
     [
-        15,
-        17,
-        19,
-        21,
-        25,
-        30
+        10,
+        45,
+        55,
+        65,
+        75,
+        85
     ],
     [
         [0,0,0,0],
-        [0.1,0.1,0.1,0.8],
-        [0.15,0.15,0.15,0.8],
-        [0.2,0.2,0.15,0.7],
-        [0.4,0.3,0.2,0.6],
+        [0,0,0,0.9],
+        [0.05,0.05,0.05,0.9],
+        [0.1,0.1,0.1,0.9],
+        [0.3,0.2,0.2,0.7],
         [0.5,0.4,0.3,0]
     ],
     [0.08], 
     0.1, 
-    0.1, "", "", _sandWall];
+    0.1, "", "", _sandWall2];
+_sandWall2 setDropInterval (random _dropInterval + _dropInterval);
 
-_sandWall setDropInterval (random _dropInterval + _dropInterval);
 
-[_sandWall]
+
+[_sandWall2]
