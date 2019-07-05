@@ -28,6 +28,8 @@ class cfgFunctions {
   #include "grad-missionControl\cfgFunctions.hpp"
   #include "grad-permaChoice\cfgFunctions.hpp"
   #include "grad-reinforcements\cfgFunctions.hpp"
+  #include "grad_rotorWash\cfgFunctions.hpp"
+
   #include "node_modules\grad-loadout\cfgFunctions.hpp"
   #include "node_modules\grad-customGear\cfgFunctions.hpp"
 };
@@ -44,6 +46,8 @@ class Loadouts {
 
 
 class cfgSounds {
+    #include "ODE_sandstorm\cfgSounds.hpp"
+
     class GRAD_heartbeat_slow_1
       {
         name = "GRAD_heartbeat_slow_1";
@@ -61,65 +65,11 @@ class cfgSounds {
       titles[] = {0, ""};
     };
     
+};
 
-  
-  class sswindloop {
-    name="sswindloop";
-    sound[]={ROS\sound\sswindloop.ogg, 1,1};
-    titles[] = {};
-  };  
-  class sswindintro {
-    name="sswindintro";
-    sound[]={ROS\sound\sswindintro.ogg, 1,1};
-    titles[] = {};
-  };
-  class sswindoutro {
-    name="sswindoutro";
-    sound[]={ROS\sound\sswindoutro.ogg, 1,1};
-    titles[] = {};
-  };  
-  class sswarning {
-    name="sswarning";
-    sound[]={ROS\sound\sswarning.ogg, 3,1};
-    titles[] = {};
-  };
-  class hurt1 {
-    name="hurt1";
-    sound[]={ROS\sound\hurt1.ogg, 1 ,1};
-    titles[] = {};
-  };
-  class hurt2 {
-    name="hurt2";
-    sound[]={ROS\sound\hurt2.ogg, 1 ,1};
-    titles[] = {};
-  };  
-  class hurt3 {
-    name="hurt3";
-    sound[]={ROS\sound\hurt3.ogg, 1 ,1};
-    titles[] = {};
-  };  
-  class hurt4 {
-    name="hurt4";
-    sound[]={ROS\sound\hurt4.ogg, 1 ,1};
-    titles[] = {};
-  };  
-  class hurt5 {
-    name="hurt5";
-    sound[]={ROS\sound\hurt5.ogg, 1 ,1};
-    titles[] = {};
-  };  
-  class hurt6 {
-    name="hurt1";
-    sound[]={ROS\sound\hurt6.ogg, 1 ,1};
-    titles[] = {};
-  };  
-  class hurt7 {
-    name="hurt7";
-    sound[]={ROS\sound\hurt7.ogg, 1 ,1};
-    titles[] = {};
-  };  
-
-
+class CfgSFX
+{
+    #include "ODE_sandstorm\cfgSfx.hpp"
 };
 
 class CfgNotifications {

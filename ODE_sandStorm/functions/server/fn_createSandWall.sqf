@@ -2,22 +2,34 @@
 
     createSandWall
 
-    ["marker", _speed, _dir] call ODE_sandStorm_fnc_createSandWall;
+    [[10217.7,2833.75,0], 2, 285] call ODE_sandStorm_fnc_createSandWall;
 
 */
 
-params ["_trigger", "_speed", "_dir"];
+params ["_position", "_size", "_speed", "_dir"];
+
+private _trigger = createTrigger ["EmptyDetector", _position];
+_trigger setTriggerArea [_size, _size, 0, false];
 
 [_trigger] remoteExec ["ODE_sandStorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
 
 0 setWindDir _dir;
-private _wSpeed = [wind, 10] call BIS_fnc_vectorMultiply;
+private _wSpeed = [wind, _speed*20] call BIS_fnc_vectorMultiply;
 setWind [_wSpeed select 0, _wSpeed select 1, true];
-5 setGusts 0.75;
+// 5 setGusts 0.35;
+
+private _markerstr = createMarker ["markername", _position];
+_markerstr setMarkerShape "ELLIPSE";
+_markerstr setMarkerSize [_size, _size];
+_markerstr setMarkerColor "ColorRed";
+_markerstr setMarkerAlpha 0.5;
+
+
+private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0]; 
 
 [{
     params ["_args", "_handle"];
-    _args params ["_trigger", "_speed", "_dir"];
+    _args params ["_trigger", "_soundSource", "_speed", "_dir", "_markerstr"];
 
     if (isNull _trigger) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -26,5 +38,14 @@ setWind [_wSpeed select 0, _wSpeed select 1, true];
 
     private _newPos = (getPos _trigger) getPos [_speed, _dir];
     _trigger setPos _newPos;
+    _soundSource setPos _newPos;
+    _markerstr setMarkerPos _newPos;
+
+    _newPos params ["_xPos", "_yPos"];
     
-}, 0, [_trigger, _speed, _dir]] call CBA_fnc_addPerFrameHandler;
+    if (_xPos < 0 || _xPos > worldSize || _yPos < 0 || _yPos > worldSize) then {
+        deleteVehicle _trigger;
+        systemChat "deleting trigger out of map";
+    };
+    
+}, 1, [_trigger, _soundSource, _speed, _dir, _markerstr]] call CBA_fnc_addPerFrameHandler;

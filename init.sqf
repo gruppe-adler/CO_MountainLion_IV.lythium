@@ -11,3 +11,5 @@ enableSentences false;
 ["BLU_F", "USOCP"] call GRAD_Loadout_fnc_FactionSetLoadout;
 ["OPF_F", "Taliban"] call GRAD_Loadout_fnc_FactionSetLoadout;
 ["CIV_F", "Taliban"] call GRAD_Loadout_fnc_FactionSetLoadout;
+
+execVM "grad_rotorwash\init.sqf";
