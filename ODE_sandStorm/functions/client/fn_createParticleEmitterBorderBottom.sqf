@@ -32,11 +32,11 @@ _sandWall setParticleRandom [0,[0,0,2],[0,0,0],3,0.5,[0,0,0,0],0,0];
 _sandWall setParticleParams [
     ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 5, 
     [0,0,0], //position
-    [random 2 - random 4,random 2 - random 4,40 + random 20], // move velocity
+    [random 2 - random 4,random 2 - random 4,5 + random 5], // move velocity
     random 6,         // rotation
     60, // weight
     30, // volume
-    2, // rubbing
+    0.001, // rubbing
     [
         15,
         20,

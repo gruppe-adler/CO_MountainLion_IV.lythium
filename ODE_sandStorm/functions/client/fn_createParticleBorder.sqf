@@ -36,9 +36,9 @@ for "_i" from 0 to (_radials - 1) do
 };
 
 _lengthBetween = 150;
-private _circ = floor ((2 * pi) * _radius);
-private _radials = floor (_circ / _lengthBetween);
-private _factor = (360 / _radials);
+_circ = floor ((2 * pi) * _radius);
+_radials = floor (_circ / _lengthBetween);
+_factor = (360 / _radials);
 
 // fillers dont need 50m 
 
