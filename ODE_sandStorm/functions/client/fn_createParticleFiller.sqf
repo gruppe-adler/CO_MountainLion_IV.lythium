@@ -7,12 +7,12 @@ private _distanceToPlayer = _position distance player;
 if (_distanceToPlayer > 5000) exitWith {};
 
 if (_distanceToPlayer > 2000) then {
-    _dropInterval = 8;
+    _dropInterval = 12;
 } else {
     if (_distanceToPlayer > 1000) then {
-            _dropInterval = 7;
+            _dropInterval = 10;
         } else {
-            if (_distanceToPlayer > 800) then {
+            if (_distanceToPlayer > 500) then {
                 _dropInterval = 5;
             };
         };

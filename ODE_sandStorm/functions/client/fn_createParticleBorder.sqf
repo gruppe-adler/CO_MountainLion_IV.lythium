@@ -12,10 +12,11 @@ private _factor = (360 / _radials);
 
 for "_i" from 0 to (_radials - 1) do 
 { 
-    _ix = (_i * _factor);   
+    private _ix = (_i * _factor);   
     
-    _ox = ((_radius - 250) * cos _ix); 
-    _oy = ((_radius - 250) * sin _ix); 
+    // border top, brighters sands
+    private _ox = ((_radius - 250) * cos _ix); 
+    private _oy = ((_radius - 250) * sin _ix); 
     
     private _posX = _px + _ox; 
     private _posY = _py + _oy;
@@ -23,6 +24,8 @@ for "_i" from 0 to (_radials - 1) do
     private _emitters = [[_posX, _posY, 0]] call ODE_sandstorm_fnc_createParticleEmitterBorderTop;
     _allEmitters pushBack _emitters;
 
+
+    // border bottom, dark material gets thrown up
     _ox = ((_radius - 175)* cos _ix);
     _oy = ((_radius - 175) * sin _ix);
     
@@ -30,10 +33,32 @@ for "_i" from 0 to (_radials - 1) do
     private _posY = _py + _oy;
     private _emitters = [[_posX, _posY, 0]] call ODE_sandstorm_fnc_createParticleEmitterBorderBottom;
     _allEmitters pushBack _emitters;
+};
 
+_lengthBetween = 150;
+private _circ = floor ((2 * pi) * _radius);
+private _radials = floor (_circ / _lengthBetween);
+private _factor = (360 / _radials);
 
-    _ox = ((_radius - 600)* cos _ix);
-    _oy = ((_radius - 600) * sin _ix);
+// fillers dont need 50m 
+
+for "_i" from 0 to (_radials - 1) do 
+{ 
+    private _ix = (_i * _factor);   
+    
+    
+    // big line of fillers simulating dust
+    private _ox = ((_radius - 600)* cos _ix);
+    private _oy = ((_radius - 600) * sin _ix);
+    
+    private _posX = _px + _ox; 
+    private _posY = _py + _oy;
+    private _emitters = [[_posX, _posY, 0]] call ODE_sandstorm_fnc_createParticleFiller;
+    _allEmitters pushBack _emitters;
+
+    // 2nd line to fill gaps when you are close
+    _ox = ((_radius - 1000)* cos _ix);
+    _oy = ((_radius - 1000) * sin _ix);
     
     private _posX = _px + _ox; 
     private _posY = _py + _oy;
