@@ -854,7 +854,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						isPlayer=1;
 					};
 					id=36;
 					type="B_Survivor_F";
@@ -14781,16 +14780,59 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6867.9082,472.71204,4911.2866};
+						position[]={6867.9082,472.71188,4911.2866};
 					};
 					side="West";
 					flags=2;
 					class Attributes
 					{
+						isPlayer=1;
 					};
 					id=612;
 					type="B_Helipilot_F";
-					atlOffset=207.86517;
+					atlOffset=207.86502;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item1
 				{

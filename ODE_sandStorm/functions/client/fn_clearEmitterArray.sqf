@@ -6,7 +6,7 @@ private _newEmittersArray = [_type, "new"] call ODE_sandstorm_fnc_getEmitterArra
 // delete unnecessary emitters
 {deleteVehicle _x} forEach _oldEmittersArray;
 
-diag_log format ["_newEmittersArray %1", _newEmittersArray];
+// diag_log format ["_newEmittersArray %1", _newEmittersArray];
 
 // replace old array with new array
 private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", _type, "old"];

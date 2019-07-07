@@ -4,17 +4,30 @@ params ["_trigger"];
 [] call ODE_sandStorm_fnc_addLODTrigger;
 
 
+/*
+    debug
+*/
+
+private _markerstr = createMarkerLocal ["mrk_lod",[0,0]]; 
+_markerstr setMarkerShapeLocal "ELLIPSE"; 
+_markerstr setMarkerColorLocal "ColorBlue"; 
+_markerstr setMarkerBrushLocal "Border"; 
+_markerstr setMarkerSize [500,500]; 
+_markerstr setMarkerPos getpos vehicle player;
+
+
 [{
     params ["_args", "_handle"];
-    _args params ["_trigger"];
+    _args params ["_trigger", "_markerstr"];
 
     if (isNull _trigger) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         systemChat "removing local sandwall";
     };
 
+    _markerstr setMarkerPos (getPos vehicle player);
 
-    [getPos _trigger, ((triggerArea _trigger) select 0) - 50, 50]  call ODE_sandStorm_fnc_createParticleBorder;
+    [_trigger, ((triggerArea _trigger) select 0) - 50, 50]  call ODE_sandStorm_fnc_createParticleBorder;
 
     if ((vehicle player) inArea _trigger) then {
 
@@ -29,7 +42,7 @@ params ["_trigger"];
         };
         1 setFog [0.3 + random 0.5,0,0];
 
-        playSound "A3WindFast";
+        // playSound ["A3\sounds_f\ambient\winds\wind-synth-fast.wss", player];
 
         if (!(player getVariable ["isInsideSandstorm", false])) then {
             private _pp = call ODE_sandStorm_fnc_addPostProcessing;
@@ -54,4 +67,4 @@ params ["_trigger"];
         };
     };
     
-}, 1, [_trigger]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_trigger, _markerstr]] call CBA_fnc_addPerFrameHandler;
