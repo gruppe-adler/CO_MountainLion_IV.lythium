@@ -4,18 +4,22 @@ class ODE_sandStorm {
           file = ODE_sandstorm\functions\client;
 
           class addLeaves;
-          class addLocalParticle;
           class addPostProcessing;
           class addSandWallLocal;
 
+          class addToEmitterArray;
+          class clearEmitterArray;
+
+          class createEmitter;
           class createParticleBorder;
           class createParticleClose;
-          class createParticleEmitterBorderBottom;
-          class createParticleEmitterBorderTop;
-          class createParticleEmitterClose;
-          class createParticleFiller;
+          class getDropInterval;
+          class getEmitterArray;
+          class getEmitterParams;
+          class getEmitterParamsCircle;
+          class getEmitterParamsRandom;
+          class moveEmitter;
 
-          class deleteEmitters;
           class removePostProcessing;
   };
 

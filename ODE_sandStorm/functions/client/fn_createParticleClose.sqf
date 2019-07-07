@@ -2,8 +2,6 @@
 
 params ["_pos", "_distance"];
 
-private _allEmitters = missionNamespace getVariable ["sandstormEmittersClose", []];
-
 private _offsets = [
     -80,
     -70,
@@ -31,8 +29,5 @@ for "_i" from 0 to (count _offsets - 1) do
     private _position = _pos getPos [_distance, windDir - 180 + _offset];
     _position params ["_posX", "_posY"];
 
-    private _emitters = [[_posX, _posY, 0]] call ODE_sandstorm_fnc_createParticleEmitterClose;
-    _allEmitters pushBack _emitters;
+    private _emitters = ["close", [_posX, _posY, 0]] call ODE_sandstorm_fnc_moveEmitter;
 };
-
-missionNamespace setVariable ["sandstormEmittersClose", _allEmitters];

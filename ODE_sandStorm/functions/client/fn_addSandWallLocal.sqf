@@ -1,5 +1,9 @@
 params ["_trigger"];
 
+
+[] call ODE_sandStorm_fnc_addLODTrigger;
+
+
 [{
     params ["_args", "_handle"];
     _args params ["_trigger"];
@@ -10,18 +14,13 @@ params ["_trigger"];
     };
 
 
-    // systemChat "moving sandwall";
-    [] call ODE_sandStorm_fnc_deleteEmitters;
-
     [getPos _trigger, ((triggerArea _trigger) select 0) - 50, 50]  call ODE_sandStorm_fnc_createParticleBorder;
-    [_trigger] call ODE_sandStorm_fnc_createParticleFiller;
-
 
     if ((vehicle player) inArea _trigger) then {
 
         addCamShake [random 0.01 + 0.01, 1, 5 + random 2];
 
-        if (vehicle player isKindOf "Air" && {driver vehicle player == player}) then {
+        if (vehicle player isKindOf "Helicopter" && {driver vehicle player == player}) then {
             private _damage = (vehicle player) getHitPointDamage "HitEngine";
             if (_damage < 0.8) then {
                 _damage = _damage + 0.02;
@@ -31,9 +30,6 @@ params ["_trigger"];
         1 setFog [0.3 + random 0.5,0,0];
 
         playSound "A3WindFast";
-
-        private _allCloseEmitters = missionNamespace getVariable ["sandstormEmittersClose", []];
-        [getPos vehicle player, random 150+100]  call ODE_sandStorm_fnc_createParticleClose;
 
         if (!(player getVariable ["isInsideSandstorm", false])) then {
             private _pp = call ODE_sandStorm_fnc_addPostProcessing;
