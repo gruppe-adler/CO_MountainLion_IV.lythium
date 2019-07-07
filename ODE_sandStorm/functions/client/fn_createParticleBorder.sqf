@@ -67,12 +67,26 @@ for "_i" from 0 to (_radials - 1) do
     ["filler", "cache", [_posX, _posY, 0]] call ODE_sandstorm_fnc_addToEmitterArray;
 };
 
-["borderBottom", "cache"] call ODE_sandstorm_fnc_initiateEmitter;
-["borderTop", "cache"] call ODE_sandstorm_fnc_initiateEmitter;
-["close", "cache"] call ODE_sandstorm_fnc_initiateEmitter;
-["filler", "cache"] call ODE_sandstorm_fnc_initiateEmitter;
+// create or move emitter
+["borderBottom"] call ODE_sandstorm_fnc_initiateEmitter;
+["borderTop"] call ODE_sandstorm_fnc_initiateEmitter;
+["close"] call ODE_sandstorm_fnc_initiateEmitter;
+["filler"] call ODE_sandstorm_fnc_initiateEmitter;
 
+// clear temp cache
+private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "borderBottom", "cache"];
+missionNamespace setVariable [_identifierOld, []];
 
+private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "borderTop", "cache"];
+missionNamespace setVariable [_identifierOld, []];
+
+private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "close", "cache"];
+missionNamespace setVariable [_identifierOld, []];
+
+private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "filler", "cache"];
+missionNamespace setVariable [_identifierOld, []];
+
+// clear step cache 
 ["borderBottom"] call ODE_sandstorm_fnc_clearEmitterArray;
 ["borderTop"] call ODE_sandstorm_fnc_clearEmitterArray;
 ["close"] call ODE_sandstorm_fnc_clearEmitterArray;

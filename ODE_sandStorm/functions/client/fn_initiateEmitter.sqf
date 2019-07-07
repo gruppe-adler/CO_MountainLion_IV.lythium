@@ -5,12 +5,7 @@
 */
 
 
-params ["_type", "_subtype"];
-
-
-private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, _subtype];
-
-private _tempArray = [_type, _subtype] call ODE_sandstorm_fnc_getEmitterArray;
+params ["_type"];
 
 
 private _LODDefinitions = player getVariable ["ODE_LODTriggerDefinitions", []];
@@ -19,6 +14,8 @@ private _LODCount = count _LODDefinitions;
 
 for "_i" from 0 to (_LODCount-1) do {
 
+	private _tempArray = [_type, "cache"] call ODE_sandstorm_fnc_getEmitterArray;
+	
 	(_LODDefinitions select _i) params ["_triggerSize", "_dropRate"];
 
 	private _identifier = format ["ODE_LODTrigger_%1", _i];
@@ -30,6 +27,10 @@ for "_i" from 0 to (_LODCount-1) do {
 	private _positionsForThisLOD = _positions arrayIntersect _tempArray;
 	_tempArray = _tempArray - _positionsForThisLOD;
 
-	[_type, "new", _dropRate] call ODE_sandstorm_fnc_moveEmitter;
+	{
+	  	[_type, _x, _dropRate] call ODE_sandstorm_fnc_moveEmitter;
+	} forEach _positionsForThisLOD;
 
+	private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, "cache"];
+	missionNamespace setVariable [_identifier, _tempArray];
 };

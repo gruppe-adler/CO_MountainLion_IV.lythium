@@ -1,4 +1,6 @@
-//nul = [position, 500,5] execVM "circle.sqf";
+/*
+not in use
+*/
 
 params ["_pos", "_distance"];
 

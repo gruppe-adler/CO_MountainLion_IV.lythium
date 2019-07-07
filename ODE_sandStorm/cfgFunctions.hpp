@@ -4,6 +4,7 @@ class ODE_sandStorm {
           file = ODE_sandstorm\functions\client;
 
           class addLeaves;
+          class addLODTrigger;
           class addPostProcessing;
           class addSandWallLocal;
 
@@ -13,11 +14,11 @@ class ODE_sandStorm {
           class createEmitter;
           class createParticleBorder;
           class createParticleClose;
-          class getDropInterval;
           class getEmitterArray;
           class getEmitterParams;
           class getEmitterParamsCircle;
           class getEmitterParamsRandom;
+          class initiateEmitter;
           class moveEmitter;
 
           class removePostProcessing;
