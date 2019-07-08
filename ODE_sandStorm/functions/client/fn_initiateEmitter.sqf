@@ -7,13 +7,19 @@
 */
 
 
-params ["_type", "_trigger"];
+params ["_type", "_helperObject"];
 
 
 private _LODDefinitions = player getVariable ["ODE_LODTriggerDefinitions", []];
 private _LODCount = count _LODDefinitions;
 
+private _tempArray = [_type, "cache"] call ODE_sandstorm_fnc_getEmitterArray;
 
+{
+   [_type, _x, 0.1, _helperObject] call ODE_sandstorm_fnc_moveEmitter;
+} forEach _tempArray;
+
+/*
 for "_i" from 0 to (_LODCount-1) do {
 
 	private _tempArray = [_type, "cache"] call ODE_sandstorm_fnc_getEmitterArray;
@@ -43,8 +49,9 @@ for "_i" from 0 to (_LODCount-1) do {
 	  	[_type, _x, _dropRate, _trigger] call ODE_sandstorm_fnc_moveEmitter;
 	} forEach _positionsForThisLOD;
 
-	/*
+	
 	private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, "cache"];
 	missionNamespace setVariable [_identifier, _tempArray];
-	*/
+	*
 };
+*/

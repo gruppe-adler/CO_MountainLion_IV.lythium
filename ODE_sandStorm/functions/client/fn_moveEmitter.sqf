@@ -1,36 +1,12 @@
-params ["_type", "_position", "_dropRate", "_trigger"];
+params ["_type", "_position", "_dropRate", "_helperObject"];
 
-private _oldEmitterArray = [_type, "old"] call ODE_sandstorm_fnc_getEmitterArray;
-private _newEmitterArray = [_type, "new"] call ODE_sandstorm_fnc_getEmitterArray;
 
-private _emitter = _oldEmitterArray deleteAt 0;
+private _emitter = [_position, _type, _dropRate] call ODE_sandstorm_fnc_createEmitter;
 
-// get direct access to old array?
-private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, "old"];
-missionNamespace setVariable [_identifier, _oldEmitterArray];
+_emitter setPos _position;
+_emitter setDropInterval _dropRate;
+_emitter attachTo [_helperObject];
 
-/*
-systemChat str _emitter;
-diag_log format ["%1", _emitter];
-*/
-
-// wenn kein emitter vorhanden ist, der gemoved werden kann
-if (isNil "_emitter") then {
-    // diag_log format ["emitter if: %1", _emitter];
-    // neuen emitter spawnen
-    _emitter = [_position, _type, _dropRate] call ODE_sandstorm_fnc_createEmitter;
-
-    _emitter setPos _position;
-    _emitter setDropInterval _dropRate;
-    _emitter attachTo [_trigger];
-
-    [_type, "new", _emitter] call ODE_sandstorm_fnc_addToEmitterArray;
-} else {
-    // diag_log format ["emitter else: %1", _emitter];
-    /*
-    _emitter setPos _position;
-    _emitter setDropInterval _dropRate;
-
-    [_type, "new", _emitter] call ODE_sandstorm_fnc_addToEmitterArray;
-    */
-};
+private _markerstr = createMarkerLocal [format ["markername%1",_position],_position];
+_markerstr setMarkerShapeLocal "ICON";
+_markerstr setMarkerTypeLocal "mil_dot";

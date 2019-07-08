@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=615;
+		nextID=616;
 	};
 	class MarkerIDProvider
 	{
@@ -91,7 +91,8 @@ addons[]=
 	"A3_Structures_F_Naval_Piers",
 	"A3_Structures_F_Exp_Industrial_Port",
 	"CUP_CAMisc_E_WF",
-	"A3_Structures_F_Ind_SolarPowerPlant"
+	"A3_Structures_F_Ind_SolarPowerPlant",
+	"A3_Structures_F_Items_Stationery"
 };
 class AddonsMetaData
 {
@@ -800,7 +801,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=304;
+		items=305;
 		class Item0
 		{
 			dataType="Object";
@@ -14903,6 +14904,23 @@ class Mission
 			id=611;
 			type="bwi_a3_at6b";
 			atlOffset=207.86517;
+		};
+		class Item304
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6900.9902,323.0466,5074.1851};
+				angles[]={5.8364778,0,0.063910462};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=615;
+			type="Land_PenBlack_F";
+			atlOffset=-0.00021362305;
 		};
 	};
 };

@@ -6,7 +6,7 @@
 
 */
 
-params ["_trigger", "_radius", "_lengthBetween"];
+params ["_trigger", "_radius", "_lengthBetween", "_helperObject"];
 
 private _pos = getPos _trigger;
 _pos params ["_px","_py"];
@@ -69,11 +69,12 @@ for "_i" from 0 to (_radials - 1) do
 };
 
 // create or move emitter
-["borderBottom", _trigger] call ODE_sandstorm_fnc_initiateEmitter;
-["borderTop", _trigger] call ODE_sandstorm_fnc_initiateEmitter;
-["close", _trigger] call ODE_sandstorm_fnc_initiateEmitter;
-["filler", _trigger] call ODE_sandstorm_fnc_initiateEmitter;
+["borderBottom", _helperObject] call ODE_sandstorm_fnc_initiateEmitter;
+["borderTop", _helperObject] call ODE_sandstorm_fnc_initiateEmitter;
+["close", _helperObject] call ODE_sandstorm_fnc_initiateEmitter;
+["filler", _helperObject] call ODE_sandstorm_fnc_initiateEmitter;
 
+/*
 // clear temp cache
 private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "borderBottom", "cache"];
 missionNamespace setVariable [_identifierOld, []];
@@ -86,7 +87,7 @@ missionNamespace setVariable [_identifierOld, []];
 
 private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "filler", "cache"];
 missionNamespace setVariable [_identifierOld, []];
-
+*/
 // clear step cache 
 /*
 ["borderBottom"] call ODE_sandstorm_fnc_clearEmitterArray;

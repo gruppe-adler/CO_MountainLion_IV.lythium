@@ -1,4 +1,4 @@
-params ["_trigger"];
+params ["_trigger", "_helperObject"];
 
 
 [] call ODE_sandStorm_fnc_addLODTrigger;
@@ -15,6 +15,7 @@ _markerstr setMarkerBrushLocal "Border";
 _markerstr setMarkerSize [500,500]; 
 _markerstr setMarkerPos getpos vehicle player;
 
+[_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject]  call ODE_sandStorm_fnc_createParticleBorder;
 
 [{
     params ["_args", "_handle"];
@@ -27,7 +28,7 @@ _markerstr setMarkerPos getpos vehicle player;
 
     _markerstr setMarkerPos (getPos vehicle player);
 
-    [_trigger, ((triggerArea _trigger) select 0) - 50, 50]  call ODE_sandStorm_fnc_createParticleBorder;
+    
 
     if ((vehicle player) inArea _trigger) then {
 
