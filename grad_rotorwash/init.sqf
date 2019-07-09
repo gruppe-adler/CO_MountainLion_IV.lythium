@@ -1,5 +1,5 @@
 GRAD_ROTORWASH_MAX_HEIGHT = 30; // max distance to ground for effect
-
+GRAD_ROTORWASH_ACTIVE = true;
 
 if (isServer) then {
 	GRAD_ROTORWASH_VEHICLES_SUPPORTED = []; // add vehicles here or via fnc_addVehicle

@@ -1,10 +1,7 @@
-_serverLoop = [{
-    params ["_args", "_handle"];
-    _args params [];
-
+[{
     {
         // check if veh should be active
-        if ([_x] call grad_rotorwash_fnc_isActive) then {
+        if ([_x] call grad_rotorwash_fnc_isActive && GRAD_ROTORWASH_ACTIVE) then {
                 
             if (!(_x in GRAD_ROTORWASH_VEHICLES_ACTIVE)) then {
 

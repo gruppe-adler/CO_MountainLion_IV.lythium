@@ -3,7 +3,11 @@ params ["_heli"];
 private _color = _heli getVariable ["grad_rotorwash_colors", [0,0,0]];
 _color params ["_grad_colorR", "_grad_colorG", "_grad_ColorB"];
 
-_grad_linger = "#particlesource" createVehicleLocal (getpos player); 
+private _grad_linger = "#particlesource" createVehicleLocal createVehicleLocal [
+	getpos _heli select 0,
+	getPos _heli select 1,
+	0
+];  
 
 _grad_linger setParticleCircle [10, [0, 0, 0]];
 _grad_linger setParticleParams [

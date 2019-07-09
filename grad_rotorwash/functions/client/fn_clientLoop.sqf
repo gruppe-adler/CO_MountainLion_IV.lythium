@@ -3,7 +3,7 @@
 */
 
 // MAIN LOOP
-_loop = [{
+[{
     params ["_args", "_handle"];
     _args params [];
 
