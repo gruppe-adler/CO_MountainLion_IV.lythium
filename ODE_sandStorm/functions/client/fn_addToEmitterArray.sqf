@@ -4,12 +4,14 @@
 
 */
 
-params ["_type", "_age", "_value"];
+params ["_type", "_sandstormIdentifier", "_emitter"];
 
-private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, _age];
+private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, _sandstormIdentifier];
 
-private _existingArray = [_type, _age] call ODE_sandstorm_fnc_getEmitterArray;
+private _existingArray = missionNamespace getVariable [_identifier, []];
 
-_existingArray pushBack _value;
+_existingArray pushBack _emitter;
+
+// diag_log format ["pushing back %1 in %2 for %3", _emitter, _existingArray, _identifier];
 // set value
 missionNamespace setVariable [_identifier, _existingArray];

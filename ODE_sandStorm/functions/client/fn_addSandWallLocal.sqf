@@ -1,4 +1,4 @@
-params ["_trigger", "_helperObject"];
+params ["_trigger", "_helperObject", "_sandstormIdentifier"];
 
 
 [] call ODE_sandStorm_fnc_addLODTrigger;
@@ -12,14 +12,14 @@ private _markerstr = createMarkerLocal ["mrk_lod",[0,0]];
 _markerstr setMarkerShapeLocal "ELLIPSE"; 
 _markerstr setMarkerColorLocal "ColorBlue"; 
 _markerstr setMarkerBrushLocal "Border"; 
-_markerstr setMarkerSize [500,500]; 
+_markerstr setMarkerSize [4000,4000]; 
 _markerstr setMarkerPos getpos vehicle player;
 
-[_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject]  call ODE_sandStorm_fnc_createParticleBorder;
+[_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier]  call ODE_sandStorm_fnc_createParticleBorder;
 
 [{
     params ["_args", "_handle"];
-    _args params ["_trigger", "_markerstr"];
+    _args params ["_trigger", "_markerstr", "_helperObject", "_sandstormIdentifier"];
 
     if (isNull _trigger) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -28,7 +28,9 @@ _markerstr setMarkerPos getpos vehicle player;
 
     _markerstr setMarkerPos (getPos vehicle player);
 
-    
+    ["borderBottom", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
+    ["borderTop", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
+    ["filler", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
 
     if ((vehicle player) inArea _trigger) then {
 
@@ -68,4 +70,4 @@ _markerstr setMarkerPos getpos vehicle player;
         };
     };
     
-}, 1, [_trigger, _markerstr]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_trigger, _markerstr, _helperObject, _sandstormIdentifier]] call CBA_fnc_addPerFrameHandler;

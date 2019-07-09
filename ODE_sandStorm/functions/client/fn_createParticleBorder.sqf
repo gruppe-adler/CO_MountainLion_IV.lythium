@@ -6,7 +6,7 @@
 
 */
 
-params ["_trigger", "_radius", "_lengthBetween", "_helperObject"];
+params ["_trigger", "_radius", "_lengthBetween", "_helperObject", "_sandstormIdentifier"];
 
 private _pos = getPos _trigger;
 _pos params ["_px","_py"];
@@ -27,7 +27,7 @@ for "_i" from 0 to (_radials - 1) do
     private _posX = _px + _ox; 
     private _posY = _py + _oy;
     
-    ["borderTop", "cache", [_posX, _posY, 0]] call ODE_sandstorm_fnc_addToEmitterArray;
+    [[_posX, _posY, 0], "borderTop", 0.1, _helperObject, _sandstormIdentifier] call ODE_sandstorm_fnc_createEmitter;
     
 
     // border bottom, dark material gets thrown up
@@ -36,7 +36,7 @@ for "_i" from 0 to (_radials - 1) do
     
     private _posX = _px + _ox;
     private _posY = _py + _oy;
-    ["borderBottom", "cache", [_posX, _posY, 0]] call ODE_sandstorm_fnc_addToEmitterArray;
+    [[_posX, _posY, 0], "borderBottom", 0.1, _helperObject, _sandstormIdentifier] call ODE_sandstorm_fnc_createEmitter;
 };
 
 _lengthBetween = 150;
@@ -57,7 +57,7 @@ for "_i" from 0 to (_radials - 1) do
     
     private _posX = _px + _ox; 
     private _posY = _py + _oy;
-   ["filler", "cache", [_posX, _posY, 0]] call ODE_sandstorm_fnc_addToEmitterArray;
+   [[_posX, _posY, 0], "filler", 1, _helperObject, _sandstormIdentifier] call ODE_sandstorm_fnc_createEmitter;
 
     // 2nd line to fill gaps when you are close
     _ox = ((_radius - 1000)* cos _ix);
@@ -65,33 +65,5 @@ for "_i" from 0 to (_radials - 1) do
     
     private _posX = _px + _ox;
     private _posY = _py + _oy;
-    ["filler", "cache", [_posX, _posY, 0]] call ODE_sandstorm_fnc_addToEmitterArray;
+    [[_posX, _posY, 0], "filler", 1, _helperObject, _sandstormIdentifier] call ODE_sandstorm_fnc_createEmitter;
 };
-
-// create or move emitter
-["borderBottom", _helperObject] call ODE_sandstorm_fnc_initiateEmitter;
-["borderTop", _helperObject] call ODE_sandstorm_fnc_initiateEmitter;
-["close", _helperObject] call ODE_sandstorm_fnc_initiateEmitter;
-["filler", _helperObject] call ODE_sandstorm_fnc_initiateEmitter;
-
-/*
-// clear temp cache
-private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "borderBottom", "cache"];
-missionNamespace setVariable [_identifierOld, []];
-
-private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "borderTop", "cache"];
-missionNamespace setVariable [_identifierOld, []];
-
-private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "close", "cache"];
-missionNamespace setVariable [_identifierOld, []];
-
-private _identifierOld = format ["ODE_sandstormEmitterArray_%1_%2", "filler", "cache"];
-missionNamespace setVariable [_identifierOld, []];
-*/
-// clear step cache 
-/*
-["borderBottom"] call ODE_sandstorm_fnc_clearEmitterArray;
-["borderTop"] call ODE_sandstorm_fnc_clearEmitterArray;
-["close"] call ODE_sandstorm_fnc_clearEmitterArray;
-["filler"] call ODE_sandstorm_fnc_clearEmitterArray;
-*/

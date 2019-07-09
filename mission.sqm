@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6817.9116,514.73969,4829.9648};
-		dir[]={0.42983356,-0.45455429,0.78015059};
-		up[]={0.21935232,0.89071697,0.39812621};
-		aside[]={0.87586492,1.485605e-007,-0.48256841};
+		pos[]={8941.1016,327.96906,6819.3105};
+		dir[]={0.11137333,-0.37321678,0.9210428};
+		up[]={0.044803385,0.92774081,0.37051988};
+		aside[]={0.9927752,2.066372e-008,-0.12004736};
 	};
 };
 binarizationWanted=0;
@@ -801,7 +801,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=305;
+		items=304;
 		class Item0
 		{
 			dataType="Object";
@@ -14775,23 +14775,23 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=2;
+				items=1;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6867.9082,472.71188,4911.2866};
+						position[]={8956.1816,290.8338,6874.9087};
+						angles[]={6.2280407,0,6.0494366};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						isPlayer=1;
 					};
 					id=612;
 					type="B_Helipilot_F";
-					atlOffset=207.86502;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -14835,77 +14835,13 @@ class Mission
 						nAttributes=2;
 					};
 				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={6867.9082,472.71204,4911.2866};
-					};
-					side="West";
-					class Attributes
-					{
-					};
-					id=613;
-					type="B_Helipilot_F";
-					atlOffset=207.86517;
-				};
 			};
 			class Attributes
 			{
-			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=2;
-				};
-				class Links
-				{
-					items=2;
-					class Item0
-					{
-						linkID=0;
-						item0=612;
-						item1=611;
-						class CustomData
-						{
-							role=1;
-						};
-					};
-					class Item1
-					{
-						linkID=1;
-						item0=613;
-						item1=611;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
 			};
 			id=610;
-			atlOffset=207.86517;
 		};
 		class Item303
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={6868.1567,474.26779,4911.4487};
-			};
-			side="West";
-			flags=2;
-			class Attributes
-			{
-			};
-			id=611;
-			type="bwi_a3_at6b";
-			atlOffset=207.86517;
-		};
-		class Item304
 		{
 			dataType="Object";
 			class PositionInfo

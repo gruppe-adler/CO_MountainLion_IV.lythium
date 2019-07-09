@@ -9,6 +9,7 @@ class ODE_sandStorm {
           class addSandWallLocal;
 
           class addToEmitterArray;
+          class adjustEmitter;
           class clearEmitterArray;
 
           class createEmitter;
@@ -18,8 +19,8 @@ class ODE_sandStorm {
           class getEmitterParams;
           class getEmitterParamsCircle;
           class getEmitterParamsRandom;
-          class initiateEmitter;
-          class moveEmitter;
+          class setEmitterLOD;
+          
 
           class removePostProcessing;
   };

@@ -3,16 +3,17 @@ params ["_emitter", "_type"];
 private _params = [];
 
 
-switch (_type) do { 
+switch (_type) do {
+
 	case "borderBottom" : { 
 		_params = [
-				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 5, 
+				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 15, 
 				    [0,0,0], //position
-				    [random 2 - random 4,random 2 - random 4,5 + random 5], // move velocity
-				    random 6,         // rotation
-				    60, // weight
+				    [random 2 - random 4,random 2 - random 4,10 + random 5], // move velocity
+				    2,         // rotation
+				    70, // weight
 				    30, // volume
-				    0.001, // rubbing
+				    0.0015, // rubbing
 				    [
 				        15,
 				        20,
@@ -20,6 +21,38 @@ switch (_type) do {
 				        30,
 				        35,
 				        40
+				    ],
+				    [
+				        [0,0,0,0],
+				        [0,0,0,0.9],
+				        [0.05,0.05,0.05,0.9],
+				        [0.1,0.1,0.1,0.9],
+				        [0.3,0.2,0.2,0.7],
+				        [0.5,0.4,0.3,0]
+				    ],
+				    [0.08], 
+				    0.1, 
+				    0.1, "", "", _emitter
+				];
+	};
+
+
+	case "borderTop" : { 
+		_params = [
+				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 5, 
+				    [0,0,0], //position
+				    [random 2 - random 4,random 2 - random 4,5 + random 5], // move velocity
+				    random 6,         // rotation
+				    10, // weight
+				    15, // volume
+				    0.001, // rubbing
+				    [
+				        10,
+				        45,
+				        55,
+				        65,
+				        75,
+				        85
 				    ],
 				    [
 				        [0,0,0,0],
@@ -35,37 +68,6 @@ switch (_type) do {
 				];
 
 	}; 
-	
-	case "borderTop" : { 
-		_params = [
-				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 15, 
-				    [0,0,0], //position
-				    [random 2 - random 4,random 2 - random 4,10 + random 5], // move velocity
-				    2,         // rotation
-				    10, // weight
-				    30, // volume
-				    0.0015, // rubbing
-				    [
-				        10,
-				        45,
-				        55,
-				        65,
-				        75,
-				        85
-				    ],
-				    [
-				        [0,0,0,0],
-				        [0,0,0,0.9],
-				        [0.05,0.05,0.05,0.9],
-				        [0.1,0.1,0.1,0.9],
-				        [0.3,0.2,0.2,0.7],
-				        [0.5,0.4,0.3,0]
-				    ],
-				    [0.08], 
-				    0.1, 
-				    0.1, "", "", _emitter
-				];
-	};
 
 	case "close": {
 		_params = [

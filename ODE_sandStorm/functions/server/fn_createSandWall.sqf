@@ -6,7 +6,9 @@
 
 */
 
-params ["_position", "_size", "_speed", "_dir"];
+params ["_position", "_size", "_speed", "_dir", ["_id",0]];
+
+private _identifier = format ["ODE_sandstorm_id%1", _id];
 
 private _trigger = createTrigger ["EmptyDetector", _position];
 _trigger setTriggerArea [_size, _size, 0, false];
@@ -14,10 +16,11 @@ _trigger setTriggerArea [_size, _size, 0, false];
 private _helperObject = "Land_PenBlack_F" createVehicle _position;
  _trigger attachTo [_helperObject];
 
-[_trigger, _helperObject] remoteExec ["ODE_sandStorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
+[_trigger, _helperObject, _identifier] remoteExec ["ODE_sandStorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
+missionNamespace setVariable [_identifier, _trigger, true];
 
 0 setWindDir _dir;
-private _wSpeed = [wind, _speed*20] call BIS_fnc_vectorMultiply;
+private _wSpeed = [wind, _speed*4] call BIS_fnc_vectorMultiply;
 setWind [_wSpeed select 0, _wSpeed select 1, true];
 // 5 setGusts 0.35;
 

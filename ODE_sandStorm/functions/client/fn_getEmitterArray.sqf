@@ -1,6 +1,5 @@
-params ["_type", "_age"];
+params ["_type", "_sandstormIdentifier"];
 
-private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, _age];
+private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, _sandstormIdentifier];
 
-// return value
 missionNamespace getVariable [_identifier, []]
