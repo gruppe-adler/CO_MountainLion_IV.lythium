@@ -14,7 +14,7 @@ private _LODDefinitions = player getVariable ["ODE_LODTriggerDefinitions", []];
 private _LODCount = count _LODDefinitions;
 
 private _arrayOriginal = [_type, _sandstormIdentifier] call ODE_sandstorm_fnc_getEmitterArray;
-[_arrayOriginal, _helperObject] call ODE_sandstorm_fnc_moveEmitter;
+[_arrayOriginal, _type, _helperObject] call ODE_sandstorm_fnc_moveEmitter;
 
 // systemChat format ["_arrayOriginal %1", _arrayOriginal];
 // diag_log format ["_arrayOriginal %1", _arrayOriginal];

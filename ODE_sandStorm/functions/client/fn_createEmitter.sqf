@@ -18,7 +18,10 @@ _emitter setDropInterval (_dropRate * 1);
 
 private _offsetDir = _helperObject getRelDir _emitter;
 private _offsetDistance = _helperObject distance2D _emitter;
-_emitter setVariable ["ODE_sandstorm_offsetToHelper", [_offsetDistance, _offsetDir]];
+
+private _emitterIdentifier = format ["ODE_sandstorm_emitterOffset_%1_%2", _emitter, _type];
+missionNamespace setVariable [_emitterIdentifier, [_offsetDistance, _offsetDir]];
+diag_log str [_offsetDistance, _offsetDir];
 
 // _emitter attachTo [_helperObject];
 

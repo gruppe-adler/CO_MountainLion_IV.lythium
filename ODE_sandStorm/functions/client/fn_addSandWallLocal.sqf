@@ -70,4 +70,4 @@ _markerstr setMarkerPos getpos vehicle player;
         };
     };
     
-}, 1, [_trigger, _markerstr, _helperObject, _sandstormIdentifier]] call CBA_fnc_addPerFrameHandler;
+}, 5, [_trigger, _markerstr, _helperObject, _sandstormIdentifier]] call CBA_fnc_addPerFrameHandler;
