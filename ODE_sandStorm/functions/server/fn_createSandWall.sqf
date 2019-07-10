@@ -13,7 +13,9 @@ private _identifier = format ["ODE_sandstorm_id%1", _id];
 private _trigger = createTrigger ["EmptyDetector", _position];
 _trigger setTriggerArea [_size, _size, 0, false];
 
-private _helperObject = "Land_PenBlack_F" createVehicle _position;
+private _helperObject = "ProtectionZone_Ep1" createVehicle _position;
+_helperObject setPosASL [_position select 0, _position select 1, 0];
+_helperObject setVectorUp [0,0,1];
  _trigger attachTo [_helperObject];
 
 [_trigger, _helperObject, _identifier] remoteExec ["ODE_sandStorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
@@ -43,7 +45,9 @@ private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0
     };
 
     private _newPos = (getPos _helperObject) getPos [_speed, _dir];
-    _helperObject setPos _newPos;
+    _helperObject setPosASL _newPos;
+    _helperObject setVectorUp [0,0,1];
+
     _soundSource setPos _newPos;
     _markerstr setMarkerPos _newPos;
 

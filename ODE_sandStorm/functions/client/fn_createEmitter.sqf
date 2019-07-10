@@ -1,6 +1,7 @@
 params ["_position", "_type", "_dropRate", "_helperObject", "_sandstormIdentifier"];
 
 private _emitter = "#particlesource" createVehicleLocal _position;
+_emitter setPosASL [_position select 0, _position select 1, 0];
 
 diag_log format ["create emitter type: %1", _type];
 
@@ -23,7 +24,7 @@ private _emitterIdentifier = format ["ODE_sandstorm_emitterOffset_%1_%2", _emitt
 missionNamespace setVariable [_emitterIdentifier, [_offsetDistance, _offsetDir]];
 diag_log str [_offsetDistance, _offsetDir];
 
-// _emitter attachTo [_helperObject];
+_emitter attachTo [_helperObject];
 
 private _markerstr = createMarkerLocal [format ["markername%1",_position],_position];
 _markerstr setMarkerShapeLocal "ICON";

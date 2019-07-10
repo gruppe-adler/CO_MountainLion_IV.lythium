@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=616;
+		nextID=619;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8941.1016,327.96906,6819.3105};
-		dir[]={0.37408844,-0.31806427,0.87115496};
-		up[]={0.12550126,0.9480654,0.29226059};
-		aside[]={0.9188714,4.4514309e-008,-0.3945787};
+		pos[]={9355.0449,847.78192,14696.335};
+		dir[]={-0.078060217,-0.15215157,0.98528606};
+		up[]={-0.012016974,0.98835295,0.15168115};
+		aside[]={0.99688923,8.0613972e-008,0.078979954};
 	};
 };
 binarizationWanted=0;
@@ -14781,8 +14781,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8956.1816,290.8338,6874.9087};
-						angles[]={6.2280407,0,6.0494366};
+						position[]={11107.254,26.469572,4635.3638};
+						angles[]={0.063912325,0,6.2801952};
 					};
 					side="West";
 					flags=6;
@@ -14792,6 +14792,7 @@ class Mission
 					};
 					id=612;
 					type="B_Helipilot_F";
+					atlOffset=-3.8146973e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -14840,6 +14841,7 @@ class Mission
 			{
 			};
 			id=610;
+			atlOffset=-3.8146973e-006;
 		};
 		class Item303
 		{

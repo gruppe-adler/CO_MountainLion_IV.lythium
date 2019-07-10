@@ -33,7 +33,7 @@ for "_i" from 0 to (_LODCount-1) do {
 	//systemChat format ["positions %1 in _positionsForThisLOD %2", count _positionsForThisLOD, _i];
 	//diag_log format ["positions %1 in _positionsForThisLOD %2", count _positionsForThisLOD, _i];
 	{
-	  	[_x, [_dropRateDefault, _dropRateFiller] select (_type == "filler")] call ODE_sandstorm_fnc_adjustEmitter;
+	  	[_x, _helperObject, [_dropRateDefault, _dropRateFiller] select (_type == "filler")] call ODE_sandstorm_fnc_adjustEmitter;
 	} forEach _positionsForThisLOD;
 };
 
