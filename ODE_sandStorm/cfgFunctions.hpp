@@ -22,6 +22,7 @@ class ODE_sandStorm {
           class getEmitterParamsRandom;
           
           class moveEmitter;
+          class moveEmitterLoop;
           class setEmitterLOD;
 
           class removePostProcessing;

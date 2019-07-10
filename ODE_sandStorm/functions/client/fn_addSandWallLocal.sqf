@@ -17,6 +17,10 @@ _markerstr setMarkerPos getpos vehicle player;
 
 [_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier]  call ODE_sandStorm_fnc_createParticleBorder;
 
+["borderBottom", _helperObject, _sandstormIdentifier] spawn ODE_sandStorm_fnc_moveEmitterLoop;
+["borderTop", _helperObject, _sandstormIdentifier] spawn ODE_sandStorm_fnc_moveEmitterLoop;
+["filler", _helperObject, _sandstormIdentifier] spawn ODE_sandStorm_fnc_moveEmitterLoop;
+
 [{
     params ["_args", "_handle"];
     _args params ["_trigger", "_markerstr", "_helperObject", "_sandstormIdentifier"];

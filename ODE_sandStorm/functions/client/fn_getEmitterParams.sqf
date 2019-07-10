@@ -9,9 +9,9 @@ switch (_type) do {
 		_params = [
 				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 15, 
 				    [0,0,0], //position
-				    [random 2 - random 4,random 2 - random 4,10 + random 5], // move velocity
-				    2,         // rotation
-				    70, // weight
+				    [random 2 - random 4,random 2 - random 4,15 + random 5], // move velocity
+				    8,         // rotation
+				    50, // weight
 				    30, // volume
 				    0.0015, // rubbing
 				    [
@@ -39,20 +39,20 @@ switch (_type) do {
 
 	case "borderTop" : { 
 		_params = [
-				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 5, 
+				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 7 + random 3, 
 				    [0,0,0], //position
-				    [random 2 - random 4,random 2 - random 4,5 + random 5], // move velocity
+				    [random 2 - random 4,random 2 - random 4,15 + random 5], // move velocity
 				    random 6,         // rotation
-				    10, // weight
+				    15, // weight
 				    15, // volume
 				    0.001, // rubbing
 				    [
-				        10,
-				        45,
-				        55,
-				        65,
-				        75,
-				        85
+				        30,
+				        50,
+				        60,
+				        70,
+				        80,
+				        90
 				    ],
 				    [
 				        [0,0,0,0],
@@ -104,9 +104,9 @@ switch (_type) do {
 		private _dustSize = 120;
 
 		_params = [
-				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 3 + random 3, 
-				    [0,0,-100], //position
-				    [0,0,150], // move velocity
+				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 7, 
+				    [0,0,0], //position
+				    [0,0,100], // move velocity
 				    60,         // rotation
 				    70, // weight
 				    13, // volume
@@ -121,7 +121,7 @@ switch (_type) do {
 				    ],
 				    [
 				        [0,0,0,0],
-				        [0.3,0.2,0.1,0.1],
+				        [0.3,0.2,0.1,0.3],
 				        [0.9,0.75,0.6,0.4],
 				        [0.95,0.8,0.7,0.5],
 				        [0.9,0.8,0.65,0.4],
