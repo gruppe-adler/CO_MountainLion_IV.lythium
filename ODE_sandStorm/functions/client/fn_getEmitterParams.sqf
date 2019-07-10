@@ -7,27 +7,39 @@ switch (_type) do {
 
 	case "borderBottom" : { 
 		_params = [
-				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 15, 
+				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 10 + random 5, 
 				    [0,0,0], //position
-				    [random 2 - random 4,random 2 - random 4,15 + random 5], // move velocity
-				    8,         // rotation
-				    50, // weight
+				    [random 1 - random 2,random 1 - random 2,100 + random 5], // move velocity
+				    25,         // rotation
+				    2000, // weight
 				    30, // volume
-				    0.0015, // rubbing
+				    15, // rubbing
 				    [
-				        15,
-				        20,
-				        25,
 				        30,
-				        35,
-				        40
+				        40,
+				        50,
+				        60,
+				        70,
+				        80,
+				        100,
+				        110,
+				        120,
+				        130,
+				        130,
+				        130
 				    ],
 				    [
 				        [0,0,0,0],
 				        [0,0,0,1],
 				        [0.05,0.05,0.05,0.9],
+				        [0.05,0.05,0.05,0.88],
+				        [0.06,0.06,0.06,0.85],
+				        [0.07,0.07,0.07,0.82],
 				        [0.1,0.1,0.1,0.9],
 				        [0.3,0.2,0.2,0.7],
+				        [0.4,0.3,0.3,0.6],
+				        [0.4,0.3,0.3,0.5],
+				        [0.4,0.3,0.3,0.4],
 				        [0.5,0.4,0.3,0]
 				    ],
 				    [0.08], 
@@ -41,9 +53,9 @@ switch (_type) do {
 		_params = [
 				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 7 + random 3, 
 				    [0,0,0], //position
-				    [random 2 - random 4,random 2 - random 4,15 + random 5], // move velocity
+				    [random 2 - random 4,random 2 - random 4,50 + random 5], // move velocity
 				    random 6,         // rotation
-				    15, // weight
+				    150, // weight
 				    15, // volume
 				    0.001, // rubbing
 				    [
@@ -61,6 +73,50 @@ switch (_type) do {
 				        [0.2,0.2,0.15,0.7],
 				        [0.4,0.3,0.2,0.6],
 				        [0.5,0.4,0.3,0]
+				    ],
+				    [0.08], 
+				    0.1, 
+				    0.1, "", "", _emitter
+				];
+
+	}; 
+
+	case "fillerSmall" : { 
+		_params = [
+				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 7 + random 3, 
+				    [0,0,0], //position
+				    [random 2 - random 4,random 2 - random 4,150 + random 50], // move velocity
+				    25,         // rotation
+				    2000, // weight
+				    30, // volume
+				    15, // rubbing
+				    [
+				        30,
+				        40,
+				        50,
+				        60,
+				        70,
+				        80,
+				        100,
+				        110,
+				        120,
+				        130,
+				        130,
+				        130
+				    ],
+				    [
+				        [0,0,0,0],
+				        [0,0,0,1],
+				        [0.05,0.05,0.05,0.9],
+				        [0.05,0.05,0.05,0.88],
+				        [0.06,0.06,0.06,0.85],
+				        [0.07,0.07,0.07,0.82],
+				        [0.9,0.75,0.6,0.5],
+				        [0.9,0.75,0.6,0.5],
+				        [0.9,0.75,0.6,0.5],
+				        [0.9,0.75,0.6,0.5],
+				        [0.9,0.75,0.6,0.5],
+				        [0.9,0.75,0.6,0]
 				    ],
 				    [0.08], 
 				    0.1, 
@@ -101,7 +157,7 @@ switch (_type) do {
 	};
 
 	case "filler": {
-		private _dustSize = 120;
+		private _dustSize = 100;
 
 		_params = [
 				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 7, 
@@ -121,10 +177,10 @@ switch (_type) do {
 				    ],
 				    [
 				        [0,0,0,0],
-				        [0.3,0.2,0.1,0.3],
-				        [0.9,0.75,0.6,0.4],
+				        [0.3,0.2,0.1,0.6],
+				        [0.9,0.75,0.6,0.5],
 				        [0.95,0.8,0.7,0.5],
-				        [0.9,0.8,0.65,0.4],
+				        [0.9,0.8,0.65,0.3],
 				        [0.95,0.9,0.85,0]
 				    ],
 				    [0.08], 

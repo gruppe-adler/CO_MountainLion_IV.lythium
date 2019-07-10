@@ -35,7 +35,7 @@ _markerstr setMarkerPos getpos vehicle player;
     _markerstr setMarkerPos (getPos vehicle player);
 
     ["borderBottom", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
-    ["borderTop", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
+    ["fillerSmall", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
     ["filler", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
 
     if ((vehicle player) inArea _trigger) then {

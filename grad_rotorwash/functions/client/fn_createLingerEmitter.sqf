@@ -18,22 +18,22 @@ _grad_linger setParticleParams [
 		 1,
 		 1,
 		 50, // 100
-		 [11, 12, 13, 13, 13, 13, 13, 13, 14, 14, 14, 14, 15, 16], 
+		 [8, 12, 14, 16, 19, 23, 24, 25, 26, 27, 28, 29, 30, 30], 
 		 [
 		 	
 		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.7],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.6],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.5],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.4],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.35],
 		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.3],
+		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.27],
 		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.25],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.2],
+		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.23],
+		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.21],
+		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.19],
+		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.17],
+		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.15],
 		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.1],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.1],
+		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.07],
 		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.05],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.05],
+		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.03],
 		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0]
 		 ], 
 		 [0.08], 0, 0, "", "", _grad_linger];

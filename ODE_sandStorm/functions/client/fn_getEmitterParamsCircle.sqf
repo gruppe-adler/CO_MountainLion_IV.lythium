@@ -19,6 +19,10 @@ switch (_type) do {
 	case "filler": {
 		_params = [30,[0,0,0]];
 	};
+
+	case "fillerSmall": {
+		_params = [30,[0,0,0]];
+	};
 	
 	default { 
 		hint "error: no circle emitter type defined";

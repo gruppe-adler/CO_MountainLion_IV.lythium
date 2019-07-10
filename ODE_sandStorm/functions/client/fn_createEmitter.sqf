@@ -17,18 +17,22 @@ _emitter setParticleParams _paramsGeneral;
 
 _emitter setDropInterval (_dropRate * 1);
 
+/*
 private _offsetDir = _helperObject getRelDir _emitter;
 private _offsetDistance = _helperObject distance2D _emitter;
 
 private _emitterIdentifier = format ["ODE_sandstorm_emitterOffset_%1_%2", _emitter, _type];
 missionNamespace setVariable [_emitterIdentifier, [_offsetDistance, _offsetDir]];
 diag_log str [_offsetDistance, _offsetDir];
+*/
 
 _emitter attachTo [_helperObject];
 
+/*
 private _markerstr = createMarkerLocal [format ["markername%1",_position],_position];
 _markerstr setMarkerShapeLocal "ICON";
 _markerstr setMarkerTypeLocal "mil_dot";
+*/
 
 _emitter enableSimulationGlobal false;
 
