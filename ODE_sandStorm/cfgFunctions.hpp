@@ -15,12 +15,14 @@ class ODE_sandStorm {
           class createEmitter;
           class createParticleBorder;
           class createParticleClose;
+
           class getEmitterArray;
           class getEmitterParams;
           class getEmitterParamsCircle;
           class getEmitterParamsRandom;
-          class setEmitterLOD;
           
+          class moveEmitter;
+          class setEmitterLOD;
 
           class removePostProcessing;
   };

@@ -15,6 +15,11 @@ _emitter setParticleParams _paramsGeneral;
 [_type, _sandstormIdentifier, _emitter] call ODE_sandstorm_fnc_addToEmitterArray;
 
 _emitter setDropInterval (_dropRate * 1);
+
+private _offsetDir = _helperObject getRelDir _emitter;
+private _offsetDistance = _helperObject distance2D _emitter;
+_emitter setVariable ["ODE_sandstorm_offsetToHelper", [_offsetDistance, _offsetDir]];
+
 // _emitter attachTo [_helperObject];
 
 private _markerstr = createMarkerLocal [format ["markername%1",_position],_position];
