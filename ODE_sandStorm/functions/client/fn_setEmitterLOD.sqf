@@ -14,9 +14,10 @@ private _LODDefinitions = player getVariable ["ODE_LODTriggerDefinitions", []];
 private _LODCount = count _LODDefinitions;
 
 private _arrayOriginal = [_type, _sandstormIdentifier] call ODE_sandstorm_fnc_getEmitterArray;
+[_arrayOriginal, _helperObject] call ODE_sandstorm_fnc_moveEmitter;
 
-systemChat format ["_arrayOriginal %1", _arrayOriginal];
-diag_log format ["_arrayOriginal %1", _arrayOriginal];
+// systemChat format ["_arrayOriginal %1", _arrayOriginal];
+// diag_log format ["_arrayOriginal %1", _arrayOriginal];
 
 
 private _arrayWorkingCopy = +_arrayOriginal;
@@ -40,9 +41,8 @@ for "_i" from 0 to (_LODCount-1) do {
 };
 
 if (count _arrayWorkingCopy > 0) then {
-
 	{
-		systemChat "disabling emitter";
+		// systemChat "disabling emitter";
 	  	_x enableSimulationGlobal false;
 	} forEach _arrayWorkingCopy;
 };
