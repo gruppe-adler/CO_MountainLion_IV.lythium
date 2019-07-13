@@ -1,7 +1,7 @@
-class ODE_sandStorm {
+class GRAD_sandstorm {
 
     class client {
-          file = ODE_sandstorm\functions\client;
+          file = grad-sandstorm\functions\client;
 
           class addLeaves;
           class addLODTrigger;
@@ -29,7 +29,7 @@ class ODE_sandStorm {
   };
 
     class server {
-          file = ODE_sandstorm\functions\server;
+          file = grad-sandstorm\functions\server;
 
           class createSandWall;
   };

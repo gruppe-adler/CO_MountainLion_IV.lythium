@@ -16,7 +16,7 @@ private _LODCount = count _LODDefinitions;
 // systemChat format ["_arrayOriginal %1", _arrayOriginal];
 // diag_log format ["_arrayOriginal %1", _arrayOriginal];
 
-private _arrayOriginal = [_type, _sandstormIdentifier] call ODE_sandstorm_fnc_getEmitterArray;
+private _arrayOriginal = [_type, _sandstormIdentifier] call GRAD_sandstorm_fnc_getEmitterArray;
 private _arrayWorkingCopy = +_arrayOriginal;
 
 for "_i" from 0 to (_LODCount-1) do {
@@ -33,7 +33,7 @@ for "_i" from 0 to (_LODCount-1) do {
 	//systemChat format ["positions %1 in _positionsForThisLOD %2", count _positionsForThisLOD, _i];
 	//diag_log format ["positions %1 in _positionsForThisLOD %2", count _positionsForThisLOD, _i];
 	{
-	  	[_x, _helperObject, [_dropRateDefault, _dropRateFiller] select (_type == "filler")] call ODE_sandstorm_fnc_adjustEmitter;
+	  	[_x, _helperObject, [_dropRateDefault, _dropRateFiller] select (_type == "filler")] call GRAD_sandstorm_fnc_adjustEmitter;
 	} forEach _positionsForThisLOD;
 };
 

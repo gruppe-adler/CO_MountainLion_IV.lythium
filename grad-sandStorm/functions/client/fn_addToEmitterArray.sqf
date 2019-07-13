@@ -1,12 +1,12 @@
 /*
 
-	["borderBottom", "new", _emitter] call ODE_sandstorm_fnc_addToEmitterArray;
+	["borderBottom", "new", _emitter] call GRAD_sandstorm_fnc_addToEmitterArray;
 
 */
 
 params ["_type", "_sandstormIdentifier", "_emitter"];
 
-private _identifier = format ["ODE_sandstormEmitterArray_%1_%2", _type, _sandstormIdentifier];
+private _identifier = format ["GRAD_sandstormEmitterArray_%1_%2", _type, _sandstormIdentifier];
 
 private _existingArray = missionNamespace getVariable [_identifier, []];
 

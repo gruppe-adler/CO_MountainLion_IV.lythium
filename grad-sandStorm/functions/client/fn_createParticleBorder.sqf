@@ -28,7 +28,7 @@ for "_i" from 0 to (_radials - 1) do
     private _posX = _px + _ox; 
     private _posY = _py + _oy;
     
-    [[_posX, _posY, 0], "borderTop", 0.1, _helperObject, _sandstormIdentifier] call ODE_sandstorm_fnc_createEmitter;
+    [[_posX, _posY, 0], "borderTop", 0.1, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createEmitter;
     */
 
     // border bottom, dark material gets thrown up
@@ -37,7 +37,7 @@ for "_i" from 0 to (_radials - 1) do
     
     private _posX = _px + _ox;
     private _posY = _py + _oy;
-    [[_posX, _posY, 0], "borderBottom", 0.1, _helperObject, _sandstormIdentifier] call ODE_sandstorm_fnc_createEmitter;
+    [[_posX, _posY, 0], "borderBottom", 0.1, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createEmitter;
 };
 
 _lengthBetween = 200;
@@ -58,7 +58,7 @@ for "_i" from 0 to (_radials - 1) do
     
     private _posX = _px + _ox; 
     private _posY = _py + _oy;
-   [[_posX, _posY, 0], "filler", 1, _helperObject, _sandstormIdentifier] call ODE_sandstorm_fnc_createEmitter;
+   [[_posX, _posY, 0], "filler", 1, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createEmitter;
 
     // 2nd line to fill gaps when you are close
     _ox = ((_radius - 300)* cos _ix);
@@ -66,5 +66,5 @@ for "_i" from 0 to (_radials - 1) do
     
     private _posX = _px + _ox;
     private _posY = _py + _oy;
-    [[_posX, _posY, 0], "fillerSmall", 1, _helperObject, _sandstormIdentifier] call ODE_sandstorm_fnc_createEmitter;
+    [[_posX, _posY, 0], "fillerSmall", 1, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createEmitter;
 };

@@ -11,7 +11,7 @@ respawnButton = 0;
 
 loadScreen = "pic\loading.jpg";
 OnLoadName    = "CO MOUNTAIN LION IV";
-OnLoadMission = "Special Forces going into a hostage situation.";
+OnLoadMission = "Capturing an ISIS warlord.";
 
 class Header
 {
@@ -23,7 +23,8 @@ class Header
 #include "node_modules\grad-customGear\saveDialog\dialog.hpp"
 
 class cfgFunctions {
-  #include "ODE_sandstorm\cfgFunctions.hpp"
+  #include "grad-survivableCrash\cfgFunctions.hpp"
+  #include "grad-sandstorm\cfgFunctions.hpp"
   #include "grad-introCam\cfgFunctions.hpp"
   #include "grad-missionControl\cfgFunctions.hpp"
   #include "grad-permaChoice\cfgFunctions.hpp"
@@ -46,7 +47,7 @@ class Loadouts {
 
 
 class cfgSounds {
-    #include "ODE_sandstorm\cfgSounds.hpp"
+    #include "GRAD_sandstorm\cfgSounds.hpp"
 
     class GRAD_heartbeat_slow_1
       {
@@ -69,7 +70,7 @@ class cfgSounds {
 
 class CfgSFX
 {
-    #include "ODE_sandstorm\cfgSfx.hpp"
+    #include "GRAD_sandstorm\cfgSfx.hpp"
 };
 
 class CfgNotifications {

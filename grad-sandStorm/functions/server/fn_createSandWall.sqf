@@ -2,13 +2,13 @@
 
     createSandWall
 
-    [[10217.7,2833.75,0], 2, 285] call ODE_sandStorm_fnc_createSandWall;
+    [[10217.7,2833.75,0], 2, 285] call GRAD_sandstorm_fnc_createSandWall;
 
 */
 
 params ["_position", "_size", "_speed", "_dir", ["_id",0]];
 
-private _identifier = format ["ODE_sandstorm_id%1", _id];
+private _identifier = format ["GRAD_sandstorm_id%1", _id];
 
 private _trigger = createTrigger ["EmptyDetector", _position];
 _trigger setTriggerArea [_size, _size, 0, false];
@@ -18,7 +18,7 @@ _helperObject setPosASL [_position select 0, _position select 1, 0];
 _helperObject setVectorUp [0,0,1];
  _trigger attachTo [_helperObject];
 
-[_trigger, _helperObject, _identifier] remoteExec ["ODE_sandStorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
+[_trigger, _helperObject, _identifier] remoteExec ["GRAD_sandstorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
 missionNamespace setVariable [_identifier, _trigger, true];
 
 0 setWindDir _dir;

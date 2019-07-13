@@ -31,5 +31,5 @@ for "_i" from 0 to (count _offsets - 1) do
     private _position = _pos getPos [_distance, windDir - 180 + _offset];
     _position params ["_posX", "_posY"];
 
-    private _emitters = ["close", [_posX, _posY, 0]] call ODE_sandstorm_fnc_moveEmitter;
+    private _emitters = ["close", [_posX, _posY, 0]] call GRAD_sandstorm_fnc_moveEmitter;
 };

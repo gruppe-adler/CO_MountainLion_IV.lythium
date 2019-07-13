@@ -1,7 +1,7 @@
 params ["_trigger", "_helperObject", "_sandstormIdentifier"];
 
 
-[] call ODE_sandStorm_fnc_addLODTrigger;
+[] call GRAD_sandstorm_fnc_addLODTrigger;
 
 
 /*
@@ -15,12 +15,12 @@ _markerstr setMarkerBrushLocal "Border";
 _markerstr setMarkerSize [4000,4000]; 
 _markerstr setMarkerPos getpos vehicle player;
 
-[_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier]  call ODE_sandStorm_fnc_createParticleBorder;
+[_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier]  call GRAD_sandstorm_fnc_createParticleBorder;
 
 /*
-["borderBottom", _helperObject, _sandstormIdentifier] spawn ODE_sandStorm_fnc_moveEmitterLoop;
-["borderTop", _helperObject, _sandstormIdentifier] spawn ODE_sandStorm_fnc_moveEmitterLoop;
-["filler", _helperObject, _sandstormIdentifier] spawn ODE_sandStorm_fnc_moveEmitterLoop;
+["borderBottom", _helperObject, _sandstormIdentifier] spawn GRAD_sandstorm_fnc_moveEmitterLoop;
+["borderTop", _helperObject, _sandstormIdentifier] spawn GRAD_sandstorm_fnc_moveEmitterLoop;
+["filler", _helperObject, _sandstormIdentifier] spawn GRAD_sandstorm_fnc_moveEmitterLoop;
 */
 
 [{
@@ -34,9 +34,9 @@ _markerstr setMarkerPos getpos vehicle player;
 
     _markerstr setMarkerPos (getPos vehicle player);
 
-    ["borderBottom", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
-    ["fillerSmall", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
-    ["filler", _helperObject, _sandstormIdentifier] call ODE_sandStorm_fnc_setEmitterLOD;
+    ["borderBottom", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
+    ["fillerSmall", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
+    ["filler", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
 
     if ((vehicle player) inArea _trigger) then {
 
@@ -54,8 +54,8 @@ _markerstr setMarkerPos getpos vehicle player;
         // playSound ["A3\sounds_f\ambient\winds\wind-synth-fast.wss", player];
 
         if (!(player getVariable ["isInsideSandstorm", false])) then {
-            private _pp = call ODE_sandStorm_fnc_addPostProcessing;
-            private _leaves = call ODE_sandStorm_fnc_addLeaves;
+            private _pp = call GRAD_sandstorm_fnc_addPostProcessing;
+            private _leaves = call GRAD_sandstorm_fnc_addLeaves;
 
             player setVariable ["isInsideSandstorm", true];
             player setVariable ["isInsideSandstormPP", _pp];
@@ -72,7 +72,7 @@ _markerstr setMarkerPos getpos vehicle player;
                 deleteVehicle _x;
             } forEach _leaves;
             
-            [_pp] call ODE_sandStorm_fnc_removePostProcessing;
+            [_pp] call GRAD_sandstorm_fnc_removePostProcessing;
         };
     };
     
