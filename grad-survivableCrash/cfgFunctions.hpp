@@ -10,8 +10,10 @@ class grad_survivableCrash {
           file = grad-survivableCrash\functions\server;
 
           class addHandler;
-          class onCrash;
-          class autoInit { postInit = 1; };
-  };
 
+          class autoInit { postInit = 1; };
+          class onCrash;
+          class spawnHolder;
+          class throwOutInventory;
+  };
 };
