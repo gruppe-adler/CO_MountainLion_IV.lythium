@@ -1,7 +1,7 @@
 class GRAD_rotorwash {
 
 	class client {
-		file = grad_rotorwash\functions\client;
+		file = grad-rotorwash\functions\client;
 
 		class adjustParams {};
 		class clientLoop {};
@@ -15,9 +15,10 @@ class GRAD_rotorwash {
 	};
 
 	class server {
-		file = grad_rotorwash\functions\server;
+		file = grad-rotorwash\functions\server;
 		
 		class addVehicle {};
+		class autoInit { postinit = 1; };
 		class getSurfaceColor {};
 		class getWashOrigin {};
 		class isActive {};

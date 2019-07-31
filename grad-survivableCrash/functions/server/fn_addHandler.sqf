@@ -1,3 +1,7 @@
+/*
+	damage handling is done potentially on any client the vehicle is local to
+*/
+
 params ["_vehicle"];
 
 // safecheck to prevent double assigning
@@ -16,6 +20,8 @@ _vehicle addEventHandler ["HandleDamage", {
 		"_instigator", 
 		"_hitPoint"
 	];
+
+	if (!local _unit) exitWith {};
 
 	private _returnVal = _damage;
 	private _health = 0;
@@ -44,6 +50,8 @@ _vehicle addEventHandler ["HandleDamage", {
 		
 			if (!(_unit getVariable ["GRAD_survivableCrash_shotDown", false])) then {
 				_unit setVariable ["GRAD_survivableCrash_shotDown", true, true];
+
+				// effects are managed by server
 	    		[_unit] remoteExecCall ["GRAD_survivableCrash_fnc_onCrash", 2];
 			};
 		};

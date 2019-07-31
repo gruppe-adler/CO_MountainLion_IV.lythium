@@ -2,14 +2,14 @@ params ["_veh"];
 
 _veh setDamage .88;
 _veh setHitPointDamage ["HitFuel",.88];
-_veh setHitPointDamage ["HitHRotor",.88];
+// _veh setHitPointDamage ["HitHRotor",.88];
 _veh setHitPointDamage ["HitVRotor",.88];
 _veh setHitPointDamage ["HitEngine",.88];
 
 [10, 2, 15] remoteExecCall ["addCamShake", [0,-2] select isDedicated];
 
 private _smoke = createVehicle ["test_EmptyObjectForSmoke", position _veh, [], 0, "CAN_COLLIDE"];
-_smoke attachTo [_veh,[0,0.0,0.0],"motor"];
+_smoke attachTo [_veh,[0,0,0],"motor"];
 
 _veh allowDamage false;
 

@@ -44,19 +44,19 @@ if (hasInterface) then {
  		{
  			if (_this select 1 && (_this select 0) isKindOf 'Helicopter') then {
 
- 				hint "engine on";
+ 				// hint "engine on";
  				
  				[_this select 0] spawn {
  					params ["_heli"];
- 					_heli setVariable ["grad_rotorwash_emitterStatic",31];
+ 					_heli setVariable ["grad_rotorwash_emitterStatic",31, true];
  					sleep 1;
- 					_heli setVariable ["grad_rotorwash_emitterStatic",21];
+ 					_heli setVariable ["grad_rotorwash_emitterStatic",21, true];
  					sleep 1;
- 					_heli setVariable ["grad_rotorwash_emitterStatic",11];
+ 					_heli setVariable ["grad_rotorwash_emitterStatic",11, true];
  					sleep 1;
- 					_heli setVariable ["grad_rotorwash_emitterStatic",6];
+ 					_heli setVariable ["grad_rotorwash_emitterStatic",6, true];
  					sleep 1;
- 					_heli setVariable ["grad_rotorwash_emitterStatic",0];
+ 					_heli setVariable ["grad_rotorwash_emitterStatic",0, true];
  				};
  			};
  		}

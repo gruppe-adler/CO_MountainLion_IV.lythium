@@ -6,7 +6,7 @@ private _weapons = getWeaponCargo _veh;
 private _backpacks = getBackpackCargo _veh;
 
 private _position = position _veh;
-private _radius = 30;
+private _radius = 15;
 private _chance = 2;
 
 

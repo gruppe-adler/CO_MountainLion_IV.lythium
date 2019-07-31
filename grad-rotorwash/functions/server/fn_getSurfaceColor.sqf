@@ -22,7 +22,7 @@ switch (surfaceType _point) do {
 	default { _colorR = 0; _colorG = 0; _colorB = 0; _alpha = 0; };
 };
 
-systemChat format ["surfaceType is %1", surfaceType _point];
+// systemChat format ["surfaceType is %1", surfaceType _point];
 
 grad_transparency = _alpha; // todo: make this less abysmal
 

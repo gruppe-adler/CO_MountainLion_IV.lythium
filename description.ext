@@ -29,7 +29,7 @@ class cfgFunctions {
   #include "grad-missionControl\cfgFunctions.hpp"
   #include "grad-permaChoice\cfgFunctions.hpp"
   #include "grad-reinforcements\cfgFunctions.hpp"
-  #include "grad_rotorWash\cfgFunctions.hpp"
+  #include "grad-rotorWash\cfgFunctions.hpp"
 
   #include "node_modules\grad-loadout\cfgFunctions.hpp"
   #include "node_modules\grad-customGear\cfgFunctions.hpp"
