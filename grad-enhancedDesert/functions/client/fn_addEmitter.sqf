@@ -27,20 +27,20 @@ _lingerEmitter setParticleParams [
 		 [8, 12, 14, 16, 19, 23, 24, 25, 26, 27, 28, 29, 30, 30], 
 		 [
 		 	
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.3],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.27],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.25],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.23],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.21],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.19],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.17],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.15],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.1],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.07],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.05],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0.03],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0]
+		 	[_colorR, _colorG, _colorB, 0],
+		 	[_colorR, _colorG, _colorB, 0.3],
+		 	[_colorR, _colorG, _colorB, 0.27],
+		 	[_colorR, _colorG, _colorB, 0.25],
+		 	[_colorR, _colorG, _colorB, 0.23],
+		 	[_colorR, _colorG, _colorB, 0.21],
+		 	[_colorR, _colorG, _colorB, 0.19],
+		 	[_colorR, _colorG, _colorB, 0.17],
+		 	[_colorR, _colorG, _colorB, 0.15],
+		 	[_colorR, _colorG, _colorB, 0.1],
+		 	[_colorR, _colorG, _colorB, 0.07],
+		 	[_colorR, _colorG, _colorB, 0.05],
+		 	[_colorR, _colorG, _colorB, 0.03],
+		 	[_colorR, _colorG, _colorB, 0]
 		 ], 
 		 [0.08], 0, 0, "", "", _lingerEmitter];
 
@@ -56,7 +56,8 @@ _lingerEmitter setParticleRandom
 /*randDirIntesity*/	0.03,
 /*Angle*/		0];
 
-_lingerEmitter setDropInterval grad_rotorwash_linger_interval;
+_lingerEmitter enableSimulation false;
+_lingerEmitter setDropInterval 0.1;
 
 
 [{
@@ -70,10 +71,9 @@ _lingerEmitter setDropInterval grad_rotorwash_linger_interval;
 
 	private _speed = speed _vehicle;
 	
-	if (_speed > 5 && GRAD_ENHANCEDDUST_ACTIVE) then {
-		_lingerEmitter enableSimulation true;
-
+	if (_speed > 5 && GRAD_enhancedDesert_ACTIVE) then {
 		_lingerEmitter setDropInterval (2/_speed);
+		_lingerEmitter enableSimulation true;
 	} else {
 		_lingerEmitter enableSimulation false;
 	};

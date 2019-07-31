@@ -5,4 +5,3 @@ class desertLoop
         sounds[] = {sound0};
         empty[] = {"", 0, 0, 0, 0, 0, 0, 0};
     };
-
