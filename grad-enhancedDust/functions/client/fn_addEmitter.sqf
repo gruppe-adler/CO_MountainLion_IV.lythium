@@ -69,7 +69,7 @@ _lingerEmitter setDropInterval grad_rotorwash_linger_interval;
 
 	private _speed = speed _vehicle;
 	
-	if (_speed > 5) then {
+	if (_speed > 5 && GRAD_ENHANCEDDUST_ACTIVE) then {
 		_lingerEmitter enableSimulation true;
 
 		_lingerEmitter setDropInterval (2/_speed);
