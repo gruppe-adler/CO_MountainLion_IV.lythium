@@ -40,17 +40,6 @@ _markerstr setMarkerPos getpos vehicle player;
 
     if ((vehicle player) inArea _trigger) then {
 
-        addCamShake [random 0.01 + 0.01, 1, 5 + random 2];
-
-        if (vehicle player isKindOf "Helicopter" && {driver vehicle player == player}) then {
-            private _damage = (vehicle player) getHitPointDamage "HitEngine";
-            if (_damage < 0.8) then {
-                _damage = _damage + 0.02;
-                vehicle player setHitPointDamage ["HitEngine", _damage];
-            };
-        };
-        1 setFog [0.3 + random 0.5,0,0];
-
         // playSound ["A3\sounds_f\ambient\winds\wind-synth-fast.wss", player];
 
         if (!(player getVariable ["isInsideSandstorm", false])) then {

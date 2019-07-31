@@ -26,7 +26,7 @@ private _wSpeed = [wind, _speed*4] call BIS_fnc_vectorMultiply;
 setWind [_wSpeed select 0, _wSpeed select 1, true];
 // 5 setGusts 0.35;
 
-private _markerstr = createMarker ["markername", _position];
+private _markerstr = createMarker ["grad-sandstorm_debugmarker", _position];
 _markerstr setMarkerShape "ELLIPSE";
 _markerstr setMarkerSize [_size, _size];
 _markerstr setMarkerColor "ColorRed";
@@ -37,7 +37,7 @@ private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0
 
 [{
     params ["_args", "_handle"];
-    _args params ["_helperObject", "_soundSource", "_speed", "_dir", "_markerstr"];
+    _args params ["_helperObject", "_trigger", "_size", "_soundSource", "_speed", "_dir", "_markerstr"];
 
     if (isNull _helperObject) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -51,11 +51,27 @@ private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0
     _soundSource setPos _newPos;
     _markerstr setMarkerPos _newPos;
 
+    // add local effects if player is inside sandstorm
+    {
+        _vehicle = _x;
+        
+        if (_vehicle inAreaArray _trigger) then {
+            private _fog =  0.3 + random 0.1;
+
+            {
+                [_vehicle, _fog, 1] remoteExecCall ["GRAD_sandstorm_fnc_airInSandstormFX", _x];
+            } forEach crew _vehicle;
+
+            [_vehicle] call GRAD_sandstorm_fnc_addDamage;
+        };
+    } forEach vehicles;
+
+
     _newPos params ["_xPos", "_yPos"];
     
-    if (_xPos < 0 || _xPos > worldSize || _yPos < 0 || _yPos > worldSize) then {
+    if (_xPos < -_size || _xPos > (worldSize + _size) || _yPos < -_size || _yPos > (worldSize+_size)) then {
         deleteVehicle _helperObject;
         systemChat "deleting trigger out of map";
     };
     
-}, 1, [_helperObject, _soundSource, _speed, _dir, _markerstr]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_helperObject, _trigger, _size, _soundSource, _speed, _dir, _markerstr]] call CBA_fnc_addPerFrameHandler;

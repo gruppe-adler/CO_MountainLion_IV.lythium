@@ -20,6 +20,8 @@ class GRAD_sandstorm {
           class getEmitterParams;
           class getEmitterParamsCircle;
           class getEmitterParamsRandom;
+
+          class insideSandstormFX;
           
           class moveEmitter;
           class moveEmitterLoop;
@@ -31,6 +33,7 @@ class GRAD_sandstorm {
     class server {
           file = grad-sandstorm\functions\server;
 
+          class addDamage;
           class createSandWall;
   };
 };

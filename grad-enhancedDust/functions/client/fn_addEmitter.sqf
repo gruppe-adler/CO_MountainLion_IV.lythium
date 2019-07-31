@@ -5,6 +5,7 @@ private _colorR = 0.3;
 private _colorG = 0.25; 
 private _colorB = 0.2; 
 private _alpha = 0.3;
+private _lifetime = 60;
 
 private _dropInterval = 0.1;
 
@@ -17,7 +18,7 @@ private _lingerEmitter = "#particlesource" createVehicleLocal [
 _lingerEmitter setParticleCircle [1, [0, 0, 0]];
 _lingerEmitter setParticleParams [
 		["\A3\data_f\cl_basic", 1, 0, 1],
-		 "", "Billboard", 1, grad_rotorwash_linger_lifetime, 
+		 "", "Billboard", 1, _lifetime, 
 		 [0, 0, 0], 
 		 [0, 0, 0], 0.3, 
 		 1,
