@@ -15,7 +15,9 @@ private _lingerEmitter = "#particlesource" createVehicleLocal [
 	0
 ];
 
-_lingerEmitter setParticleCircle [1, [0, 0, 0]];
+_lingerEmitter attachTo [_vehicle];
+
+_lingerEmitter setParticleCircle [0, [0, 0, 0]];
 _lingerEmitter setParticleParams [
 		["\A3\data_f\cl_basic", 1, 0, 1],
 		 "", "Billboard", 1, _lifetime, 
@@ -63,6 +65,11 @@ _lingerEmitter setDropInterval 0.1;
 [{
 	params ["_args", "_handle"];
 	_args params ["_vehicle", "_lingerEmitter"];
+
+	if (isNull _vehicle) exitWith {
+		deleteVehicle _lingerEmitter;
+		[_handle] call CBA_fnc_removePerFrameHandler;
+	};
 
 	if (!alive _vehicle) exitWith {
 		deleteVehicle _lingerEmitter;
