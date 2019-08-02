@@ -56,11 +56,8 @@ private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0
         _vehicle = _x;
         
         if (_vehicle inAreaArray _trigger) then {
-            private _fog =  0.3 + random 0.1;
-
-            {
-                [_vehicle, _fog, 1] remoteExecCall ["GRAD_sandstorm_fnc_airInSandstormFX", _x];
-            } forEach crew _vehicle;
+            private _fog =  [0.3 + random 0.1, 0.003, 0];
+            missionNamespace setVariable ["GRAD_sandstorm_fogValue", _fog, true];
 
             [_vehicle] call GRAD_sandstorm_fnc_addDamage;
         };

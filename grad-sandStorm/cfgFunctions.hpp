@@ -9,7 +9,10 @@ class GRAD_sandstorm {
           class addSandWallLocal;
 
           class addToEmitterArray;
+          class adjustEffects;
           class adjustEmitter;
+          class adjustFog;
+
           class clearEmitterArray;
 
           class createEmitter;
@@ -21,13 +24,11 @@ class GRAD_sandstorm {
           class getEmitterParamsCircle;
           class getEmitterParamsRandom;
 
-          class insideSandstormFX;
-          
-          class moveEmitter;
-          class moveEmitterLoop;
-          class setEmitterLOD;
+          class inBuilding;
 
           class removePostProcessing;
+
+          class setEmitterLOD;
   };
 
     class server {

@@ -1,5 +1,6 @@
 params ["_trigger", "_helperObject", "_sandstormIdentifier"];
 
+private _updateRate = 5;
 
 [] call GRAD_sandstorm_fnc_addLODTrigger;
 
@@ -17,15 +18,10 @@ _markerstr setMarkerPos getpos vehicle player;
 
 [_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier]  call GRAD_sandstorm_fnc_createParticleBorder;
 
-/*
-["borderBottom", _helperObject, _sandstormIdentifier] spawn GRAD_sandstorm_fnc_moveEmitterLoop;
-["borderTop", _helperObject, _sandstormIdentifier] spawn GRAD_sandstorm_fnc_moveEmitterLoop;
-["filler", _helperObject, _sandstormIdentifier] spawn GRAD_sandstorm_fnc_moveEmitterLoop;
-*/
 
 [{
     params ["_args", "_handle"];
-    _args params ["_trigger", "_markerstr", "_helperObject", "_sandstormIdentifier"];
+    _args params ["_trigger", "_markerstr", "_helperObject", "_sandstormIdentifier", "_updateRate"];
 
     if (isNull _trigger) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -51,8 +47,11 @@ _markerstr setMarkerPos getpos vehicle player;
             player setVariable ["isInsideSandstormLeaves", _leaves];
         };
 
+        [_updateRate] call GRAD_sandstorm_fnc_adjustFog;
+        [_updateRate] call GRAD_sandstorm_fnc_adjustEffects;
+
     } else {
-        1 setFog [0.01,0.003,00];
+        _updateRate setFog [0.01,0.003,00];
         if (player getVariable ["isInsideSandstorm", false]) then {
             player setVariable ["isInsideSandstorm", false];
             private _pp = player getVariable ["isInsideSandstormPP", []];
@@ -65,4 +64,4 @@ _markerstr setMarkerPos getpos vehicle player;
         };
     };
     
-}, 5, [_trigger, _markerstr, _helperObject, _sandstormIdentifier]] call CBA_fnc_addPerFrameHandler;
+}, _updateRate, [_trigger, _markerstr, _helperObject, _sandstormIdentifier, _updateRate]] call CBA_fnc_addPerFrameHandler;
