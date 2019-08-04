@@ -13,6 +13,8 @@ class GRAD_sandstorm {
           class adjustEmitter;
           class adjustFog;
 
+          class autoInit { preInit = 1; };
+
           class clearEmitterArray;
 
           class createEmitter;

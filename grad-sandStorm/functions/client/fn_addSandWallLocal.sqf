@@ -16,6 +16,10 @@ _markerstr setMarkerBrushLocal "Border";
 _markerstr setMarkerSize [4000,4000]; 
 _markerstr setMarkerPos getpos vehicle player;
 
+if (!GRAD_SANDSTORM_DEBUG) then {
+    _markerstr setMarkerAlphaLocal 0;
+};
+
 [_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier]  call GRAD_sandstorm_fnc_createParticleBorder;
 
 
@@ -25,11 +29,23 @@ _markerstr setMarkerPos getpos vehicle player;
 
     if (isNull _trigger) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
-        systemChat "removing local sandwall";
+        
+        if (GRAD_SANDSTORM_DEBUG) then {
+            systemChat "removing local sandwall";
+        };
+        
+        // delete emitter
+        ["borderBottom", _sandstormIdentifier] call GRAD_sandstorm_fnc_clearEmitterArray;
+        ["fillerSmall", _sandstormIdentifier] call GRAD_sandstorm_fnc_clearEmitterArray;
+        ["filler", _sandstormIdentifier] call GRAD_sandstorm_fnc_clearEmitterArray;
     };
 
-    _markerstr setMarkerPos (getPos vehicle player);
+    if (GRAD_SANDSTORM_DEBUG) then {
+         // debug marker pos
+         _markerstr setMarkerPos (getPos vehicle player);
+    };
 
+    // 
     ["borderBottom", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
     ["fillerSmall", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
     ["filler", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
@@ -49,18 +65,20 @@ _markerstr setMarkerPos getpos vehicle player;
 
         [_updateRate] call GRAD_sandstorm_fnc_adjustFog;
         [_updateRate] call GRAD_sandstorm_fnc_adjustEffects;
+        [] call GRAD_sandstorm_fnc_createParticleClose;
 
     } else {
-        _updateRate setFog [0.01,0.003,00];
+        _updateRate setFog [0.01,0.003,00]; // reset fog
+
         if (player getVariable ["isInsideSandstorm", false]) then {
             player setVariable ["isInsideSandstorm", false];
             private _pp = player getVariable ["isInsideSandstormPP", []];
             private _leaves = player getVariable ["isInsideSandstormLeaves", []];
+            [_pp] call GRAD_sandstorm_fnc_removePostProcessing;
+
             {
                 deleteVehicle _x;
-            } forEach _leaves;
-            
-            [_pp] call GRAD_sandstorm_fnc_removePostProcessing;
+            } forEach _leaves; 
         };
     };
     

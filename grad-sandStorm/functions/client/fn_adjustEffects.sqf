@@ -28,8 +28,14 @@ if (_vehicleState > 1) then {
         if (_vehicle isKindOf "Air" && {(getPos _vehicle) select 2 > 0}) then {
             // not in sync
             addCamShake [(_shakepower), _shakeduration, _shakefreq];
+            if (GRAD_SANDSTORM_DEBUG) then {
+                systemChat format ["player inside air vehicle"];
+            };
         } else {
             addCamShake [(_shakepower/4), _shakeduration, _shakefreq];
+            if (GRAD_SANDSTORM_DEBUG) then {
+                systemChat format ["player inside land vehicle"];
+            };
         };
         0.1 fadeSound 0.55;
         _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
@@ -44,6 +50,11 @@ if (_vehicleState > 1) then {
 };
 
 if (_inBuilding) then {
+    if (GRAD_SANDSTORM_DEBUG) then {
+        systemChat format ["player inside building"];
+    };
+
+    player setVariable ["GRAD_sandstorm_inBuilding", true];
     // In building - reduce particles
     // {if (typeOf _x == "#particlesource") then {deleteVehicle _x}} forEach (player nearObjects 10);
     // widen particle radius so they dont interfere with house
@@ -65,13 +76,22 @@ if (_inBuilding) then {
 };
 
 if (_vehicleState == 1 && !_inBuilding) then {
+
     // Player wearing eyewear adjust film grain
     if (goggles player != "") then {
         _ppGrain ppEffectAdjust [0.08, 1.25, 1.0, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
+
+        if (GRAD_SANDSTORM_DEBUG) then {
+            systemChat format ["player no goggles"];
+        };
     } else {
         _ppGrain ppEffectAdjust [0.08, 1.25, 2.05, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
+
+        if (GRAD_SANDSTORM_DEBUG) then {
+            systemChat format ["player with goggles"];
+        };
     };
     enableCamShake true;
     addCamShake [_shakepower, _shakeduration, _shakefreq];
