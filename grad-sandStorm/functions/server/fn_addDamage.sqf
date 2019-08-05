@@ -7,7 +7,7 @@ if (_vehicle isKindOf "Helicopter" && {!(_vehicle getVariable ["GRAD_survivableC
     if (_damage < 0.8) then {
         _damage = _damage + 0.02;
         _vehicle setHitPointDamage ["HitEngine", _damage];
-    }; else {
+    } else {
     	[_x] call GRAD_survivableCrash_fnc_onCrash;
 	};
 };

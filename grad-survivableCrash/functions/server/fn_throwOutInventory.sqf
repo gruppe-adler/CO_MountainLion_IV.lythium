@@ -1,6 +1,6 @@
 params ["_veh"];
 
-private _items = getItemCargo _veh
+private _items = getItemCargo _veh;
 private _magazines = getMagazineCargo _veh;
 private _weapons = getWeaponCargo _veh;
 private _backpacks = getBackpackCargo _veh;
