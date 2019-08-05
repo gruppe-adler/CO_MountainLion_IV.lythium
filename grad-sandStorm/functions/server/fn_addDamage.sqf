@@ -1,6 +1,6 @@
 params ["_vehicle"];
 
-if (_vehicle isKindOf "Helicopter" && {!(_vehicle getVariable ["GRAD_survivableCrash_shotDown", false])}) then {
+if (isEngineOn _vehicle && (_vehicle isKindOf "Helicopter") && {!(_vehicle getVariable ["GRAD_survivableCrash_shotDown", false])}) then {
 
     private _damage = _vehicle getHitPointDamage "HitEngine";
 

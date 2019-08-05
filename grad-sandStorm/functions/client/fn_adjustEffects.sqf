@@ -83,14 +83,14 @@ if (_vehicleState == 1 && !_inBuilding) then {
         _ppGrain ppEffectCommit 1;
 
         if (GRAD_SANDSTORM_DEBUG) then {
-            systemChat format ["player no goggles"];
+            systemChat format ["player with goggles"];
         };
     } else {
         _ppGrain ppEffectAdjust [0.08, 1.25, 2.05, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
 
         if (GRAD_SANDSTORM_DEBUG) then {
-            systemChat format ["player with goggles"];
+            systemChat format ["player no goggles"];
         };
     };
     enableCamShake true;

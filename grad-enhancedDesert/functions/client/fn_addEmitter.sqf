@@ -26,22 +26,22 @@ _lingerEmitter setParticleParams [
 		 1,
 		 1,
 		 50, // 100
-		 [8, 12, 14, 16, 19, 23, 24, 25, 26, 27, 28, 29, 30, 30], 
+		 [8, 12, 14, 16, 19, 23, 25, 27, 29, 31, 33, 35, 37, 40], 
 		 [
 		 	
 		 	[_colorR, _colorG, _colorB, 0],
-		 	[_colorR, _colorG, _colorB, 0.3],
-		 	[_colorR, _colorG, _colorB, 0.27],
-		 	[_colorR, _colorG, _colorB, 0.25],
-		 	[_colorR, _colorG, _colorB, 0.23],
-		 	[_colorR, _colorG, _colorB, 0.21],
-		 	[_colorR, _colorG, _colorB, 0.19],
-		 	[_colorR, _colorG, _colorB, 0.17],
-		 	[_colorR, _colorG, _colorB, 0.15],
 		 	[_colorR, _colorG, _colorB, 0.1],
 		 	[_colorR, _colorG, _colorB, 0.07],
 		 	[_colorR, _colorG, _colorB, 0.05],
 		 	[_colorR, _colorG, _colorB, 0.03],
+		 	[_colorR, _colorG, _colorB, 0.02],
+		 	[_colorR, _colorG, _colorB, 0.019],
+		 	[_colorR, _colorG, _colorB, 0.017],
+		 	[_colorR, _colorG, _colorB, 0.015],
+		 	[_colorR, _colorG, _colorB, 0.012],
+		 	[_colorR, _colorG, _colorB, 0.010],
+		 	[_colorR, _colorG, _colorB, 0.005],
+		 	[_colorR, _colorG, _colorB, 0.002],
 		 	[_colorR, _colorG, _colorB, 0]
 		 ], 
 		 [0.08], 0, 0, "", "", _lingerEmitter];
@@ -65,11 +65,6 @@ _lingerEmitter setDropInterval 0.1;
 [{
 	params ["_args", "_handle"];
 	_args params ["_vehicle", "_lingerEmitter"];
-
-	if (isNull _vehicle) exitWith {
-		deleteVehicle _lingerEmitter;
-		[_handle] call CBA_fnc_removePerFrameHandler;
-	};
 
 	if (!alive _vehicle) exitWith {
 		deleteVehicle _lingerEmitter;

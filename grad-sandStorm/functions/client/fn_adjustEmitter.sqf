@@ -1,7 +1,7 @@
 params ["_emitter", "_helperObject", "_dropRate"];
 
 _emitter setDropInterval _dropRate;
-_emitter enableSimulationGlobal true;
+_emitter enableSimulation true;
 
 /*
 private _offset = _emitter worldToModel getpos _helperObject;

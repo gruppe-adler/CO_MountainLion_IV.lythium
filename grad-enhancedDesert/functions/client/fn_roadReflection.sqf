@@ -15,8 +15,9 @@ private _maxIter = 10;
     private _roads = _campos nearRoads 150;
     private _cur = 0;
 
+    _campos params ["_camX", "_camY", "_camZ"];
     // dont show effect from above/air and in nighttime
-    if (((_campos select 2) > 10) || sunOrMoon == 1) exitWith {};
+    // if ((_camZ > 10) || sunOrMoon == 1) exitWith {};
 
 
     private _player = ace_player;
