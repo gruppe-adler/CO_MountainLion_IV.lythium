@@ -55,7 +55,7 @@ private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0
     {
         _vehicle = _x;
         
-        if (_vehicle inAreaArray _trigger) then {
+        if (count ([_vehicle] inAreaArray _trigger) > 0) then {
             private _fog =  [0.3 + random 0.1, 0.003, 0];
             missionNamespace setVariable ["GRAD_sandstorm_fogValue", _fog, true];
 

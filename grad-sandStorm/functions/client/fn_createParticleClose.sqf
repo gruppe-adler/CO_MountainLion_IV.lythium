@@ -37,5 +37,5 @@ for "_i" from 0 to (count _offsets - 1) do
         ["\Ca\Data\ParticleEffects\FireAndSmokeAnim\SmokeAnim.p3d", 8, 1, 6], "", "Billboard", 
         1, 5, _position, [_WindVectorX*10, _WindVectorY*10, 0], 0, 10, 7.9, 0.5, [_size, _size, _size], [
             [0.2, 0.2, 0.1, 0], [0.2, 0.2, 0.1, 0.2], [0.2, 0.2, 0.1, 0]
-        ], [0.125], 1, 0, "", "", _emitter];
+        ], [0.125], 1, 0, "", "", ""];
 };

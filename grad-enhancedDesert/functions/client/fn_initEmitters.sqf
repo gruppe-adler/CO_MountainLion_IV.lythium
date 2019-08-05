@@ -1,5 +1,5 @@
 params [["_vehicles",[]]];
 
 {
-	[_x] call GRAD_enhancendDust_fnc_addEmitter;
+	[_x] call GRAD_enhancedDesert_fnc_addEmitter;
 } forEach _vehicles;

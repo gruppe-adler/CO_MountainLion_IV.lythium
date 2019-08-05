@@ -25,6 +25,7 @@ class Header
 class cfgFunctions {
   #include "grad-survivableCrash\cfgFunctions.hpp"
   #include "grad-sandstorm\cfgFunctions.hpp"
+  #include "grad-enhancedDesert\cfgFunctions.hpp"
   #include "grad-introCam\cfgFunctions.hpp"
   #include "grad-missionControl\cfgFunctions.hpp"
   #include "grad-permaChoice\cfgFunctions.hpp"

@@ -7,8 +7,8 @@
 params ["_duration"];
 
 private _inBuilding = [] call GRAD_sandstorm_fnc_inBuilding;
-private _ppGrain = player getVariable ["isInsideSandstormPP", [objNull,objNull]];
-private _vehicleState = [player] call TFAR_fnc_isTurnedOut;
+private _ppGrain = (player getVariable ["isInsideSandstormPP", [objNull,objNull]]) select 1;
+private _vehicleState = ([player] call TFAR_fnc_isTurnedOut) select 1;
 
 private _vehicle = objectParent player;
 private _inVehicle = _vehicleState > 2;

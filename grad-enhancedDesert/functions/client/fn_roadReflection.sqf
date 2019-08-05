@@ -12,11 +12,11 @@ private _maxIter = 10;
     _args params ["_max", "_maxIter"];
    
     private _campos = positionCameraToWorld [0,0,0];
-    private _roads = _campos nearRoads 250;
+    private _roads = _campos nearRoads 150;
     private _cur = 0;
 
     // dont show effect from above/air and in nighttime
-    if (_campos select 2 > 10 || sunOrMoon == 1) exitWith {};
+    if (((_campos select 2) > 10) || sunOrMoon == 1) exitWith {};
 
 
     private _player = ace_player;

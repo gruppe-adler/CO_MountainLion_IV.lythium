@@ -6,7 +6,7 @@ _veh setHitPointDamage ["HitFuel",.88];
 _veh setHitPointDamage ["HitVRotor",.88];
 _veh setHitPointDamage ["HitEngine",.88];
 
-[10, 2, 15] remoteExecCall ["addCamShake", [0,-2] select isDedicated];
+[[10, 2, 15]] remoteExecCall ["addCamShake", [0,-2] select isDedicated];
 
 private _smoke = createVehicle ["test_EmptyObjectForSmoke", position _veh, [], 0, "CAN_COLLIDE"];
 _smoke attachTo [_veh,[0,0,0],"motor"];
@@ -31,13 +31,15 @@ _veh allowDamage false;
 	} forEach crew _veh;
 
 	// lets vehicle slide a bit
-	_velocityVeh = velocity _veh;
-	_dir = (_velocityVeh select 0) atan2 (_velocityVeh select 1);
-	_speed = 4 + random 2;
+	/*
+	private _velocityVeh = velocity _veh;
+	private _dir = (_velocityVeh select 0) atan2 (_velocityVeh select 1);
+	private _speed = 4 + random 2;
 
 	_velocityVeh = [(sin _dir) * _speed * sqrt abs(_velocityVeh select 0),
 		(cos _dir) * _speed * sqrt abs(_velocityVeh select 1),
 		(1 + random 4) * sqrt(abs(_velocityVehPrev)) + .4 ];
 	_veh setVelocity _velocityVeh;
+	*/
 
 }, [_veh]] call CBA_fnc_waitUntilAndExecute;
