@@ -53,16 +53,16 @@ for "_i" from 0 to (_radials - 1) do
     
     
     // big line of fillers simulating dust
-    private _ox = ((_radius - 750)* cos _ix);
-    private _oy = ((_radius - 750) * sin _ix);
+    private _ox = ((_radius - 850)* cos _ix);
+    private _oy = ((_radius - 850) * sin _ix);
     
     private _posX = _px + _ox; 
     private _posY = _py + _oy;
    [[_posX, _posY, 0], "filler", 1, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createEmitter;
 
     // 2nd line to fill gaps when you are close
-    _ox = ((_radius - 300)* cos _ix);
-    _oy = ((_radius - 300) * sin _ix);
+    _ox = ((_radius - 350)* cos _ix);
+    _oy = ((_radius - 350) * sin _ix);
     
     private _posX = _px + _ox;
     private _posY = _py + _oy;

@@ -1,6 +1,6 @@
-params ["_trigger", "_helperObject", "_sandstormIdentifier"];
+params ["_trigger", "_triggerSound", "_helperObject", "_sandstormIdentifier"];
 
-private _updateRate = 5;
+private _updateRate = 1;
 
 [] call GRAD_sandstorm_fnc_addLODTrigger;
 
@@ -25,7 +25,7 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
 [{
     params ["_args", "_handle"];
-    _args params ["_trigger", "_markerstr", "_helperObject", "_sandstormIdentifier", "_updateRate"];
+    _args params ["_trigger", "_triggerSound", "_markerstr", "_helperObject", "_sandstormIdentifier", "_updateRate"];
 
     if (isNull _trigger) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -50,6 +50,35 @@ if (!GRAD_SANDSTORM_DEBUG) then {
     ["fillerSmall", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
     ["filler", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
 
+    if ((vehicle player) inArea _triggerSound) then {
+        if ((player getVariable ["sandStormSoundEH", -1]) == -1) then {
+                0 fadeMusic 0;
+                playMusic "desertLoop";
+                10 fadeMusic 0.5;
+                private _soundeffect = addMusicEventHandler ["MusicStop", {
+                        playMusic "desertLoop";
+                        if (GRAD_SANDSTORM_DEBUG) then {
+                            systemChat "restarting sound effect";
+                        };
+                }];
+                player setVariable ["sandStormSoundEH", _soundeffect];
+            };
+    } else {
+        private _soundeffect = player getVariable ["sandStormSoundEH", -1];
+
+        if (_soundeffect > -1) then {
+            // stop music
+            10 fadeMusic 0;
+            [{
+                if (!(player getVariable ["isInsideSandstorm", false])) then {
+                    playMusic "";
+
+                    removeMusicEventHandler ["MusicStop", _soundeffect];
+                    0 fadeMusic 1;
+                };
+            }, [], 10] call CBA_fnc_waitAndExecute;
+    };
+
     if ((vehicle player) inArea _trigger) then {
 
         // playSound ["A3\sounds_f\ambient\winds\wind-synth-fast.wss", player];
@@ -60,15 +89,18 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
             player setVariable ["isInsideSandstorm", true];
             player setVariable ["isInsideSandstormPP", _pp];
-            player setVariable ["isInsideSandstormLeaves", _leaves];
+            player setVariable ["isInsideSandstormLeaves", _leaves];  
         };
 
         [_updateRate] call GRAD_sandstorm_fnc_adjustFog;
-        [_updateRate] call GRAD_sandstorm_fnc_adjustEffects;
-        [] call GRAD_sandstorm_fnc_createParticleClose;
+        private _inBuilding = [_updateRate] call GRAD_sandstorm_fnc_adjustEffects;
+        if (!_inBuilding) then {
+            [] call GRAD_sandstorm_fnc_createParticleClose;
+        };
 
     } else {
         _updateRate setFog [0.01,0.003,00]; // reset fog
+        setAperture -1;
 
         if (player getVariable ["isInsideSandstorm", false]) then {
             player setVariable ["isInsideSandstorm", false];
@@ -82,4 +114,4 @@ if (!GRAD_SANDSTORM_DEBUG) then {
         };
     };
     
-}, _updateRate, [_trigger, _markerstr, _helperObject, _sandstormIdentifier, _updateRate]] call CBA_fnc_addPerFrameHandler;
+}, _updateRate, [_trigger, _triggerSound, _markerstr, _helperObject, _sandstormIdentifier, _updateRate]] call CBA_fnc_addPerFrameHandler;

@@ -3,7 +3,7 @@ params ["_position", "_type", "_dropRate", "_helperObject", "_sandstormIdentifie
 private _emitter = "#particlesource" createVehicleLocal _position;
 _emitter setPosASL [_position select 0, _position select 1, 0];
 
-diag_log format ["create emitter type: %1", _type];
+// diag_log format ["create emitter type: %1", _type];
 
 private _paramsCircle = [_type] call GRAD_sandstorm_fnc_getEmitterParamsCircle;
 private _paramsRandom = [_type] call GRAD_sandstorm_fnc_getEmitterParamsRandom;

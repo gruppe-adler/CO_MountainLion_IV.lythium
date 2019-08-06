@@ -14,9 +14,18 @@ private _vehicle = objectParent player;
 private _inVehicle = _vehicleState > 2;
 
 
-private _shakepower = 1 + random 0.5;
+private _shakepower = 0.5 + random 0.5;
 private _shakeduration = _duration;
 private _shakefreq = 3 + random 1;
+
+private _apertureInVehicle = [2, 40, 50, 0];
+private _apertureInOpenVehicle = [2, 90, 100, 0];
+private _apertureInBuilding = [2, 40, 50, 0];
+private _apertureOutsideGoggles = [2, 60, 70, 0];
+private _apertureOutsideNoGoggles = [2, 90, 100, 0];
+
+
+
 
 private _originalVolume = 1;
 
@@ -37,15 +46,17 @@ if (_vehicleState > 1) then {
                 systemChat format ["player inside land vehicle"];
             };
         };
-        0.1 fadeSound 0.55;
+        0.1 fadeMusic 0.35;
         _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
+        setApertureNew _apertureInVehicle;
     } else {
         // Open vehicle - slight attenuation, reduce camshake, normal film grain
         addCamShake [(_shakepower/2), _shakeduration, _shakefreq];
-        0.1 fadeSound 0.85;
+        0.1 fadeMusic 0.85;
         _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
+        setApertureNew _apertureInOpenVehicle;
     };
 };
 
@@ -62,16 +73,18 @@ if (_inBuilding) then {
     _ppGrain ppEffectAdjust [0.08, 1.25, 1.0, 0.75, 1, 0];
     _ppGrain ppEffectCommit 1;
 
-    0.2 fadeSound 0.50;
+    0.2 fadeMusic 0.50;
+
+    setApertureNew _apertureInBuilding;
 
     {if (_building animationPhase _x > 0.2) then {nearestdoor = _x}} forEach _doors;
 
     if (_building animationPhase nearestdoor < 0.2) then {
         doorclosed = true;
-        0 fadeSound 0.40;
+        0.5 fadeMusic 0.40;
     } else {
         doorclosed = false;
-        0 fadeSound 0.50;
+        0.5 fadeMusic 0.50;
     };
 };
 
@@ -82,18 +95,27 @@ if (_vehicleState == 1 && !_inBuilding) then {
         _ppGrain ppEffectAdjust [0.08, 1.25, 1.0, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
 
+        /*
         if (GRAD_SANDSTORM_DEBUG) then {
             systemChat format ["player with goggles"];
         };
+        */
+        setApertureNew _apertureOutsideGoggles;
     } else {
         _ppGrain ppEffectAdjust [0.08, 1.25, 2.05, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
 
+        /*
         if (GRAD_SANDSTORM_DEBUG) then {
             systemChat format ["player no goggles"];
         };
+        */
+        setApertureNew _apertureOutsideNoGoggles;
     };
     enableCamShake true;
     addCamShake [_shakepower, _shakeduration, _shakefreq];
-    0.1 fadeSound _originalVolume;
+    0.5 fadeMusic _originalVolume;
+    
 };
+
+_inBuilding

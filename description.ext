@@ -48,7 +48,6 @@ class Loadouts {
 
 
 class cfgSounds {
-    #include "GRAD-sandstorm\cfgSounds.hpp"
 
     class GRAD_heartbeat_slow_1
       {
@@ -67,6 +66,10 @@ class cfgSounds {
       titles[] = {0, ""};
     };
     
+};
+
+class cfgMusic {
+    #include "GRAD-sandstorm\cfgMusic.hpp"
 };
 
 class CfgSFX

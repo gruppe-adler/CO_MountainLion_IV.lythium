@@ -13,10 +13,11 @@ player setVariable ["ODE_LODTriggerCreated", true];
 // distance, multiplier of droprate
 private _LODLevel =
 [
+	[1000,[0.2, 0.2]],
 	[1000,[0.4, 0.4]],
 	[2000,[0.6, 0.4]],
 	[3500,[0.9, 0.5]],
-	[7000,[1, 1]]
+	[7000,[2, 2]]
 ];
 
 

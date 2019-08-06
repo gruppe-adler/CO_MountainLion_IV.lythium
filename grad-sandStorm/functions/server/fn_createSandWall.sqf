@@ -13,15 +13,22 @@ private _identifier = format ["GRAD_sandstorm_id%1", _id];
 private _trigger = createTrigger ["EmptyDetector", _position];
 _trigger setTriggerArea [_size, _size, 0, false];
 
+// trigger for activating sound
+private _triggerSound = createTrigger ["EmptyDetector", _position];
+_triggerSound setTriggerArea [_size+250, _size+250, 0, false];
+
 private _helperObject = "ProtectionZone_Ep1" createVehicle _position;
 _helperObject setPosASL [_position select 0, _position select 1, 0];
 _helperObject setVectorUp [0,0,1];
- _trigger attachTo [_helperObject];
+_trigger attachTo [_helperObject];
+_triggerSound attachTo [_helperObject];
 
-[_trigger, _helperObject, _identifier] remoteExec ["GRAD_sandstorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
+[_trigger, _triggerSound, _helperObject, _identifier] remoteExec ["GRAD_sandstorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true];
 missionNamespace setVariable [_identifier, _trigger, true];
 
+setWind [0,0,true];
 0 setWindDir _dir;
+0 setWindForce 0.5;
 private _wSpeed = [wind, _speed*4] call BIS_fnc_vectorMultiply;
 setWind [_wSpeed select 0, _wSpeed select 1, true];
 // 5 setGusts 0.35;
@@ -33,22 +40,24 @@ _markerstr setMarkerColor "ColorRed";
 _markerstr setMarkerAlpha 0.5;
 
 
-private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0]; 
+// private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0]; 
 
 [{
     params ["_args", "_handle"];
-    _args params ["_helperObject", "_trigger", "_size", "_soundSource", "_speed", "_dir", "_markerstr"];
+    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_speed", "_dir", "_markerstr"];
 
     if (isNull _helperObject) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         systemChat "sandstorm: removing as marker is null";
+        deleteVehicle _trigger;
+        deleteVehicle _triggerSound;
     };
 
     private _newPos = (getPos _helperObject) getPos [_speed, _dir];
     _helperObject setPosASL _newPos;
     _helperObject setVectorUp [0,0,1];
 
-    _soundSource setPos _newPos;
+    // _soundSource setPos _newPos;
     _markerstr setMarkerPos _newPos;
 
     // add local effects if player is inside sandstorm
@@ -71,4 +80,4 @@ private _soundSource = createSoundSource ["desertLoop", position _trigger, [], 0
         systemChat "deleting trigger out of map";
     };
     
-}, 1, [_helperObject, _trigger, _size, _soundSource, _speed, _dir, _markerstr]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_helperObject, _trigger, _triggerSound, _size, _speed, _dir, _markerstr]] call CBA_fnc_addPerFrameHandler;

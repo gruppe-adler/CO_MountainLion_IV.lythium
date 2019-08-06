@@ -40,6 +40,7 @@ for "_i" from 0 to (_LODCount-1) do {
 if (count _arrayWorkingCopy > 0) then {
 	{
 		// systemChat "disabling emitter";
-	  	_x enableSimulation false;
+	  	_x enableSimulation false; // todo check if this actually works
+	  	// _x setDropInterval 3;
 	} forEach _arrayWorkingCopy;
 };
