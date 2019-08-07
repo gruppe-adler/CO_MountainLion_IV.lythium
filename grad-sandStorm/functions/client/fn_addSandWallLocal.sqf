@@ -2,25 +2,30 @@ params ["_trigger", "_triggerSound", "_helperObject", "_sandstormIdentifier"];
 
 private _updateRate = 1;
 
-[] call GRAD_sandstorm_fnc_addLODTrigger;
+if (GRAD_SANDSTORM_DEBUG) then {
+    diag_log "add local sandwall";
+};
 
+
+[] call GRAD_sandstorm_fnc_addLODTrigger;
 
 /*
     debug
 */
 
-private _markerstr = createMarkerLocal ["mrk_lod",[0,0]]; 
+private _markerstr = createMarkerLocal [format ["mrk_lod_%1", _sandstormIdentifier],[0,0]];
 _markerstr setMarkerShapeLocal "ELLIPSE"; 
 _markerstr setMarkerColorLocal "ColorBlue"; 
 _markerstr setMarkerBrushLocal "Border"; 
-_markerstr setMarkerSize [4000,4000]; 
-_markerstr setMarkerPos getpos vehicle player;
+_markerstr setMarkerSizeLocal [4000,4000]; 
+_markerstr setMarkerPosLocal (getpos (vehicle player));
+
 
 if (!GRAD_SANDSTORM_DEBUG) then {
     _markerstr setMarkerAlphaLocal 0;
 };
 
-[_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier]  call GRAD_sandstorm_fnc_createParticleBorder;
+[_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createParticleBorder;
 
 
 [{
@@ -32,6 +37,7 @@ if (!GRAD_SANDSTORM_DEBUG) then {
         
         if (GRAD_SANDSTORM_DEBUG) then {
             systemChat "removing local sandwall";
+            diag_log "removing local sandwall";
         };
         
         // delete emitter
@@ -70,13 +76,16 @@ if (!GRAD_SANDSTORM_DEBUG) then {
             // stop music
             10 fadeMusic 0;
             [{
+                params ["_soundeffect"];
+
                 if (!(player getVariable ["isInsideSandstorm", false])) then {
                     playMusic "";
 
                     removeMusicEventHandler ["MusicStop", _soundeffect];
                     0 fadeMusic 1;
                 };
-            }, [], 10] call CBA_fnc_waitAndExecute;
+            }, [_soundeffect], 10] call CBA_fnc_waitAndExecute;
+        };
     };
 
     if ((vehicle player) inArea _trigger) then {

@@ -34,6 +34,6 @@ _markerstr setMarkerShapeLocal "ICON";
 _markerstr setMarkerTypeLocal "mil_dot";
 */
 
-_emitter enableSimulationGlobal false;
+_emitter enableSimulation false;
 
 _emitter
