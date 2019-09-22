@@ -70,6 +70,13 @@ class cfgSounds {
 
 class cfgMusic {
     #include "GRAD-sandstorm\cfgMusic.hpp"
+    
+    class muse_high
+    {
+        name = "muse_high";
+        sound[] = {"audio\muse_high.ogg", 2, 1};
+        titles[]={};
+    };
 };
 
 class CfgSFX

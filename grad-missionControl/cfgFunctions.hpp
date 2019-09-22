@@ -4,7 +4,7 @@ class grad_missionControl {
 		  file = grad-missionControl\functions\client;
 
       class addModules;
-      class addVehicleMarker { postInit = 1; };
+      class addVehicleMarker;
       class createBloodEffect;
       class dropZeusEars;
       class setMyFrequency;

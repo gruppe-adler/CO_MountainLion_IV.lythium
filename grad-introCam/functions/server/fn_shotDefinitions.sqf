@@ -13,16 +13,25 @@
 
 if (!isServer) exitWith {};
 
-// private _planes = [] call GRAD_introCam_fnc_playRecord;
-private _targetPlane = _planes select 0;
+private _vehicleDefinitions = [
+    [
+        ["bwi_a3_at6b", getMarkerPos "introPlane1"],
+        ["bwi_a3_at6b", getMarkerPos "introPlane2"]
+    ],
+    getMarkerPos "introPlaneWaypoint"
+];
 
-private _definitions = [
-	["FREE", getPos intro_camPos1, getPos intro_camPos2, intro_camTarget, introPlane, 63.4, 0, 0.4, 0.6, [0,0,2], [0,0,20]],
-	["FREE", getPos intro_camPos2, getPos intro_end, introPlane, intro_end2, 63.4, 0, 0.6, 0.4, [0,0,20], [0,0,2]]
+private _introVehicles = _vehicleDefinitions call GRAD_introCam_fnc_playRecord;
+
+
+private _camDefinitions = [
+    ["FREE", getPos intro_camPos1, getPos intro_camPos2, intro_camTarget1, intro_camTarget2, 35.4, 0, 0.4, 0.2, [0,0,0], [0,0,0]],
+	["FREE", getPos intro_camPos2, getPos intro_camPos3, intro_camTarget2, _introVehicles select 0, 28, 0, 0.2, 0.02, [0,0,0], [0,0,5]],
+	["FREE", getPos intro_camPos3, getPos intro_end, _introVehicles select 0, intro_end2, 63.4, 0, 0.02, 0.2, [0,0,5], [0,0,2]]
 ];
 
 /////// dont edit below
 
 {
   	[_x] call GRAD_introCam_fnc_addShot;
-} forEach _definitions;
+} forEach _camDefinitions;

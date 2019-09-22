@@ -3,6 +3,7 @@ if (didJIP) exitWith {};
 waitUntil {!isNull player};
 waitUntil {time > 0};
 player setVariable ["tf_voiceVolume", 0, true];
+diwako_dui_main_toggled_off = true;
 
 if (isMultiplayer) then {
 
@@ -50,3 +51,4 @@ setObjectViewDistance _objectViewDistanceCache;
 10 fadeSound 1;
 titleText ["", "BLACK IN", 0];
 player setVariable ["tf_voiceVolume", 1, true];
+diwako_dui_main_toggled_off = false;

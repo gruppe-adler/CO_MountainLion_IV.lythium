@@ -1,64 +1,35 @@
 /*
-[vehicle player, 120, 30, false, 2] spawn BIS_fnc_UnitCapture;
 
-grad_introCam_fnc_playRecord;
 */
-private _introPlaneC = createVehicle ["bwi_a3_at6b", [1789,10729.9,1033.49], [], 0, "FLY"];
-createVehicleCrew _introPlaneC;
-(group _introPlaneC) setBehaviour "CARELESS";
-_introPlaneC engineOn true;
-_introPlaneC setPilotLight true;
-_introPlaneC setCaptive true;
-(driver _introPlaneC) action ["CollisionLightOn", _introPlaneC];
+params ["_vehicles", "_waypointPos"];
 
+private _spawnedVehicles = [];
+private _group = createGroup civilian;
+diag_log format ["vehicles. %1 %2", _vehicles, _waypointPos];
 
-private _introPlaneR = createVehicle ["bwi_a3_at6b", [1776.12,10696.5,1032.18], [], 0, "FLY"];
-createVehicleCrew _introPlaneR;
-(group _introPlaneR) setBehaviour "CARELESS";
-_introPlaneR engineOn true;
-_introPlaneR setPilotLight true;
-_introPlaneR setCaptive true;
-(driver _introPlaneR) action ["CollisionLightOn", _introPlaneR];
+{
+	private _vehicleArray = _x;
+	_vehicleArray params ["_classname", "_spawnPosition"];
 
+	_spawnPosition set [2,40];
 
-private _introPlaneL = createVehicle ["bwi_a3_at6b", [1755,10735.5,1028.8], [], 0, "FLY"];
-createVehicleCrew _introPlaneL;
-(group _introPlaneL) setBehaviour "CARELESS";
-_introPlaneL engineOn true;
-_introPlaneL setPilotLight true;
-_introPlaneL setCaptive true;
-(driver _introPlaneL) action ["CollisionLightOn", _introPlaneL];
+	private _vehicle = createVehicle [_classname, _spawnPosition, [], 0, "FLY"];
+	_vehicle flyInHeight 40;
+	createVehicleCrew _vehicle;
+	(group _vehicle) setBehaviour "CARELESS";
+	_vehicle engineOn true;
+	_vehicle setPilotLight true;
+	_vehicle setCaptive true;
+	(driver _vehicle) action ["CollisionLightOn", _vehicle];
 
+	_spawnedVehicles pushBack _vehicle;
 
+	diag_log format ["spawning.."];
+} forEach _vehicles;
 
-[_introPlaneC, _introPlaneR, _introPlaneL] spawn {
-	params ["_introPlaneC", "_introPlaneR", "_introPlaneL"];	
+_spawnedVehicles joinSilent _group;
 
-	[ _introPlaneC, [] call GRAD_introCam_fnc_planeC, [], false, nil, nil, 0 ] spawn BIS_fnc_UnitPlay;
-	[ _introPlaneR, [] call GRAD_introCam_fnc_planeR, [], false, nil, nil, 0 ] spawn BIS_fnc_UnitPlay;
-	[ _introPlaneL, [] call GRAD_introCam_fnc_planeL, [], false, nil, nil, 0 ] spawn BIS_fnc_UnitPlay;
+private _waypoint = _group addWaypoint [_waypointPos, 0];
+_waypoint setWaypointStatements ["true","{{deleteVehicle _x} forEach crew _x; deleteVehicle _x; } forEach thisList;"];
 
-	sleep 110;
-
-	_introPlaneC setvariable ["BIS_fnc_unitPlay_terminate",true];
-	_introPlaneR setvariable ["BIS_fnc_unitPlay_terminate",true];
-	_introPlaneL setvariable ["BIS_fnc_unitPlay_terminate",true];
-
-	(group _introPlaneC) addWaypoint [[worldSize,0,100], 0];
-	(group _introPlaneR) addWaypoint [[worldSize,100,100], 0];
-	(group _introPlaneL) addWaypoint [[worldSize,200,100], 0];
-
-	sleep 120;
-
-	{_introPlaneC deleteVehicleCrew _x} forEach crew _introPlaneC;
-	{_introPlaneR deleteVehicleCrew _x} forEach crew _introPlaneR;
-	{_introPlaneL deleteVehicleCrew _x} forEach crew _introPlaneL;
-	
-
-	deleteVehicle _introPlaneC;
-	deleteVehicle _introPlaneR;
-	deleteVehicle _introPlaneL;
-
-};
-
-[_introPlaneC, _introPlaneR, _introPlaneL]
+_spawnedVehicles

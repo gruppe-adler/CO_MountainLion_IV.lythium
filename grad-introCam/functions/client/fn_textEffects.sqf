@@ -13,7 +13,7 @@ _introPicBlack ctrlSetPosition [
  	safeZoneW,
  	safezoneH
 ];
-_introPicBlack ctrlsetText "pic\intro.paa";
+_introPicBlack ctrlsetText "pic\intro2.paa";
 _introPicBlack ctrlCommit 0;
 
 sleep 25;
@@ -25,7 +25,7 @@ _introPicWhite ctrlSetPosition [
  	safeZoneW,  
  	safezoneH
 ];
-_introPicWhite ctrlsetText "pic\intro_white.paa";
+_introPicWhite ctrlsetText "pic\intro_black.paa";
 _introPicWhite ctrlsetFade 1;
 _introPicWhite ctrlCommit 0;
 
@@ -42,7 +42,7 @@ _introPicWhite ctrlCommit 10;
 
 sleep 20;
 
-ml_mosque say3D ["muezzin", 1000];
+// ml_mosque say3D ["muezzin", 1000];
 
 if (typeOf player isEqualTo "B_officer_F") then {
 	slot_platoonlead action ["WeaponOnBack", slot_platoonlead];
@@ -50,7 +50,7 @@ if (typeOf player isEqualTo "B_officer_F") then {
 };
 
 
-sleep 40;
+sleep 70;
 
 [ "B R I E F I N G", "26.11.2018" ] spawn BIS_fnc_infoText;
 
