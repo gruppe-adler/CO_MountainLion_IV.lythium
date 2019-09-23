@@ -9,12 +9,15 @@ diag_log format ["vehicles. %1 %2", _vehicles, _waypointPos];
 
 {
 	private _vehicleArray = _x;
-	_vehicleArray params ["_classname", "_spawnPosition"];
+	_vehicleArray params ["_classname", "_marker"];
 
+	private _spawnPosition = getMarkerPos _marker;
+	private _spawnDir = markerDir _marker;
 	_spawnPosition set [2,40];
 
 	private _vehicle = createVehicle [_classname, _spawnPosition, [], 0, "FLY"];
-	_vehicle flyInHeight 40;
+	_vehicle setDir _spawnDir;
+	_vehicle flyInHeight 30;
 	createVehicleCrew _vehicle;
 	(group _vehicle) setBehaviour "CARELESS";
 	_vehicle engineOn true;
@@ -28,6 +31,7 @@ diag_log format ["vehicles. %1 %2", _vehicles, _waypointPos];
 } forEach _vehicles;
 
 _spawnedVehicles joinSilent _group;
+_group setFormation "WEDGE";
 
 private _waypoint = _group addWaypoint [_waypointPos, 0];
 _waypoint setWaypointStatements ["true","{{deleteVehicle _x} forEach crew _x; deleteVehicle _x; } forEach thisList;"];
