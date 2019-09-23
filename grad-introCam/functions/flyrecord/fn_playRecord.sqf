@@ -17,7 +17,8 @@ diag_log format ["vehicles. %1 %2", _vehicles, _waypointPos];
 
 	private _vehicle = createVehicle [_classname, _spawnPosition, [], 0, "FLY"];
 	_vehicle setDir _spawnDir;
-	_vehicle flyInHeight 30;
+	_vehicle setVelocityModelSpace [0, 150, 0];
+	_vehicle flyInHeight 40;
 	createVehicleCrew _vehicle;
 	(group _vehicle) setBehaviour "CARELESS";
 	_vehicle engineOn true;

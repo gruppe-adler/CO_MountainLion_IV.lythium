@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={11648.301,42.540733,2468.4924};
-		dir[]={-0.19193405,-0.50772053,0.83987874};
-		up[]={-0.11311182,0.86152202,0.49496177};
-		aside[]={0.97487569,2.8358772e-007,0.22278343};
+		pos[]={11770.539,75.906036,1841.4586};
+		dir[]={-0.52734333,-0.36338368,0.76802659};
+		up[]={-0.20568927,0.93163925,0.29956725};
+		aside[]={0.82438099,-7.4505806e-009,0.56603783};
 	};
 };
 binarizationWanted=0;
@@ -930,7 +930,8 @@ class Mission
 				class Item2
 				{
 					dataType="Waypoint";
-					position[]={11687.128,33.869904,1951.7511};
+					position[]={11687.128,33.869839,1951.751};
+					speed="FULL";
 					expCond="call{BRIEFING_DONE}";
 					visible=0;
 					class Effects
@@ -939,7 +940,7 @@ class Mission
 					showWP="NEVER";
 					id=177;
 					type="Move";
-					atlOffset=5.7310658;
+					atlOffset=5.730999;
 				};
 				class Item3
 				{
@@ -9367,20 +9368,22 @@ class Mission
 		class Item247
 		{
 			dataType="Marker";
-			position[]={9062.5215,357.44611,14121.026};
+			position[]={9132.4053,374.13623,13781.556};
 			name="introPlane1";
 			type="mil_arrow2";
 			angle=173.48003;
 			id=1000;
+			atlOffset=-1.9248352;
 		};
 		class Item248
 		{
 			dataType="Marker";
-			position[]={9100.1436,370.06531,14123.972};
+			position[]={9199.9414,354.37842,13789.086};
 			name="introPlane2";
 			type="mil_arrow2";
-			angle=172.85374;
+			angle=172.77611;
 			id=1001;
+			atlOffset=-22.838257;
 		};
 		class Item249
 		{

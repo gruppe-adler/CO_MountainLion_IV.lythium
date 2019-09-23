@@ -25,8 +25,8 @@ private _introVehicles = _vehicleDefinitions call GRAD_introCam_fnc_playRecord;
 
 
 private _camDefinitions = [
-    ["FREE", getPos intro_camPos1, getPos intro_camPos2, intro_camTarget1, intro_camTarget2, 35.4, 0, 0.4, 0.2, [0,0,0], [0,0,0]],
-	["FREE", getPos intro_camPos2, getPos intro_camPos3, intro_camTarget2, _introVehicles select 1, 28, 0, 0.2, 0.1, [0,0,0], [0,0,5]],
+    ["FREE", getPos intro_camPos1, getPos intro_camPos2, intro_camTarget1, intro_camTarget2, 38.4, 0, 0.4, 0.2, [0,0,0], [0,0,0]],
+	["FREE", getPos intro_camPos2, getPos intro_camPos3, intro_camTarget2, _introVehicles select 1, 25, 0, 0.2, 0.1, [0,0,0], [0,0,5]],
 	["FREE", getPos intro_camPos3, getPos intro_end, _introVehicles select 1, intro_end2, 63.4, 0, 0.1, 0.2, [0,0,5], [0,0,2]]
 ];
 
@@ -35,3 +35,7 @@ private _camDefinitions = [
 {
   	[_x] call GRAD_introCam_fnc_addShot;
 } forEach _camDefinitions;
+
+[{
+    BRIEFING_DONE = true;
+}, [], 63] call CBA_fnc_waitAndExecute;
