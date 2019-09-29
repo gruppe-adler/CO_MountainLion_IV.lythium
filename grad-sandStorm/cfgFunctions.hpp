@@ -5,6 +5,7 @@ class GRAD_sandstorm {
 
           class addLeaves;
           class addLODTrigger;
+          class addModule { postInit = 1; };
           class addPostProcessing;
           class addSandWallLocal;
 

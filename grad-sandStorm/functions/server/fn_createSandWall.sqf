@@ -10,7 +10,7 @@ params ["_position", "_size", "_speed", "_dir"];
 
 private _existingSandstormsCount = missionNamespace getVariable ["GRAD_sandstorm_existingSandstormCount", 0];
 private _id = _existingSandstormsCount + 1;
-missionNamespace setVariable ["GRAD_sandstorm_existingSandstormCount", _id];
+missionNamespace setVariable ["GRAD_sandstorm_existingSandstormCount", _id, true];
 
 private _identifier = format ["GRAD_sandstorm_id%1", _id];
 
@@ -46,6 +46,10 @@ setWind [0,1,true];
 0 setWindDir _dir;
 private _wSpeed = [wind, _speed] call BIS_fnc_vectorMultiply;
 setWind [_wSpeed select 0, _wSpeed select 1, true];
+
+missionNamespace setVariable [_identifier + "_speed", _speed, true];
+
+_speed = { missionNamespace getVariable [_identifier + "_speed", 0] };
 // 5 setGusts 0.35;
 
 private _markerstr = createMarker [format ["grad-sandstorm_debugmarker_%1", _identifier], _position];
@@ -98,4 +102,14 @@ diag_log "add server marker";
         systemChat "deleting trigger out of map";
     };
     
-}, 1, [_helperObject, _trigger, _triggerSound, _size, _speed, _markerstr]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_helperObject, _trigger, _triggerSound, _size, _speed, _markerstr, _identifier]] call CBA_fnc_addPerFrameHandler;
+
+
+["GRAD_sandstorm_parametersEdited", {
+    params ["_id", "_speed", "_windDirection"];
+
+    private _identifier = format ["GRAD_sandstorm_id%1", _id];
+    missionNamespace setVariable [_identifier + "_speed", _speed, true];
+    setWindDir _windDirection;
+
+}] call CBA_fnc_addEventhandler;
