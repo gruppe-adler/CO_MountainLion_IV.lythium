@@ -1,4 +1,6 @@
+// now client loop
 [{
+
     {
         // check if veh should be active
         if ([_x] call grad_rotorwash_fnc_isActive && GRAD_ROTORWASH_ACTIVE) then {
@@ -7,18 +9,20 @@
 
                 // add vehicle to active list and activate emitters on clients
                 GRAD_ROTORWASH_VEHICLES_ACTIVE = GRAD_ROTORWASH_VEHICLES_ACTIVE + [_x];
+                publicVariable "GRAD_ROTORWASH_VEHICLES_ACTIVE";
 
-                _point = [_x] call grad_rotorwash_fnc_getWashOrigin;
-                _color = [_point] call grad_rotorwash_fnc_getSurfaceColor;
-                [_x, _point, _color, true] remoteExec ["grad_rotorwash_fnc_adjustParams", 0, false];
+                private _point = [_x] call grad_rotorwash_fnc_getWashOrigin;
+                private _color = [_point] call grad_rotorwash_fnc_getSurfaceColor;
+                [_x, _point, _color] call grad_rotorwash_fnc_adjustParams;
+                [_x] remoteExecCall ["grad_rotorwash_fnc_emitterActivate", [0,-2] select isDedicated];
 
             } else {
             
                 // adjust emitter color
-                _point = [_x] call grad_rotorwash_fnc_getWashOrigin;
-                _color = [_point] call grad_rotorwash_fnc_getSurfaceColor;
+                private _point = [_x] call grad_rotorwash_fnc_getWashOrigin;
+                private _color = [_point] call grad_rotorwash_fnc_getSurfaceColor;
 
-                [_x, _point, _color] remoteExec ["grad_rotorwash_fnc_adjustParams", 0, false];
+                [_x, _point, _color] call grad_rotorwash_fnc_adjustParams;
             };
         } else {
             // do nothing for helis without reason
@@ -26,7 +30,8 @@
 
                 // remove vehicle from active list and deactivate emitters on clients
                 GRAD_ROTORWASH_VEHICLES_ACTIVE = GRAD_ROTORWASH_VEHICLES_ACTIVE - [_x];
-                [_x] remoteExec ["grad_rotorwash_fnc_emitterDeactivate", 0, false];  
+                publicVariable "GRAD_ROTORWASH_VEHICLES_ACTIVE";
+                [_x] remoteExecCall ["grad_rotorwash_fnc_emitterDeactivate", [0,-2] select isDedicated];  
             };
         };
 

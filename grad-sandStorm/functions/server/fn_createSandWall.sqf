@@ -6,26 +6,30 @@
 
 */
 
-params ["_position", "_size", "_speed", "_dir", ["_id",0]];
+params ["_position", "_size", "_speed", "_dir"];
+
+private _existingSandstormsCount = missionNamespace getVariable ["GRAD_sandstorm_existingSandstormCount", 0];
+private _id = _existingSandstormsCount + 1;
+missionNamespace setVariable ["GRAD_sandstorm_existingSandstormCount", _id];
 
 private _identifier = format ["GRAD_sandstorm_id%1", _id];
 
-private _trigger = createTrigger ["EmptyDetector", _position];
-_trigger setTriggerArea [_size, _size, 0, false];
+private _trigger = createTrigger ["EmptyDetector", _position, true];
+[ _trigger, [_size, _size, 0, false] ] remoteExec [ "setTriggerArea", 0, true ];
 
 // trigger for activating sound earlier than VFX
-private _triggerSound = createTrigger ["EmptyDetector", _position];
-_triggerSound setTriggerArea [(_size+250), (_size+250), 0, false];
-
+private _triggerSound = createTrigger ["EmptyDetector", _position, true];
+[ _triggerSound, [(_size+250), (_size+250), 0, false] ] remoteExec [ "setTriggerArea", 0, true ];
 
 private _helperObject = "ProtectionZone_Ep1" createVehicle _position;
+_helperObject setObjectTextureGlobal [0, "#(rgb,8,8,3)color(0,0,0,0)"];
 _helperObject setPosASL [_position select 0, _position select 1, 0];
 _helperObject setVectorUp [0,0,1];
 _trigger attachTo [_helperObject];
 _triggerSound attachTo [_helperObject];
 
-systemChat "add server wall";
-diag_log "add server wall";
+// systemChat "add server wall";
+// diag_log "add server wall";
 
 [
     _trigger, 
@@ -38,10 +42,9 @@ diag_log "add server wall";
 
 missionNamespace setVariable [_identifier, _trigger, true];
 
-setWind [0,0,true];
+setWind [0,1,true];
 0 setWindDir _dir;
-0 setWindForce 0.5;
-private _wSpeed = [wind, _speed*4] call BIS_fnc_vectorMultiply;
+private _wSpeed = [wind, _speed] call BIS_fnc_vectorMultiply;
 setWind [_wSpeed select 0, _wSpeed select 1, true];
 // 5 setGusts 0.35;
 
@@ -49,14 +52,14 @@ private _markerstr = createMarker [format ["grad-sandstorm_debugmarker_%1", _ide
 _markerstr setMarkerShape "ELLIPSE";
 _markerstr setMarkerSize [_size, _size];
 _markerstr setMarkerColor "ColorRed";
-_markerstr setMarkerAlpha 0.5;
+_markerstr setMarkerAlpha 0;
 
 systemChat "add server marker";
 diag_log "add server marker";
 
 [{
     params ["_args", "_handle"];
-    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_speed", "_dir", "_markerstr"];
+    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_speed", "_markerstr"];
 
     if (isNull _helperObject) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -64,6 +67,8 @@ diag_log "add server marker";
         deleteVehicle _trigger;
         deleteVehicle _triggerSound;
     };
+
+    private _dir = windDir;
 
     private _newPos = (getPos _helperObject) getPos [_speed, _dir];
     _helperObject setPosASL _newPos;
@@ -77,12 +82,13 @@ diag_log "add server marker";
         _vehicle = _x;
         
         if (count ([_vehicle] inAreaArray _trigger) > 0) then {
-            private _fog =  [0.3 + random 0.1, 0.003, 0];
-            missionNamespace setVariable ["GRAD_sandstorm_fogValue", _fog, true];
-
-            [_vehicle] call GRAD_sandstorm_fnc_addDamage;
+            // [_vehicle] call GRAD_sandstorm_fnc_addDamage; // todo enable
         };
     } forEach vehicles;
+
+    
+    private _fog =  [(0.3 + random 0.1), 0.003, 0];
+    missionNamespace setVariable ["GRAD_sandstorm_fogValue", _fog, true];
 
 
     _newPos params ["_xPos", "_yPos"];
@@ -92,4 +98,4 @@ diag_log "add server marker";
         systemChat "deleting trigger out of map";
     };
     
-}, 1, [_helperObject, _trigger, _triggerSound, _size, _speed, _dir, _markerstr]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_helperObject, _trigger, _triggerSound, _size, _speed, _markerstr]] call CBA_fnc_addPerFrameHandler;

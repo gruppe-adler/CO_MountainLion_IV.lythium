@@ -3,8 +3,8 @@ class GRAD_rotorwash {
 	class client {
 		file = grad-rotorwash\functions\client;
 
-		class adjustParams {};
-		class clientLoop {};
+		class adjustEmittersLocal {};
+		class clientLoop { postinit = 1; };
 		class createLingerEmitter {};
 		class createStoneEmitter {};
 		class createWashEmitter {};
@@ -18,6 +18,7 @@ class GRAD_rotorwash {
 		file = grad-rotorwash\functions\server;
 		
 		class addVehicle {};
+		class adjustParams {};
 		class autoInit { postinit = 1; };
 		class getSurfaceColor {};
 		class getWashOrigin {};

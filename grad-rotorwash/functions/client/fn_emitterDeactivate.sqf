@@ -1,7 +1,11 @@
-params ["_heli"];
+params ["_vehicle"];
 
-_emitters = _heli getVariable ["grad_rotorwash_emittersActive", []];
+private _emitters = _vehicle getVariable ["grad_rotorwash_emittersActive", []];
 
 {
 	deleteVehicle _x;
 } forEach _emitters;
+
+_vehicle setVariable ["grad_rotorwash_emittersActive", []];
+
+/*systemChat "deleting emitters";*/

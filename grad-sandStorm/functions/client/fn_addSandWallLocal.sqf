@@ -99,16 +99,19 @@ if (!GRAD_SANDSTORM_DEBUG) then {
             player setVariable ["isInsideSandstorm", true];
             player setVariable ["isInsideSandstormPP", _pp];
             player setVariable ["isInsideSandstormLeaves", _leaves];  
+
+            player setVariable ["tf_receivingDistanceMultiplicator", 4];
+            player setVariable ["tf_sendingDistanceMultiplicator", 0.25];
         };
 
-        [_updateRate] call GRAD_sandstorm_fnc_adjustFog;
+        [_updateRate, true] call GRAD_sandstorm_fnc_adjustFog;
         private _inBuilding = [_updateRate] call GRAD_sandstorm_fnc_adjustEffects;
         if (!_inBuilding) then {
             [] call GRAD_sandstorm_fnc_createParticleClose;
         };
 
     } else {
-        _updateRate setFog [0.01,0.003,00]; // reset fog
+        [_updateRate, false] call GRAD_sandstorm_fnc_adjustFog;
         setAperture -1;
 
         if (player getVariable ["isInsideSandstorm", false]) then {
@@ -116,6 +119,9 @@ if (!GRAD_SANDSTORM_DEBUG) then {
             private _pp = player getVariable ["isInsideSandstormPP", []];
             private _leaves = player getVariable ["isInsideSandstormLeaves", []];
             [_pp] call GRAD_sandstorm_fnc_removePostProcessing;
+
+            player setVariable ["tf_receivingDistanceMultiplicator", 1];
+            player setVariable ["tf_sendingDistanceMultiplicator", 1];
 
             {
                 deleteVehicle _x;

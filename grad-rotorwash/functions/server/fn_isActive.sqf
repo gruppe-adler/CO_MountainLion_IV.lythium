@@ -3,6 +3,6 @@ params ["_vehicle"];
 (
 	isEngineOn _vehicle && 
 	{ getPosATL _vehicle select 2 < GRAD_ROTORWASH_MAX_HEIGHT } &&
-    { _vehicle getSoundController "rpm" > 10000 } &&
-    { speed _vehicle < 10 }
+    { speed _vehicle < 20 } &&
+    { GRAD_ROTORWASH_ACTIVE }
 )

@@ -18,17 +18,18 @@ private _shakepower = 0.5 + random 0.5;
 private _shakeduration = _duration;
 private _shakefreq = 3 + random 1;
 
-private _apertureInVehicle = [2, 40, 50, 0];
-private _apertureInOpenVehicle = [2, 90, 100, 0];
-private _apertureInBuilding = [2, 40, 50, 0];
-private _apertureOutsideGoggles = [2, 60, 70, 0];
-private _apertureOutsideNoGoggles = [2, 90, 100, 0];
+private _apertureInVehicle = 15;
+private _apertureInOpenVehicle = 20;
+private _apertureInBuilding = 20;
+private _apertureOutsideGoggles = 15;
+private _apertureOutsideNoGoggles = 20;
 
 
 
 
 private _originalVolume = 1;
 
+// todo doesnt work
 if (_vehicleState > 1) then {
     if (_inVehicle) then {
         // Covered vehicle - attenuate sound, reduce camshake and film grain and particles
@@ -36,7 +37,7 @@ if (_vehicleState > 1) then {
         // todo: widen radius of particle sources to not interfere
         if (_vehicle isKindOf "Air" && {(getPos _vehicle) select 2 > 0}) then {
             // not in sync
-            addCamShake [(_shakepower), _shakeduration, _shakefreq];
+            addCamShake [(_shakepower*4), _shakeduration, _shakefreq];
             if (GRAD_SANDSTORM_DEBUG) then {
                 systemChat format ["player inside air vehicle"];
             };
@@ -49,14 +50,14 @@ if (_vehicleState > 1) then {
         0.1 fadeMusic 0.35;
         _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
-        setApertureNew _apertureInVehicle;
+        setAperture _apertureInVehicle;
     } else {
         // Open vehicle - slight attenuation, reduce camshake, normal film grain
         addCamShake [(_shakepower/2), _shakeduration, _shakefreq];
         0.1 fadeMusic 0.85;
         _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
-        setApertureNew _apertureInOpenVehicle;
+        setAperture _apertureInOpenVehicle;
     };
 };
 
@@ -75,7 +76,7 @@ if (_inBuilding) then {
 
     0.2 fadeMusic 0.50;
 
-    setApertureNew _apertureInBuilding;
+    setAperture _apertureInBuilding;
 
     {if (_building animationPhase _x > 0.2) then {nearestdoor = _x}} forEach _doors;
 
@@ -100,7 +101,7 @@ if (_vehicleState == 1 && !_inBuilding) then {
             systemChat format ["player with goggles"];
         };
         */
-        setApertureNew _apertureOutsideGoggles;
+        setAperture _apertureOutsideGoggles;
     } else {
         _ppGrain ppEffectAdjust [0.08, 1.25, 2.05, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
@@ -110,10 +111,10 @@ if (_vehicleState == 1 && !_inBuilding) then {
             systemChat format ["player no goggles"];
         };
         */
-        setApertureNew _apertureOutsideNoGoggles;
+        setAperture _apertureOutsideNoGoggles;
     };
     enableCamShake true;
-    addCamShake [_shakepower, _shakeduration, _shakefreq];
+    addCamShake [_shakepower/3, _shakeduration/2, _shakefreq];
     0.5 fadeMusic _originalVolume;
     
 };

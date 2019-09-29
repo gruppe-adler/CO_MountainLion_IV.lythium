@@ -7,18 +7,9 @@
     params ["_args", "_handle"];
     _args params [];
 
-    if (call grad_rotorwash_fnc_isActive) then {
-        diag_log format ["is active"];
-
-        _point = [vehicle player] call grad_rotorwash_fnc_getWashOrigin;
-
-        [_washEmitter, _lingerEmitter, _point] call grad_rotorwash_fnc_adjustParams;
-
-    } else {
-        diag_log format ["hidden"];
-
-        [_washEmitter] call grad_rotorwash_fnc_hideEmitter;
-    };
+    {
+        [_x] call grad_rotorwash_fnc_adjustEmittersLocal;
+    } forEach GRAD_ROTORWASH_VEHICLES_ACTIVE;
 
     // placeholder
     if (false) exitWith {

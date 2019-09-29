@@ -1,36 +1,26 @@
-params ["_heli"];
+params ["_vehicle"];
 
-private _color = _heli getVariable ["grad_rotorwash_colors", [0,0,0]];
-_color params ["_grad_colorR", "_grad_colorG", "_grad_ColorB"];
-
-private _grad_dust = "#particlesource" createVehicleLocal [
-	getpos _heli select 0,
-	getPos _heli select 1,
+private _wash = "#particlesource" createVehicleLocal [
+	0,
+	0,
 	0
-]; 
+];  
 
-/* _grad_dust setParticleCircle [10, [0, 0, 0]]; */
+private _washSettings = _vehicle getVariable ["GRAD_rotorWash_wash", [
+    [],
+    [],
+    [],
+    []
+]];
 
-_grad_dust setParticleParams [
-		["\A3\data_f\cl_basic", 1, 0, 1],
-		 "", "Billboard", 1, grad_lifetime, 
-		 [0, 0, 0], 
-		 [grad_intensity, grad_intensity, grad_uplift], 0.3, 
-		 grad_weight,
-		 grad_volume,
-		 grad_rubbing,
-		 [7, 7, 8, 9, 11], 
-		 [
-		 	[0, 0, 0, 1],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, grad_transparency],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, grad_transparency],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, grad_transparency],
-		 	[_grad_colorR, _grad_colorG, _grad_colorB, 0]
-		 ], 
-		 [0.08], 0, 0, "", "", _grad_dust, 0, true, grad_bounce];
+_washSettings params ["_washPos", "_washParticleCircle", "_washParticleParams", "_washParticleRandom"];
 
+_wash setPos _washPos;
+_wash setParticleCircle _washParticleCircle;
+_washParticleParams set [18, _wash];
+_wash setParticleParams _washParticleParams;
+// _wash setParticleRandom _washParticleRandom;
 
-_grad_dust setDropInterval grad_interval;
+_wash setDropInterval 0.04;
 
-/* _grad_dust setParticleRandom [10, [0.25, 0.25, 0], [1, 1, 0], 1, 1, [0, 0, 0, 0.1], 0, 0];*/	
-_grad_dust
+_wash
