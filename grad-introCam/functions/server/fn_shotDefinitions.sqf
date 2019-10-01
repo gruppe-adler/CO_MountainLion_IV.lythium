@@ -18,7 +18,10 @@ private _vehicleDefinitions = [
         ["bwi_a3_at6b", "introPlane1"],
         ["bwi_a3_at6b", "introPlane2"]
     ],
-    getMarkerPos "introPlaneWaypoint"
+    [
+        "introPlaneWaypoint1",
+        "introPlaneWaypoint2"
+    ]
 ];
 
 private _introVehicles = _vehicleDefinitions call GRAD_introCam_fnc_playRecord;

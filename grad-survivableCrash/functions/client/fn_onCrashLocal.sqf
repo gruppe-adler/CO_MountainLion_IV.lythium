@@ -1,14 +1,20 @@
-params ["_unit"];
+params ["_unit", "_veh"];
 
 
 [_unit, 0.5] call ace_medical_fnc_adjustPainLevel;
 [_unit, true, 3 + random 30] call ace_medical_fnc_setUnconscious;
 _unit allowDamage false;
+
+_unit unassignItem "itemmap";_unit removeItem "itemmap";
+_unit unassignItem "itemgps";_unit removeItem "itemgps";
 	
 if (_unit == player) then {
 	addCamShake [10, 2, 15];
 };
 
+_veh say3D ["vehicle_collision",150];
+_veh say3D ["vehicle_drag_end",150];
+_veh say3D ["vehicle_dragging",150];
 
 [{
 	params ["_unit"];
@@ -75,8 +81,9 @@ if (_unit == player) then {
 				params ["_unit"];
 
 				_unit allowDamage true;
+				[_unit, false] call ace_medical_fnc_setUnconscious;
 
-			}, [_unit], 3] call CBA_fnc_waitAndExecute;
+			}, [_unit], 2 + random 15] call CBA_fnc_waitAndExecute;
 
 		}, [_unit]] call CBA_fnc_waitUntilAndExecute;
 

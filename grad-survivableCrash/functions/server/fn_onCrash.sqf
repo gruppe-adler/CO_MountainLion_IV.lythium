@@ -1,10 +1,11 @@
 params ["_veh"];
 
-_veh setDamage .88;
+_veh setHitPointDamage ["HitHull",.88];
 _veh setHitPointDamage ["HitFuel",.88];
-// _veh setHitPointDamage ["HitHRotor",.88];
-_veh setHitPointDamage ["HitVRotor",.88];
-_veh setHitPointDamage ["HitEngine",.88];
+_veh setHitPointDamage ["HitHRotor",.88];
+// _veh setHitPointDamage ["HitVRotor",.88];
+_veh setHitPointDamage ["HitEngine",1];
+_veh setHitPointDamage ["hitavionics",1];
 
 [[10, 2, 15]] remoteExecCall ["addCamShake", [0,-2] select isDedicated];
 
@@ -27,8 +28,30 @@ _veh allowDamage false;
 
 	// trigger ejection and effects on crew
 	{
-		[_x] remoteExecCall ["GRAD_survivableCrash_fnc_onCrashLocal", _x];
+		[_x, _veh] remoteExecCall ["GRAD_survivableCrash_fnc_onCrashLocal", _x];
 	} forEach crew _veh;
+
+
+	[{
+		params ["_veh"];
+		count (crew _veh) < 1
+	},{
+		params ["_veh"];
+		_veh setVehicleLock "LOCKED";
+		_veh allowDamage true;
+		{ _veh setHitPointDamage [_x,.7]; } forEach [
+			"hithydraulics",
+			"hittransmission",
+			"glass1",
+			"glass2",
+			"glass3",
+			"glass4",
+			"glass5",
+			"glass6"
+		];
+		_veh allowDamage false;
+
+	}, [_veh]] call CBA_fnc_waitUntilAndExecute;
 
 	// lets vehicle slide a bit
 	/*

@@ -1,11 +1,12 @@
 /*
 
 */
-params ["_vehicles", "_waypointPos"];
+params ["_vehicles", "_waypoints"];
 
 private _spawnedVehicles = [];
+private _waypointsCreated = [];
 private _group = createGroup civilian;
-diag_log format ["vehicles. %1 %2", _vehicles, _waypointPos];
+diag_log format ["vehicles. %1 %2", _vehicles, _waypoints];
 
 {
 	private _vehicleArray = _x;
@@ -34,7 +35,16 @@ diag_log format ["vehicles. %1 %2", _vehicles, _waypointPos];
 _spawnedVehicles joinSilent _group;
 _group setFormation "WEDGE";
 
-private _waypoint = _group addWaypoint [_waypointPos, 0];
-_waypoint setWaypointStatements ["true","{{deleteVehicle _x} forEach crew _x; deleteVehicle _x; } forEach thisList;"];
+{
+	private _pos = getMarkerPos _x;
+	_pos set [2,40];
+  	private _waypoint = _group addWaypoint [_pos, 0];
+  	_waypointsCreated pushBack _waypoint;
+} forEach _waypoints;
+
+(_waypointsCreated select (count _waypointsCreated - 1)) setWaypointStatements [
+	"true","
+	{{deleteVehicle _x} forEach crew _x; deleteVehicle _x; } forEach thisList;"
+];
 
 _spawnedVehicles
