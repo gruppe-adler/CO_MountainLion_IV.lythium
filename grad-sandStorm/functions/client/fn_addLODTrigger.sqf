@@ -5,9 +5,9 @@
 */
 
 
-if (player getVariable ["ODE_LODTriggerCreated", false]) exitWith {};
+if (player getVariable ["GRAD_sandstorm_LODTriggerCreated", false]) exitWith {};
 
-player setVariable ["ODE_LODTriggerCreated", true];
+player setVariable ["GRAD_sandstorm_LODTriggerCreated", true];
 
 
 // distance, multiplier of droprate
@@ -30,9 +30,9 @@ private _LODLevel =
 
 	_trigger attachTo [player];
 
-	private _identifier = format ["ODE_LODTrigger_%1", _forEachIndex];
+	private _identifier = format ["GRAD_sandstorm_LODTrigger_%1", _forEachIndex];
 	player setVariable [_identifier, _trigger];
 
 } forEach _LODLevel;
 
-player setVariable ["ODE_LODTriggerDefinitions", _LODLevel];
+player setVariable ["GRAD_sandstorm_LODTriggerDefinitions", _LODLevel];

@@ -25,7 +25,6 @@ _unit addMPEventHandler ["MPHit", {
 
     _unit removeAllEventHandlers "AnimDone";    
     _unit removeAllMPEventHandlers "MPHit";
-    _unit setUnconscious true;
     _unit setDamage 1;
 }];
 

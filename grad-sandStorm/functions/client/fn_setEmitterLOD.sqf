@@ -10,7 +10,7 @@
 params ["_type", "_helperObject", "_sandstormIdentifier"];
 
 
-private _LODDefinitions = player getVariable ["ODE_LODTriggerDefinitions", []];
+private _LODDefinitions = player getVariable ["GRAD_sandstorm_LODTriggerDefinitions", []];
 private _LODCount = count _LODDefinitions;
 
 // systemChat format ["_arrayOriginal %1", _arrayOriginal];
@@ -24,7 +24,7 @@ for "_i" from 0 to (_LODCount-1) do {
 	(_LODDefinitions select _i) params ["_triggerSize", "_dropRate"];
 	_dropRate params ["_dropRateDefault", "_dropRateFiller"];
 
-	private _triggerIdentifier = format ["ODE_LODTrigger_%1", _i];
+	private _triggerIdentifier = format ["GRAD_sandstorm_LODTrigger_%1", _i];
 	private _trigger = player getVariable [_triggerIdentifier, objNull];
 	private _positions = _arrayWorkingCopy inAreaArray _trigger;
 	private _positionsForThisLOD = _positions arrayIntersect _arrayWorkingCopy;

@@ -4,6 +4,7 @@ class GRAD_fortificationTransport {
         file = grad-fortificationTransport\functions\client;
 
 		class addInteraction;
+        class configureUH60;
         class loadItem;
         class unloadItem;
     };
