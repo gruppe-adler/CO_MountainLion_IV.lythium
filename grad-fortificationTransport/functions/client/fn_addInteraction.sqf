@@ -45,7 +45,7 @@ private _action = ["grad_fortificationtransport_load", "Load " + _displayName, "
 	 params ["_target", "_player", "_params"];
     _params params ["_vehicle", "_item"];   
 
-    systemChat format ["_vehicle %1 - _item %2", _vehicle, _item];
+    // systemChat format ["_vehicle %1 - _item %2", _vehicle, _item];
     [_vehicle, _item] call grad_fortificationTransport_fnc_loadItem;
 }, {
 	 params ["_target", "_player", "_params"];

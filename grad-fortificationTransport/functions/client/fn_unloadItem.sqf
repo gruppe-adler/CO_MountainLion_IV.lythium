@@ -1,22 +1,29 @@
 params ["_item"];
 
-private _unloadTime = 2;
+private _unloadTime = 1;
 
 private _onComplete = {
 	params ["_item"];
 
-	private _pos = (position player) findEmptyPosition [1,25,typeOf _item];
+    private _type = typeOf _item;
+    private _vehicle = _item getVariable ["GRAD_fortificationTransport_loadedOn", objNull];
+    private _vector =  _item getVariable ["GRAD_fortificationTransport_cargoVector", [[0,1,0],[0,0,1]]];
+    private _position = _item getVariable ["GRAD_fortificationTransport_cargoPos", [0,0,0]];
+	
+    detach _item;
+	deleteVehicle _item;
 
-	if (count _pos < 1) exitWith { hint "no empty place for item"; };
+    private _item = createVehicle [_type, player, [], (sizeOf _type * 1.2), "NONE"];// _type createVehicle (position player);
 
-	detach _item;
-	_item setPos _pos;
-
-
+    [_item, -1] call ace_cargo_fnc_setSize;
 	[_item,true,[0,2,0]] call ace_dragging_fnc_setDraggable;
     [_item,true,[0,1.5,0.8]] call ace_dragging_fnc_setCarryable;
 
     _item setVariable ["GRAD_fortificationTransport_loadedOn", objNull, true];
+    _item setVariable ["GRAD_fortificationTransport_cargoVector", _vector, true];
+    _item setVariable ["GRAD_fortificationTransport_cargoPos", _position, true];
+
+    [_vehicle, _item] remoteExec ["GRAD_fortificationTransport_fnc_addInteraction", [0,-2] select isDedicated, true];
 
     private _count = _vehicle getVariable ["GRAD_fortificationTransport_count", 1];
     _vehicle setVariable ["GRAD_fortificationTransport_count", (_count -1), true];
