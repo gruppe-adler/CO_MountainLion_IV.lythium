@@ -1,7 +1,7 @@
 params ["_vehicle", "_item"];
 
 private _loadTime = 1;
-_item enableSimulationGlobal false;
+// _item enableSimulationGlobal false;
 
 private _onComplete = {
 	params ["_params"];
@@ -23,6 +23,10 @@ private _onComplete = {
     private _vector = _item getVariable ["GRAD_fortificationTransport_cargoVector", [[0,1,0],[0,0,1]]];
     // _pos params ["_posX", "_posY", "_posZ"];
 
+    diag_log format ["logging cargopos load  %1", _pos];
+
+    _pos set [2,0];
+
     _item attachTo [_vehicle, _pos];
     _item setVectorDirAndUp _vector;
 
@@ -37,7 +41,7 @@ private _onCancel = {
     _params params ["_vehicle", "_item"];
 
 	hint "aborted loading";
-    _item enableSimulationGlobal true;
+    // _item enableSimulationGlobal true;
 };
 
 
