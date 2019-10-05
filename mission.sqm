@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1264;
+		nextID=1267;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={11550.648,47.040993,2468.9717};
-		dir[]={0.62883061,-0.69762117,0.3435297};
-		up[]={0.61222917,0.716461,0.33446109};
-		aside[]={0.47944719,1.792796e-008,-0.87762684};
+		pos[]={11641.448,61.092804,2511.4968};
+		dir[]={0.22623685,-0.58679694,-0.77756763};
+		up[]={0.16394058,0.80972207,-0.5634557};
+		aside[]={-0.96023506,4.2418833e-008,-0.27938387};
 	};
 };
 binarizationWanted=0;
@@ -896,7 +896,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=380;
+		items=383;
 		class Item0
 		{
 			dataType="Logic";
@@ -8731,11 +8731,11 @@ class Mission
 		class Item214
 		{
 			dataType="Marker";
-			position[]={11164.394,23.225,2142.373};
+			position[]={11094.953,23.307617,2125.6543};
 			name="mrk_natobase";
 			type="flag_NATO";
 			id=254;
-			atlOffset=-0.00036621094;
+			atlOffset=-1.2597809;
 		};
 		class Item215
 		{
@@ -13095,8 +13095,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11666.612,25.752113,2477.0991};
-				angles[]={0,3.1312604,0.00083775807};
+				position[]={11678.916,25.756929,2479.207};
+				angles[]={0,3.1312604,0};
 			};
 			side="Empty";
 			flags=4;
@@ -13107,7 +13107,6 @@ class Mission
 			};
 			id=1227;
 			type="UK3CB_BAF_MAN_HX58_Cargo_Sand_A_DDPM_RM";
-			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13720,7 +13719,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{[this, -1] call ace_cargo_fnc_setSpace; [this] call GRAD_missionControl_fnc_addFortifications;}";
+				init="call{[this, -1] call ace_cargo_fnc_setSpace; [this] call grad_missionControl_fnc_addFortifications;}";
 			};
 			id=1244;
 			type="UK3CB_BAF_MAN_HX58_Container_Sand";
@@ -13920,6 +13919,49 @@ class Mission
 			};
 			id=1263;
 			type="FlagCarrierGermany_EP1";
+		};
+		class Item380
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11679.732,24.210583,2483.6404};
+				angles[]={0,0,0.0014648439};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{[this, -1] call ace_cargo_fnc_setSpace; [this] call grad_missionControl_fnc_addFortifications;}";
+			};
+			id=1264;
+			type="UK3CB_BAF_MAN_HX58_Container_Sand";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item381
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12119.457,26.673031,2128.385};
+			};
+			name="location_south";
+			init="call{private _location = createLocation [""NameCityCapital"", position this, 100, 100];  " \n "_location setText ""Chaghcharan Airport"";}";
+			id=1265;
+			type="Logic";
+		};
+		class Item382
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12072.576,341.94846,18146.098};
+				angles[]={-0,0,6.2826972};
+			};
+			name="location_north";
+			init="call{private _location = createLocation [""NameCityCapital"", position this, 100, 100];  " \n "_location setText ""Mazar-i-Sharif Airport"";}";
+			id=1266;
+			type="Logic";
 		};
 	};
 };

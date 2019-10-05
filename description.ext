@@ -60,16 +60,76 @@ class Loadouts {
 class CfgGradFortifications {
     canDemolishDefault = 1;
     demolitionTimeFactor = 1;
-    playerInventorySize = 500;
+    playerInventorySize = 1;
     vehicleInventorySizeFactor = 2;
 
     class Fortifications {
+        class Land_CncBarrier_stripes_F {
+              buildTime = 3;
+              packUpTime = 3;
+              size = 1;
+        };
+        class Land_CncBarrierMedium_F {
+              buildTime = 3;
+              packUpTime = 3;
+              size = 1;
+        };
+        class RoadBarrier_F {
+              buildTime = 0;
+              packUpTime = 0;
+              size = 1;
+        };
+        class CUP_SignT_Stop {
+              buildTime = 0;
+              packUpTime = 0;
+              size = 1;
+        };
+        class RoadBarrier_small_F {
+              buildTime = 0;
+              packUpTime = 0;
+              size = 1;
+        };
+        class RoadCone_L_F {
+              buildTime = 0;
+              packUpTime = 0;
+              size = 1;
+        };
+        class RoadCone_F {
+              buildTime = 0;
+              packUpTime = 0;
+              size = 1;
+        };
+        class Sign_Checkpoint_TK_EP1 {
+              buildTime = 0;
+              packUpTime = 0;
+              size = 1;
+        };
+        class Land_GuardShed {
+              buildTime = 20;
+              packUpTime = 20;
+              size = 1;
+        };
+        class Flag_NATO_F {
+              buildTime = 5;
+              packUpTime = 5;
+              size = 1;
+        };
+        class Flag_UK_F {
+              buildTime = 5;
+              packUpTime = 5;
+              size = 1;
+        };
+        class FlagCarrierGermany_EP1 {
+              buildTime = 5;
+              packUpTime = 5;
+              size = 1;
+        };
     };
 
     class Vehicles {
         class UK3CB_BAF_MAN_HX58_Container_Sand {
             isStorage = 1;
-            vehicleInventorySize = 30;
+            vehicleInventorySize = 4000;
         };
     };
 };

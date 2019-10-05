@@ -52,7 +52,8 @@ private _action = ["grad_fortificationtransport_load", "Load " + _displayName, "
     _params params ["_vehicle", "_item"];
 
 	isNull (_item getVariable ["GRAD_fortificationTransport_loadedOn", objNull]) && 
-	_vehicle distance _item < ((sizeOf typeof _item) * 3)
+    { _vehicle animationSourcePhase "container_hide" == 1  &&
+	 _vehicle distance _item < ((sizeOf typeof _item) * 3) }
 }, nil, [_vehicle, _item]] call ace_interact_menu_fnc_createAction;
 
 [_item, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
