@@ -16,6 +16,7 @@ class grad_missionControl {
 		  file = grad-missionControl\functions\server;
 
       class addApacheDestruction;
+      class addFortifications;
       class addIntel;
       class alertUnits;
       class createChairCircle;

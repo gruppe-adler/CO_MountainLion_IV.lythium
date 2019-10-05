@@ -1,3 +1,5 @@
+#define MODULES_DIRECTORY node_modules
+
 author = "Nomisum for Gruppe Adler";  //appears as author in overview and loading screen
 
 enableDebugConsole = 1;
@@ -21,8 +23,15 @@ class Header
 };
 
 #include "node_modules\grad-customGear\saveDialog\dialog.hpp"
+#include "node_modules\grad-fortifications\grad_fortifications.hpp"
+
+
+class RscTitles {
+    #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
+};
 
 class cfgFunctions {
+  #include "node_modules\grad-fortifications\cfgFunctions.hpp"
   #include "grad-survivableCrash\cfgFunctions.hpp"
   #include "grad-sandstorm\cfgFunctions.hpp"
   #include "grad-enhancedDesert\cfgFunctions.hpp"
@@ -48,6 +57,22 @@ class Loadouts {
     };
 };
 
+class CfgGradFortifications {
+    canDemolishDefault = 1;
+    demolitionTimeFactor = 1;
+    playerInventorySize = 500;
+    vehicleInventorySizeFactor = 2;
+
+    class Fortifications {
+    };
+
+    class Vehicles {
+        class UK3CB_BAF_MAN_HX58_Container_Sand {
+            isStorage = 1;
+            vehicleInventorySize = 30;
+        };
+    };
+};
 
 class cfgSounds {
 

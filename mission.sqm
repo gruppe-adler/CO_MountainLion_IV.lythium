@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1245;
+		nextID=1264;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={11560.661,39.619034,2464.3521};
-		dir[]={0.49380156,-0.68451321,0.53636301};
-		up[]={0.463635,0.72899419,0.50359792};
-		aside[]={0.73571795,1.9895379e-007,-0.67733717};
+		pos[]={11550.648,47.040993,2468.9717};
+		dir[]={0.62883061,-0.69762117,0.3435297};
+		up[]={0.61222917,0.716461,0.33446109};
+		aside[]={0.47944719,1.792796e-008,-0.87762684};
 	};
 };
 binarizationWanted=0;
@@ -109,7 +109,8 @@ addons[]=
 	"CUP_Editor_Signs_Config",
 	"A3_Characters_F_Exp_Civil",
 	"UK3CB_BAF_Units_MTP",
-	"UK3CB_BAF_Vehicles_MAN"
+	"UK3CB_BAF_Vehicles_MAN",
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
@@ -895,7 +896,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=368;
+		items=380;
 		class Item0
 		{
 			dataType="Logic";
@@ -13719,10 +13720,206 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{[this, -1] call ace_cargo_fnc_setSpace }";
+				init="call{[this, -1] call ace_cargo_fnc_setSpace; [this] call GRAD_missionControl_fnc_addFortifications;}";
 			};
 			id=1244;
 			type="UK3CB_BAF_MAN_HX58_Container_Sand";
+		};
+		class Item368
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11583.161,23.703854,2454.7559};
+				angles[]={0,3.3220456,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="call{[logistikTruck, this] call GRAD_fortificationTransport_fnc_configureForVehicle;}";
+			};
+			id=1245;
+			type="Land_CncBarrierMedium_F";
+		};
+		class Item369
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11587.798,25.140335,2450.1084};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[logistikTruck, this] call GRAD_fortificationTransport_fnc_configureForVehicle;}";
+			};
+			id=1246;
+			type="RoadBarrier_F";
+			atlOffset=1.7266674;
+		};
+		class Item370
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11588.996,25.890844,2449.6343};
+				angles[]={0,3.1763771,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[logistikTruck, this] call GRAD_fortificationTransport_fnc_configureForVehicle;}";
+			};
+			id=1247;
+			type="CUP_SignT_Stop";
+			atlOffset=1.7336159;
+		};
+		class Item371
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11587.689,23.499926,2453.4998};
+				angles[]={6.2821498,0,0.0009134906};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1248;
+			type="RoadBarrier_small_F";
+			atlOffset=-5.7220459e-006;
+		};
+		class Item372
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11586.064,23.21096,2453.3901};
+				angles[]={6.2821498,0,0.0009134906};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1249;
+			type="RoadCone_L_F";
+			atlOffset=-3.8146973e-006;
+		};
+		class Item373
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11585.203,23.126328,2453.6277};
+				angles[]={6.2821498,0,0.0009134906};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1250;
+			type="RoadCone_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item374
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11586.335,23.44912,2455.5881};
+				angles[]={6.2821498,0,0.0009134906};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1253;
+			type="Sign_Checkpoint_TK_EP1";
+			atlOffset=-3.8146973e-006;
+		};
+		class Item375
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11585.766,23.245609,2454.6909};
+				angles[]={6.2821498,0,0.0009134906};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1256;
+			type="Land_CncBarrier_stripes_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item376
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11583.063,23.466562,2460.1038};
+				angles[]={0.0027186358,0,0.0009134906};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1260;
+			type="Land_GuardShed";
+		};
+		class Item377
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11580.928,26.835407,2457.634};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1261;
+			type="Flag_NATO_F";
+		};
+		class Item378
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11580.624,26.834202,2456.7268};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1262;
+			type="Flag_UK_F";
+		};
+		class Item379
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11580.401,26.833038,2455.7898};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1263;
+			type="FlagCarrierGermany_EP1";
 		};
 	};
 };
