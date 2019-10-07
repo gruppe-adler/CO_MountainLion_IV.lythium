@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1267;
+		nextID=1270;
 	};
 	class MarkerIDProvider
 	{
-		nextID=9;
+		nextID=10;
 	};
 	class Camera
 	{
-		pos[]={11641.448,61.092804,2511.4968};
-		dir[]={0.22623685,-0.58679694,-0.77756763};
-		up[]={0.16394058,0.80972207,-0.5634557};
-		aside[]={-0.96023506,4.2418833e-008,-0.27938387};
+		pos[]={11666.897,30.761051,2487.2986};
+		dir[]={0.82810557,-0.4162719,-0.37549964};
+		up[]={0.37911052,0.90924221,-0.17190543};
+		aside[]={-0.4129824,1.513632e-006,-0.91076088};
 	};
 };
 binarizationWanted=0;
@@ -896,7 +896,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=383;
+		items=384;
 		class Item0
 		{
 			dataType="Logic";
@@ -9216,32 +9216,35 @@ class Mission
 		class Item238
 		{
 			dataType="Marker";
-			position[]={9236.6846,388.71002,14549.35};
+			position[]={9236.6846,388.70999,14549.35};
 			name="introPlane1";
-			type="mil_arrow2";
-			angle=173.48003;
+			type="Empty";
+			colorName="ColorRed";
+			angle=173.4799;
 			id=1000;
-			atlOffset=-3.0517578e-005;
+			atlOffset=-6.1035156e-005;
 		};
 		class Item239
 		{
 			dataType="Marker";
-			position[]={9304.2207,309.35596,14556.88};
+			position[]={9304.2197,309.35599,14556.88};
 			name="introPlane2";
-			type="mil_arrow2";
-			angle=172.18275;
+			type="Empty";
+			colorName="ColorRed";
+			angle=172.183;
 			id=1001;
-			atlOffset=-86.060791;
+			atlOffset=-86.06076;
 		};
 		class Item240
 		{
 			dataType="Marker";
-			position[]={10564.123,15.235352,3321.6316};
+			position[]={10564.123,15.235,3321.6321};
 			name="introPlaneWaypoint1";
-			type="mil_arrow2";
+			type="Empty";
+			colorName="ColorRed";
 			angle=173.4799;
 			id=1002;
-			atlOffset=-6.6704464;
+			atlOffset=-6.6707926;
 		};
 		class Item241
 		{
@@ -9426,7 +9429,7 @@ class Mission
 			dataType="Marker";
 			position[]={13459.121,12.971,-833.19598};
 			name="introPlaneWaypoint2";
-			type="mil_arrow2";
+			type="Empty";
 			colorName="ColorRed";
 			angle=136.689;
 			id=1018;
@@ -11576,12 +11579,13 @@ class Mission
 		class Item330
 		{
 			dataType="Marker";
-			position[]={7694.9824,208.58717,4293.0625};
+			position[]={7718.271,200.073,4259.542};
 			name="marker_8";
-			type="hd_ambush";
-			angle=182.5686;
+			text=" Establish Road Block";
+			type="mil_box";
+			colorName="ColorWEST";
 			id=1169;
-			atlOffset=15.437698;
+			atlOffset=15.437927;
 		};
 		class Item331
 		{
@@ -13224,6 +13228,7 @@ class Mission
 			class Attributes
 			{
 				init="call{[this , logistikTruck3] call GRAD_fortificationTransport_fnc_configureUH60;}";
+				name="heli";
 				reportOwnPosition=1;
 			};
 			id=1228;
@@ -13962,6 +13967,17 @@ class Mission
 			init="call{private _location = createLocation [""NameCityCapital"", position this, 100, 100];  " \n "_location setText ""Mazar-i-Sharif Airport"";}";
 			id=1266;
 			type="Logic";
+		};
+		class Item383
+		{
+			dataType="Marker";
+			position[]={6900.0801,225.209,4480.0371};
+			name="marker_9";
+			text=" Target Compound";
+			type="hd_objective";
+			colorName="ColorEAST";
+			id=1267;
+			atlOffset=0.00019836426;
 		};
 	};
 };

@@ -16,8 +16,18 @@ private _onComplete = {
     private _item = createVehicle [_type, player, [], (sizeOf _type * 1.2), "NONE"];// _type createVehicle (position player);
 
     [_item, -1] call ace_cargo_fnc_setSize;
-	[_item,true,[0,2,0]] call ace_dragging_fnc_setDraggable;
-    [_item,true,[0,1.5,0.8]] call ace_dragging_fnc_setCarryable;
+
+    if (!(_item isKindOf "Air")) then {
+	    [_item,true,[0,2,0]] call ace_dragging_fnc_setDraggable;
+        [_item,true,[0,1.5,0.8]] call ace_dragging_fnc_setCarryable;
+    };
+    private _blockCargo = _vehicle getVariable ["GRAD_fortificationTransport_blockCargo", objNull];
+    if (!(isNull _blockCargo)) then {
+        _vehicle setVehicleCargo objNull;
+        deleteVehicle _blockCargo;
+    };
+
+    _vehicle enableVehicleCargo true;
 
     _item setVariable ["GRAD_fortificationTransport_loadedOn", objNull, true];
     _item setVariable ["GRAD_fortificationTransport_cargoVector", _vector, true];

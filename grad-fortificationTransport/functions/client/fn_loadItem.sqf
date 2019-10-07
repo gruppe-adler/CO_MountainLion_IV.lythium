@@ -11,10 +11,16 @@ private _onComplete = {
 
     if (
         _item isKindOf "Air" && 
-        _vehicle getVariable ["GRAD_fortificationTransport_count", 0] > 0
+        (count (getVehicleCargo _vehicle))>0
        ) exitWith {
         hint "make room for Helicopter first";
     };
+
+    private _blockCargo = "C_Offroad_01_F" createVehicle [0,0,0];
+    _blockCargo hideObjectGlobal true;
+    _vehicle setVehicleCargo _blockCargo;
+    _vehicle enableVehicleCargo false;
+    _vehicle setVariable ["GRAD_fortificationTransport_blockCargo", _blockCargo, true];
 
     [_item,false] call ace_dragging_fnc_setDraggable;
     [_item,false] call ace_dragging_fnc_setCarryable;
@@ -24,8 +30,6 @@ private _onComplete = {
     // _pos params ["_posX", "_posY", "_posZ"];
 
     diag_log format ["logging cargopos load  %1", _pos];
-
-    _pos set [2,0];
 
     _item attachTo [_vehicle, _pos];
     _item setVectorDirAndUp _vector;
