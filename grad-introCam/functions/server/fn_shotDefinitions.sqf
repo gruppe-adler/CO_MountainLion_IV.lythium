@@ -15,8 +15,8 @@ if (!isServer) exitWith {};
 
 private _vehicleDefinitions = [
     [
-        ["bwi_a3_at6b", "introPlane1"],
-        ["bwi_a3_at6b", "introPlane2"]
+        ["RHSGREF_A29B_HIDF", "introPlane1"],
+        ["RHSGREF_A29B_HIDF", "introPlane2"]
     ],
     [
         "introPlaneWaypoint1",
