@@ -34,7 +34,7 @@ diag_log format ["vehicles. %1 %2", _vehicles, _waypoints];
 
 _spawnedVehicles joinSilent _group;
 _group setFormation "WEDGE";
-_group setSpeedMode "LIMITED";
+_group setSpeedMode "NORMAL";
 
 {
 	private _pos = getMarkerPos _x;

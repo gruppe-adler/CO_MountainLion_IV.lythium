@@ -1,3 +1,9 @@
+if (// isMultiplayer &&
+     !didJIP) then {
+    titleText ["","BLACK FADED",999];
+    0 fadeSound 0;
+};
+
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 player addEventHandler ["HandleRating", {0}];
 

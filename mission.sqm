@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={11616.905,47.853706,2489.6851};
-		dir[]={0.80253595,-0.5680753,-0.18229555};
-		up[]={0.55396616,0.8229745,-0.1258335};
-		aside[]={-0.22150829,2.1304004e-008,-0.9751609};
+		dir[]={0.83533412,-0.52907342,-0.14935656};
+		up[]={0.52081859,0.84857279,-0.093121998};
+		aside[]={-0.17600922,-3.4393452e-008,-0.98439312};
 	};
 };
 binarizationWanted=0;
@@ -9187,24 +9187,24 @@ class Mission
 		class Item237
 		{
 			dataType="Marker";
-			position[]={9236.6846,388.70999,14549.35};
+			position[]={9033.4072,478.97879,15964.887};
 			name="introPlane1";
 			type="Empty";
 			colorName="ColorRed";
 			angle=173.4799;
 			id=1000;
-			atlOffset=-6.1035156e-005;
+			atlOffset=12.440125;
 		};
 		class Item238
 		{
 			dataType="Marker";
-			position[]={9304.2197,309.35599,14556.88};
+			position[]={9100.9424,358.58936,15972.417};
 			name="introPlane2";
 			type="Empty";
 			colorName="ColorRed";
 			angle=172.183;
 			id=1001;
-			atlOffset=-86.06076;
+			atlOffset=-97.313293;
 		};
 		class Item239
 		{
