@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9594.7959,119.20034,8163.9097};
-		dir[]={0.40374216,-0.23359634,0.88456899};
-		up[]={0.09699814,0.97232682,0.21251443};
-		aside[]={0.90973669,-5.052425e-008,-0.41523227};
+		pos[]={10166.594,59.330059,4429.1997};
+		dir[]={-0.098387741,-0.45765683,0.88368708};
+		up[]={-0.050643079,0.88912416,0.45485324};
+		aside[]={0.99387532,-8.3397026e-008,0.11065754};
 	};
 };
 binarizationWanted=0;
@@ -13999,19 +13999,19 @@ class Mission
 		class Item384
 		{
 			dataType="Marker";
-			position[]={9081.7168,146.411,10858.992};
+			position[]={9472.8633,53.313965,8166.6123};
 			name="potCrashSite";
 			text="Pot. Crash Site";
 			type="hd_objective";
 			id=1374;
-			atlOffset=0.00021362305;
+			atlOffset=-50.29557;
 		};
 		class Item385
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9081.7246,151.02487,10858.993};
+				position[]={9472.8643,108.22343,8166.6064};
 			};
 			side="Empty";
 			class Attributes
@@ -14020,7 +14020,7 @@ class Mission
 			};
 			id=1376;
 			type="Sign_Arrow_Blue_F";
-			atlOffset=4.2409973;
+			atlOffset=4.2408295;
 		};
 	};
 };
