@@ -20,6 +20,7 @@ diag_log format ["vehicles. %1 %2", _vehicles, _waypoints];
 	_vehicle setDir _spawnDir;
 	_vehicle setVelocityModelSpace [0, 150, 0];
 	_vehicle flyInHeight 40;
+	_vehicle limitSpeed 200;
 	createVehicleCrew _vehicle;
 	(group _vehicle) setBehaviour "CARELESS";
 	_vehicle engineOn true;
@@ -37,14 +38,13 @@ _group setFormation "WEDGE";
 
 {
 	private _pos = getMarkerPos _x;
-	_pos set [2,40];
+	_pos set [2,60];
   	private _waypoint = _group addWaypoint [_pos, 0];
   	_waypointsCreated pushBack _waypoint;
 } forEach _waypoints;
 
 (_waypointsCreated select (count _waypointsCreated - 1)) setWaypointStatements [
-	"true","
-	{{deleteVehicle _x} forEach crew _x; deleteVehicle _x; } forEach thisList;"
+	"true","{{deleteVehicle _x} forEach crew _x; deleteVehicle _x; } forEach thisList;"
 ];
 
 _spawnedVehicles

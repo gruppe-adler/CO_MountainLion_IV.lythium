@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1281;
+		nextID=1284;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={11473.363,80.370323,2332.374};
-		dir[]={0.24601923,-0.35553163,0.90172094};
-		up[]={0.093582608,0.93466276,0.34300441};
-		aside[]={0.96475351,-6.1932951e-008,-0.26321721};
+		pos[]={11239.784,43.798855,2782.3901};
+		dir[]={0.53256267,-0.36663169,-0.76287228};
+		up[]={0.20986685,0.9303655,-0.30062479};
+		aside[]={-0.81996638,-2.0250445e-007,-0.57242203};
 	};
 };
 binarizationWanted=0;
@@ -110,13 +110,15 @@ addons[]=
 	"UK3CB_BAF_Units_MTP",
 	"UK3CB_BAF_Vehicles_MAN",
 	"A3_Structures_F_Mil_Flags",
-	"RHSGREF_c_A29"
+	"RHSGREF_c_A29",
+	"A3_Misc_F_Helpers",
+	"CUP_CAStructures_E_Misc_Misc_Lamp"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=65;
+		items=67;
 		class Item0
 		{
 			className="A3_Modules_F_Tacops";
@@ -539,6 +541,18 @@ class AddonsMetaData
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
+		class Item65
+		{
+			className="A3_Misc_F";
+			name="Arma 3 - 3D Aids and Helpers";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item66
+		{
+			className="CUP_CAStructures_E_Misc_Misc_Lamp";
+			name="CUP_CAStructures_E_Misc_Misc_Lamp";
+		};
 	};
 };
 randomSeed=16502480;
@@ -899,7 +913,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=384;
+		items=386;
 		class Item0
 		{
 			dataType="Logic";
@@ -13981,6 +13995,61 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item384
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11275.938,31.123627,2720.9939};
+				angles[]={0,2.6954484,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=1281;
+			type="UserTexture10m_F";
+			atlOffset=6.4778271;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="pic\clanlogos.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item385
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11273.501,26.976011,2732.4329};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1283;
+			type="Land_Lamp_Small_EP1";
+			atlOffset=-6.8664551e-005;
 		};
 	};
 };
