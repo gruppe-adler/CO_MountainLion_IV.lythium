@@ -20,7 +20,8 @@ private _vehicleDefinitions = [
     ],
     [
         "introPlaneWaypoint1",
-        "introPlaneWaypoint2"
+        "introPlaneWaypoint2",
+        "introPlaneWaypoint3"
     ]
 ];
 

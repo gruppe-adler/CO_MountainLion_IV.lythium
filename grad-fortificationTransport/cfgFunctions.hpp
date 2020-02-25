@@ -5,6 +5,8 @@ class GRAD_fortificationTransport {
 
 		class addInteraction;
         class configureUH60;
+        class addSpeedLimiter {postInit = 1;};
+        class limitSpeed;
         class loadItem;
         class unloadItem;
     };

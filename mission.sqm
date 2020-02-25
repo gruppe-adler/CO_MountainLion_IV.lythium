@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1380;
+		nextID=1382;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10166.594,59.330059,4429.1997};
-		dir[]={-0.098387741,-0.45765683,0.88368708};
-		up[]={-0.050643079,0.88912416,0.45485324};
-		aside[]={0.99387532,-8.3397026e-008,0.11065754};
+		pos[]={11616.905,47.853706,2489.6851};
+		dir[]={0.80253595,-0.5680753,-0.18229555};
+		up[]={0.55396616,0.8229745,-0.1258335};
+		aside[]={-0.22150829,2.1304004e-008,-0.9751609};
 	};
 };
 binarizationWanted=0;
@@ -106,7 +106,6 @@ addons[]=
 	"gm_vehicles_land_wheeled_u1300l_ge_civ_u1300l",
 	"A3_Signs_F",
 	"CUP_Editor_Signs_Config",
-	"UK3CB_BAF_Vehicles_Servicing",
 	"A3_Characters_F_Exp_Civil",
 	"UK3CB_BAF_Units_MTP",
 	"UK3CB_BAF_Vehicles_MAN",
@@ -118,7 +117,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=67;
+		items=66;
 		class Item0
 		{
 			className="A3_Modules_F_Tacops";
@@ -515,38 +514,33 @@ class AddonsMetaData
 		};
 		class Item61
 		{
-			className="UK3CB_BAF_Vehicles_Servicing";
-			name="UK3CB_BAF_Vehicles_Servicing";
-		};
-		class Item62
-		{
 			className="A3_Characters_F_Exp";
 			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item63
+		class Item62
 		{
 			className="UK3CB_BAF_Units_MTP";
 			name="3CB BAF Units - MTP";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item64
+		class Item63
 		{
 			className="UK3CB_BAF_Vehicles_MAN";
 			name="3CB BAF Vehicles - MAN Truck";
 			author="AUTHOR_3CB";
 			url="www.3commandobrigade.com";
 		};
-		class Item65
+		class Item64
 		{
 			className="RHSGREF_c_A29";
 			name="GREF Super Tucano";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item66
+		class Item65
 		{
 			className="A3_Misc_F";
 			name="Arma 3 - 3D Aids and Helpers";
@@ -913,7 +907,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=386;
+		items=388;
 		class Item0
 		{
 			dataType="Logic";
@@ -14021,6 +14015,56 @@ class Mission
 			id=1376;
 			type="Sign_Arrow_Blue_F";
 			atlOffset=4.2408295;
+		};
+		class Item386
+		{
+			dataType="Marker";
+			position[]={16350.102,9.5900002,-5341.5869};
+			name="introPlaneWaypoint3";
+			type="Empty";
+			colorName="ColorRed";
+			angle=136.689;
+			id=1380;
+			atlOffset=-0.00020217896;
+		};
+		class Item387
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11055.233,42.471535,2914.2559};
+				angles[]={0,2.5398526,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=1381;
+			type="UserTexture10m_F";
+			atlOffset=15.494341;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="pic\clanlogos.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };
