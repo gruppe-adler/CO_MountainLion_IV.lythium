@@ -1,7 +1,7 @@
 params ["_unit", "_veh"];
 
 
-[_unit, 0.5] call ace_medical_fnc_adjustPainLevel;
+// [_unit, 0.5] call ace_medical_fnc_adjustPainLevel;
 [_unit, true, 3 + random 30] call ace_medical_fnc_setUnconscious;
 _unit allowDamage false;
 
