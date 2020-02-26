@@ -49,14 +49,16 @@ setWind [_wSpeed select 0, _wSpeed select 1, true];
 
 missionNamespace setVariable [_identifier + "_speed", _speed, true];
 
-_speed = { missionNamespace getVariable [_identifier + "_speed", 0] };
+private _speed = { missionNamespace getVariable [_identifier + "_speed", 0] };
 // 5 setGusts 0.35;
 
 private _markerstr = createMarker [format ["grad-sandstorm_debugmarker_%1", _identifier], _position];
 _markerstr setMarkerShape "ELLIPSE";
 _markerstr setMarkerSize [_size, _size];
 _markerstr setMarkerColor "ColorRed";
-_markerstr setMarkerAlpha 1;
+
+private _alpha = if (GRAD_SANDSTORM_DEBUG) then { 1 } else { 0 };
+_markerstr setMarkerAlpha _alpha;
 
 systemChat "add server marker";
 diag_log "add server marker";
@@ -77,6 +79,8 @@ diag_log "add server marker";
     private _newPos = (getPos _helperObject) getPos [call _speed, _dir];
     _helperObject setPosASL _newPos;
     _helperObject setVectorUp [0,0,1];
+
+    // hint str _newPos;
 
     // _soundSource setPos _newPos;
     _markerstr setMarkerPos _newPos;
@@ -110,7 +114,9 @@ diag_log "add server marker";
 
     diag_log format ["edited sandstorm parameters: %1 - %2 - %3", _id, _speed, _windDirection];
 
-    private _identifier = format ["GRAD_sandstorm_id%1", _id];
+    private _identifier = format ["GRAD_sandstorm_id%1", parseNumber _id];
+
+    diag_log format ["_identifier: %1 - %2 - %3", _identifier];
     missionNamespace setVariable [_identifier + "_speed", _speed, true];
     0 setWindDir _windDirection;
 

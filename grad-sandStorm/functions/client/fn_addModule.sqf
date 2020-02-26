@@ -14,21 +14,23 @@ private _existingSandstormsCount = missionNamespace getVariable ["GRAD_sandstorm
 private _sandStormIds = [];
 private _sandStormIdentifier = [];
 
-for "_i" from 0 to _existingSandstormsCount do {
-	_sandStormIds pushBackUnique (_i + 1);
-	_sandStormIdentifier pushBackUnique [str _i, str _i];
+if (_existingSandstormsCount < 1) exitWith { hint "no sandstorms active"; };
+
+for "_i" from 1 to (_existingSandstormsCount) do {
+	diag_log format ["i %1", _i];
+	_sandStormIds pushBackUnique _i;
+	_sandStormIdentifier pushBackUnique [str _i, "sandstorm " + str _i];
 };
 
 diag_log format ["sandstormIds: %1", _sandStormIds];
 diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 
 
-
 		["GRAD Sandstorm", [
 		    [
 		    	"COMBO", 
 		    	["Sandstorm ID", "Which sandstorm values below are attributed to"], [
-		    	_sandStormIds, _sandStormIdentifier, 0], 
+		    	_sandStormIds, _sandStormIdentifier, 1], 
 		    	true
 		    ],
 		    [
@@ -40,7 +42,7 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		    [
 		        "SLIDER",
 		        ["Sandstorm Direction", "Direction Sandstorm is moving"],
-		        [0, 360, windDir, {format ["%1 %", round _this]}],
+		        [0, 360, windDir, 1],
 		        true
 		    ]
 		], {
@@ -68,7 +70,7 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 			[
 		        "SLIDER",
 		        ["Sandstorm Radius", "4 - 12km"],
-		        [4, 12, 8, 1],
+		        [4000, 12000, 8000, 1],
 		        true
 		    ],
 		    [
