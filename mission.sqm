@@ -8,18 +8,22 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1382;
+		nextID=1449;
 	};
 	class MarkerIDProvider
 	{
 		nextID=11;
 	};
+	class LayerIndexProvider
+	{
+		nextID=1;
+	};
 	class Camera
 	{
-		pos[]={11616.905,47.853706,2489.6851};
-		dir[]={0.83533412,-0.52907342,-0.14935656};
-		up[]={0.52081859,0.84857279,-0.093121998};
-		aside[]={-0.17600922,-3.4393452e-008,-0.98439312};
+		pos[]={11625.808,35.424713,2485.5618};
+		dir[]={0.84403598,-0.49639291,-0.20298894};
+		up[]={0.48263389,0.86809611,-0.11607242};
+		aside[]={-0.23383115,-7.5087883e-008,-0.97227985};
 	};
 };
 binarizationWanted=0;
@@ -111,13 +115,14 @@ addons[]=
 	"UK3CB_BAF_Vehicles_MAN",
 	"A3_Structures_F_Mil_Flags",
 	"RHSGREF_c_A29",
-	"A3_Misc_F_Helpers"
+	"A3_Misc_F_Helpers",
+	"CUP_CAStructures_PMC_Buildings_Bunker"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=66;
+		items=67;
 		class Item0
 		{
 			className="A3_Modules_F_Tacops";
@@ -547,6 +552,11 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item66
+		{
+			className="CUP_CAStructures_PMC_Buildings_Bunker";
+			name="CUP_CAStructures_PMC_Buildings_Bunker";
+		};
 	};
 };
 randomSeed=16502480;
@@ -907,7 +917,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=388;
+		items=399;
 		class Item0
 		{
 			dataType="Logic";
@@ -14065,6 +14075,186 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item388
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9645.3672,160.59018,9317.1865};
+				angles[]={0.0024958209,0,6.2675819};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=1382;
+			type="Bunker_PMC";
+			atlOffset=-10.203674;
+		};
+		class Item389
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9677.3535,159.17905,9299.2119};
+				angles[]={6.271584,0.71491736,6.2491984};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=1383;
+			type="Bunker_PMC";
+			atlOffset=-9.9776306;
+		};
+		class Item390
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9645.54,157.28535,9301.3408};
+				angles[]={6.0939918,0,6.2675819};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="Bunker1Pos1";
+			};
+			id=1384;
+			type="Land_HelipadEmpty_F";
+		};
+		class Item391
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9667.9385,156.36096,9288.6846};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="Bunker1Pos2";
+			};
+			id=1385;
+			type="Land_HelipadEmpty_F";
+			atlOffset=1.5258789e-005;
+		};
+		class Item392
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10264.245,50.274574,7925.6099};
+				angles[]={0,4.4715161,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=1386;
+			type="Bunker_PMC";
+			atlOffset=-5.2140007;
+		};
+		class Item393
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10276.77,47.741398,7928.9688};
+				angles[]={0,1.0537599,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="Bunker2Pos1";
+			};
+			id=1387;
+			type="Land_HelipadEmpty_F";
+			atlOffset=3.8146973e-005;
+		};
+		class Item394
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10276.351,48.39854,7923.9302};
+				angles[]={0.014416419,0,6.2351189};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=1388;
+			type="Barrel2";
+			atlOffset=-3.8146973e-006;
+		};
+		class Item395
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10275.856,48.42923,7924.4722};
+				angles[]={0.014418897,5.6034651,6.2351141};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=1389;
+			type="Barrel2";
+			atlOffset=-3.8146973e-006;
+		};
+		class Item396
+		{
+			dataType="Layer";
+			name="Camp Ant";
+			id=1426;
+			atlOffset=-0.59482574;
+		};
+		class Item397
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9412.416,93.717636,6825.8589};
+				angles[]={0,3.9217474,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=1447;
+			type="Bunker_PMC";
+			atlOffset=-5.8425369;
+		};
+		class Item398
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9421.9287,89.723373,6835.6641};
+				angles[]={0,1.0537599,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="Bunker3Pos1";
+			};
+			id=1448;
+			type="Land_HelipadEmpty_F";
 		};
 	};
 };
