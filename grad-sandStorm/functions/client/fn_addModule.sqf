@@ -14,10 +14,10 @@ private _existingSandstormsCount = missionNamespace getVariable ["GRAD_sandstorm
 private _sandStormIds = [];
 private _sandStormIdentifier = [];
 
-{
-	_sandStormIds pushBackUnique (_forEachIndex + 1);
-	_sandStormIdentifier pushBackUnique [str _forEachIndex, str _forEachIndex];
-} forEach _existingSandstormsCount;
+for "_i" from 0 to _existingSandstormsCount do {
+	_sandStormIds pushBackUnique (_i + 1);
+	_sandStormIdentifier pushBackUnique [str _i, str _i];
+};
 
 diag_log format ["sandstormIds: %1", _sandStormIds];
 diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
@@ -28,7 +28,9 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		    [
 		    	"COMBO", 
 		    	["Sandstorm ID", "Which sandstorm values below are attributed to"], [
-		    	_sandStormIds, _sandStormIdentifier, 0], true],
+		    	_sandStormIds, _sandStormIdentifier, 0], 
+		    	true
+		    ],
 		    [
 		        "SLIDER",
 		        ["Sandstorm Speed", "0 - 50 kmh recommended"],
@@ -78,19 +80,22 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		    [
 		        "SLIDER",
 		        ["Sandstorm Direction", "Direction Sandstorm is moving"],
-		        [0, 360, windDir, {format ["%1 %", round _this]}],
+		        [0, 360, windDir, 1],
 		        true
 		    ]
 		], {
-		    params ["_dialogValues"];
+		    params ["_dialogValues", "_args"];
+		    _args params ["_position"];
 
 		    _dialogValues params [
 		    	"_radius",
 		        "_speed",
 		        "_windDirection"
 		    ];
+
+		    diag_log format ["creating sandstorm with %1, %2, %3, %4", _position, _radius, _speed, _windDirection];
 		    
 		    [_position, _radius, _speed, _windDirection] remoteExec ["GRAD_sandstorm_fnc_createSandWall", 2];
-		}] call zen_dialog_fnc_create;
+		}, {}, [_position]] call zen_dialog_fnc_create;
 
 }] call zen_custom_modules_fnc_register;

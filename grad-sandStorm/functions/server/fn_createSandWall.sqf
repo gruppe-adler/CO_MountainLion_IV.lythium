@@ -56,7 +56,7 @@ private _markerstr = createMarker [format ["grad-sandstorm_debugmarker_%1", _ide
 _markerstr setMarkerShape "ELLIPSE";
 _markerstr setMarkerSize [_size, _size];
 _markerstr setMarkerColor "ColorRed";
-_markerstr setMarkerAlpha 0;
+_markerstr setMarkerAlpha 1;
 
 systemChat "add server marker";
 diag_log "add server marker";
@@ -74,7 +74,7 @@ diag_log "add server marker";
 
     private _dir = windDir;
 
-    private _newPos = (getPos _helperObject) getPos [_speed, _dir];
+    private _newPos = (getPos _helperObject) getPos [call _speed, _dir];
     _helperObject setPosASL _newPos;
     _helperObject setVectorUp [0,0,1];
 
@@ -112,6 +112,6 @@ diag_log "add server marker";
 
     private _identifier = format ["GRAD_sandstorm_id%1", _id];
     missionNamespace setVariable [_identifier + "_speed", _speed, true];
-    setWindDir _windDirection;
+    0 setWindDir _windDirection;
 
 }] call CBA_fnc_addEventhandler;
