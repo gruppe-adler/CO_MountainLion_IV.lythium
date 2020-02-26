@@ -16,7 +16,8 @@ private _sandStormIdentifier = [];
 
 if (_existingSandstormsCount < 1) exitWith { hint "no sandstorms active"; };
 
-for "_i" from 1 to (_existingSandstormsCount) do {
+for [{_i = 1}, {_i < 2}, {_i = _i + 1}] do
+{
 	diag_log format ["i %1", _i];
 	_sandStormIds pushBackUnique _i;
 	_sandStormIdentifier pushBackUnique [str _i, "sandstorm " + str _i];
@@ -30,7 +31,7 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		    [
 		    	"COMBO", 
 		    	["Sandstorm ID", "Which sandstorm values below are attributed to"], [
-		    	_sandStormIds, _sandStormIdentifier, 1], 
+		    	_sandStormIds, _sandStormIdentifier, 0], 
 		    	true
 		    ],
 		    [

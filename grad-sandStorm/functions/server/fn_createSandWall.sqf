@@ -49,7 +49,6 @@ setWind [_wSpeed select 0, _wSpeed select 1, true];
 
 missionNamespace setVariable [_identifier + "_speed", _speed, true];
 
-private _speed = { missionNamespace getVariable [_identifier + "_speed", 0] };
 // 5 setGusts 0.35;
 
 private _markerstr = createMarker [format ["grad-sandstorm_debugmarker_%1", _identifier], _position];
@@ -65,7 +64,7 @@ diag_log "add server marker";
 
 [{
     params ["_args", "_handle"];
-    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_speed", "_markerstr"];
+    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_markerstr", "_identifier"];
 
     if (isNull _helperObject) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -75,12 +74,15 @@ diag_log "add server marker";
     };
 
     private _dir = windDir;
+    private _speed = missionNamespace getVariable [_identifier + "_speed", 0];
 
-    private _newPos = (getPos _helperObject) getPos [call _speed, _dir];
+    diag_log format ["%1 %2", _speed, _dir];
+
+    private _newPos = (getPos _helperObject) getPos [_speed, _dir];
     _helperObject setPosASL _newPos;
     _helperObject setVectorUp [0,0,1];
 
-    // hint str _newPos;
+     hint str _newPos;
 
     // _soundSource setPos _newPos;
     _markerstr setMarkerPos _newPos;
@@ -106,7 +108,7 @@ diag_log "add server marker";
         systemChat "deleting trigger out of map";
     };
     
-}, 1, [_helperObject, _trigger, _triggerSound, _size, _speed, _markerstr, _identifier]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _identifier]] call CBA_fnc_addPerFrameHandler;
 
 
 ["GRAD_sandstorm_parametersEdited", {
@@ -114,7 +116,7 @@ diag_log "add server marker";
 
     diag_log format ["edited sandstorm parameters: %1 - %2 - %3", _id, _speed, _windDirection];
 
-    private _identifier = format ["GRAD_sandstorm_id%1", parseNumber _id];
+    private _identifier = format ["GRAD_sandstorm_id%1", _id];
 
     diag_log format ["_identifier: %1 - %2 - %3", _identifier];
     missionNamespace setVariable [_identifier + "_speed", _speed, true];
