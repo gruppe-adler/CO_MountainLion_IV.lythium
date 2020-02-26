@@ -76,32 +76,24 @@ if (
   waitUntil {not isNil "ares_category_list"};
 
 
-
+  // not used for anything atm
   ["ML MISSION", "Briefing Done",
   {
-    // Get all the passed parameters
-    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
     BRIEFING_DONE = true; publicVariable "BRIEFING_DONE";
 
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
+
 
   ["ML MUSIC", "Intro Fly Music",
   {
-    // Get all the passed parameters
-    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
     [5, 1] remoteExec ["fadeMusic"];
     ["openingbook"] remoteExec ["playMusic"];
 
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
   
 
   ["ML MISSION", "Unit Counts",
   {
-    // Get all the passed parameters
-    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
      private _allCuratorUnits = [];
       {
         _allCuratorUnits pushback (getAssignedCuratorUnit _x);
@@ -123,7 +115,7 @@ if (
       _west,_east,_civilian,_logic,_total]);
       [_string] remoteExec ["systemChat", _allCuratorUnits, true];
 
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
 
 
   ["ZEUS HELPERS", "Alert enemy AI around here",
@@ -131,33 +123,28 @@ if (
     // Get all the passed parameters
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
+    _position = ASLToAGL _position;
+
     [_position] spawn GRAD_missionControl_fnc_alertUnits;
 
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
 
 
   ["ZEUS HELPERS", "Toggle AI Charge",
   {
-    // Get all the passed parameters
-    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
     private _current = missionNamespace getVariable ["GRAD_MISSIONCONTROL_ZEUS_AI_CHARGE", false];
     missionNamespace setVariable ["GRAD_MISSIONCONTROL_ZEUS_AI_CHARGE", !_current, true];
 
     hint format ["AI CHARGE: %1", !_current];
 
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
 
 
   ["ML MUSIC", "Outro Music",
   {
-    // Get all the passed parameters
-    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
     [5, 1] remoteExec ["fadeMusic"];
     ["outro"] remoteExec ["playMusic"];
-
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
 
   ["ML FX", "Make Suicide Bomber",
   {
@@ -168,32 +155,9 @@ if (
 
     [_objectUnderCursor, 300, 100] remoteExec ["GRAD_ambient_fnc_suicider", 2];
 
-  }] call Ares_fnc_RegisterCustomModule;
-
-
-  ["ML FX", "Weather change to stormy in 5 min",
-  {
-    // Get all the passed parameters
-    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
-    // time, overcast, rain, lightning, fog
-    [300, 1, 0.4, 1, 0.2] remoteExec ["GRAD_ambient_fnc_weatherChange", 2];
-
-  }] call Ares_fnc_RegisterCustomModule;
-
-
-  ["ML FX", "Weather change to blue sky in 5 min",
-  {
-    // Get all the passed parameters
-    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
-    // time, overcast, rain, lightning, fog
-    [300, 0, 0, 0, 0] remoteExec ["GRAD_ambient_fnc_weatherChange", 2];
-
-  }] call Ares_fnc_RegisterCustomModule;
-
+  }] call zen_custom_modules_fnc_register;
   
-
+  // for debrief
   ["ML MISSION", "Force Respawn everyone",
   {
     // Get all the passed parameters
@@ -201,8 +165,9 @@ if (
 
     [] remoteExec ["GRAD_permaChoice_fnc_forceRespawn", [0,-2] select isDedicated, true];
 
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
 
+  // for debrief
   ["ZEUS HELPERS", "Create Chair Circle",
   {
     // Get all the passed parameters
@@ -214,8 +179,9 @@ if (
     // possible chairs
     private _chairs = ["Land_CampingChair_V1_F", _position, _count] call GRAD_missionControl_fnc_createChairCircle;
 
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
 
+  // not working as expected
   ["ZEUS HELPERS", "Drop TFAR Ears",
   {
     // Get all the passed parameters
@@ -229,7 +195,7 @@ if (
     
     [_objectUnderCursor] call GRAD_missionControl_fnc_dropZeusEars;
 
-  }] call Ares_fnc_RegisterCustomModule;
+  }] call zen_custom_modules_fnc_register;
 
   
 

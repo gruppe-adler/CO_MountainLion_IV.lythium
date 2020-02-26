@@ -8,25 +8,27 @@ module for ZEN
 
 */
 
-["GRAD Sandstorm", "Sandstorm Parameters", {
+["GRAD Sandstorm", "Edit Sandstorm", {
+
+private _existingSandstormsCount = missionNamespace getVariable ["GRAD_sandstorm_existingSandstormCount", 0];
+private _sandStormIds = [];
+private _sandStormIdentifier = [];
+
+{
+	_sandStormIds pushBackUnique (_forEachIndex + 1);
+	_sandStormIdentifier pushBackUnique [str _forEachIndex, str _forEachIndex];
+} forEach _existingSandstormsCount;
+
+diag_log format ["sandstormIds: %1", _sandStormIds];
+diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
+
+
 
 		["GRAD Sandstorm", [
 		    [
 		    	"COMBO", 
 		    	["Sandstorm ID", "Which sandstorm values below are attributed to"], [
-		    	[
-		    		1,2,3,4,5,6,7,8,9
-		    	], [
-		        	["1", "Sandstorm 1"],
-		        	["2", "Sandstorm 2"],
-		        	["3", "Sandstorm 3"],
-		        	["4", "Sandstorm 4"],
-		        	["5", "Sandstorm 5"],
-		        	["6", "Sandstorm 6"],
-		        	["7", "Sandstorm 7"],
-		        	["8", "Sandstorm 8"],
-		        	["9", "Sandstorm 9"]
-		    ], 0], true],
+		    	_sandStormIds, _sandStormIdentifier, 0], true],
 		    [
 		        "SLIDER",
 		        ["Sandstorm Speed", "0 - 50 kmh recommended"],
@@ -54,12 +56,41 @@ module for ZEN
 }] call zen_custom_modules_fnc_register;
 
 
-["GRAD Sandstorm", "Sandstorm Direction", {
-
-	hint str _this
-}] call zen_custom_modules_fnc_register;
 
 ["GRAD Sandstorm", "Start Sandstorm", {
+	
+	params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+	_position = ASLToAGL _position;
 
-	hint str _this
+		["GRAD Sandstorm", [
+			[
+		        "SLIDER",
+		        ["Sandstorm Radius", "4 - 12km"],
+		        [4, 12, 8, 1],
+		        true
+		    ],
+		    [
+		        "SLIDER",
+		        ["Sandstorm Speed", "0 - 50 kmh recommended"],
+		        [0, 120, 50, 1],
+		        true
+		    ],
+		    [
+		        "SLIDER",
+		        ["Sandstorm Direction", "Direction Sandstorm is moving"],
+		        [0, 360, windDir, {format ["%1 %", round _this]}],
+		        true
+		    ]
+		], {
+		    params ["_dialogValues"];
+
+		    _dialogValues params [
+		    	"_radius",
+		        "_speed",
+		        "_windDirection"
+		    ];
+		    
+		    [_position, _radius, _speed, _windDirection] remoteExec ["GRAD_sandstorm_fnc_createSandWall", 2];
+		}] call zen_dialog_fnc_create;
+
 }] call zen_custom_modules_fnc_register;

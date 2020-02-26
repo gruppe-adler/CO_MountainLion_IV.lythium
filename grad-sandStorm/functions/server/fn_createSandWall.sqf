@@ -108,6 +108,8 @@ diag_log "add server marker";
 ["GRAD_sandstorm_parametersEdited", {
     params ["_id", "_speed", "_windDirection"];
 
+    diag_log format ["edited sandstorm parameters: %1 - %2 - %3", _id, _speed, _windDirection];
+
     private _identifier = format ["GRAD_sandstorm_id%1", _id];
     missionNamespace setVariable [_identifier + "_speed", _speed, true];
     setWindDir _windDirection;

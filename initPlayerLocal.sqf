@@ -1,4 +1,4 @@
-if (// isMultiplayer &&
+if ( isMultiplayer &&
      !didJIP) then {
     titleText ["","BLACK FADED",999];
     0 fadeSound 0;
