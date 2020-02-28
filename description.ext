@@ -190,6 +190,8 @@ class CfgGradFortifications {
 
 class cfgSounds {
 
+  #include "grad-survivableCrash\cfgSounds.hpp"
+
     class GRAD_heartbeat_slow_1
       {
         name = "GRAD_heartbeat_slow_1";

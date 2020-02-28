@@ -3,6 +3,8 @@ class grad_survivableCrash {
     class client {
           file = grad-survivableCrash\functions\client;
 
+          class addModule { postInit = 1; };
+          class falling;
           class onCrashLocal;
   };
 
