@@ -6,6 +6,7 @@ class grad_missionControl {
       class addModules;
       class addVehicleMarker;
       class createBloodEffect;
+      class droneFeed;
       class dropZeusEars;
       class setMyFrequency;
       class setGroupFrequencies;
