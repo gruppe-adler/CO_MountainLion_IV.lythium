@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1479;
+		nextID=1481;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=7;
+		nextID=10;
 	};
 	class Camera
 	{
-		pos[]={11548.305,36.418968,2484.5984};
-		dir[]={0.94167531,-0.32585701,0.084074378};
-		up[]={0.32456681,0.94541812,0.028978011};
-		aside[]={0.088928491,5.554466e-008,-0.99603975};
+		pos[]={11477.113,97.333076,2457.0867};
+		dir[]={0.94606245,-0.32090944,0.044608321};
+		up[]={0.32055625,0.947106,0.015114585};
+		aside[]={0.047098208,-2.6598354e-007,-0.99889284};
 	};
 };
 binarizationWanted=0;
@@ -9217,24 +9217,24 @@ class Mission
 		class Item237
 		{
 			dataType="Marker";
-			position[]={9033.4072,478.97879,15964.887};
+			position[]={9121.873,476.03894,15975.881};
 			name="introPlane1";
 			type="Empty";
 			colorName="ColorRed";
 			angle=173.4799;
 			id=1000;
-			atlOffset=12.440125;
+			atlOffset=22.720581;
 		};
 		class Item238
 		{
 			dataType="Marker";
-			position[]={9100.9424,358.58936,15972.417};
+			position[]={9027.2529,369.68945,15966.978};
 			name="introPlane2";
 			type="Empty";
 			colorName="ColorRed";
 			angle=172.183;
 			id=1001;
-			atlOffset=-97.313293;
+			atlOffset=-97.006317;
 		};
 		class Item239
 		{
