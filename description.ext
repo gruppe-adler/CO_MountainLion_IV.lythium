@@ -42,7 +42,7 @@ class cfgFunctions {
   #include "grad-rotorWash\cfgFunctions.hpp"
   #include "grad-fortificationTransport\cfgFunctions.hpp"
   #include "grad-civAnimations\cfgFunctions.hpp"
-  #include "grad-attackWaves\cfgFunctions.hpp"
+  #include "grad-attackGroups\cfgFunctions.hpp"
 
   #include "node_modules\grad-loadout\cfgFunctions.hpp"
   #include "node_modules\grad-customGear\cfgFunctions.hpp"
