@@ -157,3 +157,119 @@
 	}, {}, []] call zen_dialog_fnc_create;
 
 }] call zen_custom_modules_fnc_register;
+
+
+["GRAD Attack Groups", "Spawn Bunker Attack Waves", {
+
+	["GRAD Bunker Attack Waves", [
+		[
+			"COMBO",
+			["Start Position", "Either all Bunkers, a random Bunker per wave, or a specific Bunker where units will spawn"],
+			[
+				[
+					"ALLBUNKERS",
+					"RANDOMBUNKERS",
+					selectRandom [Bunker1Pos1, Bunker1Pos2],
+					Bunker2Pos1,
+					Bunker3Pos1
+				],
+				[
+					["All Bunkers"],
+					["Random Bunkers"],
+					["Bunker North"],
+					["Bunker East"],
+					["Bunker South"]
+				],
+				1
+			],
+			true
+		],
+		[
+			"SLIDER",
+			["Wave Interval", "Time in seconds, between each wave"],
+			[30, 600, 180, 0],
+			true
+		],
+		[
+			"SLIDER",
+			["Amount of Waves", "The amount of Waves that will be spawned"],
+			[1, 15, 5, 0],
+			true
+		],		
+		[
+			"SLIDER",
+			["Max. Group Size", "The max. amount of units per Attack Group"],
+			[2, 20, 6, 0],
+			true
+		],
+		[
+			"CHECKBOX",
+			["Fixed Group Size", "If the Group Size is fixed, the amount of units per Attack Group will always be equal to Max. Group Size"],
+			[false],
+			true
+		],		
+		[
+			"COMBO",
+			["Group formation", "Formation the Attack Groups will switch to, during the attack"],
+			[
+				[
+					"RANDOM",
+					"COLUMN",
+					"STAG COLUMN",
+					"WEDGE",
+					"ECH LEFT",
+					"ECH RIGHT",
+					"VEE",
+					"DIAMOND",
+					"LINE"
+				],
+				[
+					["Random"],
+					["Column"],
+					["Staggered Column"],
+					["Wedge"],
+					["Echelon Left"],
+					["Echelon Right"],
+					["Vee"],
+					["Diamond"],
+					["Line"]
+				],
+				0
+			],
+			true
+		],
+		[
+			"COMBO",
+			["Wave Target", "The target of each wave"],
+			[
+				[
+					"CRASHSITE",
+					"NEARESTPLAYER",
+					"NEARESTPLAYERCRASHSITE"
+				],
+				[
+					["Crash Site"],
+					["Nearest Player"],
+					["Nearest Player at Crash Site"]
+				],
+				0
+			],
+			true
+		]						
+	], {
+		params ["_dialogValues", "_args"];
+
+		_dialogValues params [
+			"_bunker",
+			"_interval",
+			"_waveAmount",
+			"_groupSize",
+			"_fixedSize",
+			"_formation",
+			"_attackPosition"
+		];
+		
+		[_bunker, _interval, _waveAmount, _groupSize, _fixedSize, _formation, _attackPosition] remoteExec ["GRAD_attackGroups_fnc_spawnBunkerAttackWaves", 2];
+	}, {}, []] call zen_dialog_fnc_create;
+
+}] call zen_custom_modules_fnc_register;

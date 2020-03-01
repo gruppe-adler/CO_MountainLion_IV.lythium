@@ -5,6 +5,7 @@ class GRAD_attackGroups {
                 file = grad-attackGroups\functions\zeusModules;
 
                 class addZeusModules { postInit = 1; };
+                class spawnBunkerAttackWaves {};
                 class spawnMotorizedAttackGroup {};
                 class patrol {};
                 class spawnBunkerPatrol {};
