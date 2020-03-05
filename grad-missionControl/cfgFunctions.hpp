@@ -5,9 +5,15 @@ class grad_missionControl {
 
       class addModules;
       class addVehicleMarker;
+      class adjustDroneFOV;
+      class adjustDronePipEffect;
       class createBloodEffect;
-      class droneFeed;
+      class droneFeedInit;
+      class droneFeedinterpretMouseWheel;
+      class droneFeedinterpretMouseClick;
+      class droneFeedReset;
       class dropZeusEars;
+      class inspectDroneFeed;
       class setMyFrequency;
       class setGroupFrequencies;
       class stopMusic;

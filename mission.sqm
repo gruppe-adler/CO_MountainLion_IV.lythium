@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1481;
+		nextID=2193;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=10;
+		nextID=26;
 	};
 	class Camera
 	{
-		pos[]={11477.113,97.333076,2457.0867};
-		dir[]={0.94606245,-0.32090944,0.044608321};
-		up[]={0.32055625,0.947106,0.015114585};
-		aside[]={0.047098208,-2.6598354e-007,-0.99889284};
+		pos[]={10742.507,50.128372,4727.8076};
+		dir[]={-0.099010892,-0.48128155,0.87096047};
+		up[]={-0.054362182,0.87656432,0.47820306};
+		aside[]={0.9936015,-2.8172508e-008,0.11295343};
 	};
 };
 binarizationWanted=0;
@@ -937,7 +937,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=409;
+		items=425;
 		class Item0
 		{
 			dataType="Logic";
@@ -14250,7 +14250,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9426.1963,88.366592,6840.7607};
+				position[]={9426.1963,88.499664,6840.7607};
 				angles[]={0,1.0537599,0};
 			};
 			side="Empty";
@@ -14260,7 +14260,7 @@ class Mission
 			};
 			id=1448;
 			type="Land_HelipadEmpty_F";
-			atlOffset=7.6293945e-006;
+			atlOffset=0.13307953;
 		};
 		class Item398
 		{
@@ -14449,18 +14449,17 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11493.604,24.226322,2406.3831};
-				angles[]={0,4.818418,0};
+				position[]={11578.042,23.747772,2490.8179};
+				angles[]={0.00097738439,4.818418,0.0087266462};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="call{[this] spawn GRAD_missionControl_fnc_droneFeed;}";
+				init="call{[this] call GRAD_missionControl_fnc_droneFeedInit;}";
 			};
 			id=1459;
 			type="Land_TripodScreen_01_large_black_F";
-			atlOffset=0.22500038;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -14594,6 +14593,128 @@ class Mission
 			};
 			id=1466;
 			type="Land_WaterBottle_01_cap_F";
+		};
+		class Item409
+		{
+			dataType="Layer";
+			name="Dam";
+			id=1489;
+			atlOffset=-140.66;
+		};
+		class Item410
+		{
+			dataType="Layer";
+			name="Dam";
+			id=1497;
+			atlOffset=-140.66;
+		};
+		class Item411
+		{
+			dataType="Layer";
+			name="Dam";
+			id=1505;
+			atlOffset=-140.66;
+		};
+		class Item412
+		{
+			dataType="Layer";
+			name="Dock Crane";
+			id=1510;
+			atlOffset=-140.66;
+		};
+		class Item413
+		{
+			dataType="Layer";
+			name="Air Factory #B";
+			id=1580;
+			atlOffset=-140.66;
+		};
+		class Item414
+		{
+			dataType="Layer";
+			name="Fuel Dump #B";
+			id=1618;
+			atlOffset=-140.66;
+		};
+		class Item415
+		{
+			dataType="Layer";
+			name="Bunker (Large) Checkpoint #B";
+			id=1646;
+			atlOffset=-140.66;
+		};
+		class Item416
+		{
+			dataType="Layer";
+			name="Headquarters #B";
+			id=1719;
+			atlOffset=-140.66;
+		};
+		class Item417
+		{
+			dataType="Layer";
+			name="Generator #B";
+			id=1746;
+			atlOffset=-140.66;
+		};
+		class Item418
+		{
+			dataType="Layer";
+			name="Barracks #B";
+			id=1789;
+			atlOffset=-140.66;
+		};
+		class Item419
+		{
+			dataType="Layer";
+			name="Field Barracks #B1";
+			id=1906;
+			atlOffset=-140.66;
+		};
+		class Item420
+		{
+			dataType="Layer";
+			name="Field Depot #B";
+			id=2024;
+			atlOffset=-140.66;
+		};
+		class Item421
+		{
+			dataType="Layer";
+			name="Field Radar #B";
+			id=2130;
+			atlOffset=-140.66;
+		};
+		class Item422
+		{
+			dataType="Layer";
+			name="Castle";
+			id=2162;
+			atlOffset=-140.66;
+		};
+		class Item423
+		{
+			dataType="Layer";
+			name="Mosque";
+			id=2182;
+			atlOffset=-140.66;
+		};
+		class Item424
+		{
+			dataType="Trigger";
+			position[]={16350.813,9.5916262,-5342.3535};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{ deleteVehicle _x; } forEach thisList;}";
+				sizeA=1000;
+				sizeB=1000;
+				repeatable=1;
+				activationBy="CIV";
+				isServerOnly=1;
+			};
+			id=2183;
+			type="EmptyDetector";
 		};
 	};
 };
