@@ -36,9 +36,14 @@ addMissionEventHandler ["HandleDisconnect", {
 
 
 [{
-    {   private _chairs = [
-            chair_1,chair_2,chair_3,chair_4,chair_5,chair_6,chair_7,chair_8,chair_9,chair_10,chair_11,chair_12,chair_13,chair_14,chair_15,chair_16,chair_17,chair_18,chair_19,chair_20,chair_21,chair_22,chair_23,chair_24,chair_25,chair_26,chair_27,chair_28,chair_29,chair_30,chair_31,chair_32,chair_33,chair_34,chair_35,chair_36
-        ];
+    private _chairs = [];
+
+    for "_i" from 1 to 64 do {
+        private _varName = format ["chair_%1", _i];
+        _chairs pushBackUnique (call compile _varName);
+    };
+
+    {   
 
         if (_forEachIndex < (count _chairs) - 1) then {
 
