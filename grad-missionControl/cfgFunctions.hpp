@@ -39,5 +39,7 @@ class grad_missionControl {
       class ownerShipHandler { postInit = 1; };
       class readIntel;
       class sitDown;
+      class weaponizeCivilian;
+      class weaponizeVehicle;
   };
 };

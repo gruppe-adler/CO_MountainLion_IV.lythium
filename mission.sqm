@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2280;
+		nextID=2289;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={11568.116,42.036713,2476.1851};
-		dir[]={0.60649812,-0.6228019,0.49437511};
-		up[]={0.48276967,0.78235304,0.39351898};
-		aside[]={0.63185811,-1.1708471e-007,-0.77516192};
+		pos[]={6739.2471,257.39844,4564.104};
+		dir[]={-0.11927365,-0.51751679,0.84732127};
+		up[]={-0.072137319,0.85567307,0.51246446};
+		aside[]={0.99023825,8.8475645e-009,0.13939151};
 	};
 };
 binarizationWanted=0;
@@ -4203,6 +4203,7 @@ class Mission
 			};
 			id=807;
 			type="TFAR_NATO_Radio_Crate";
+			atlOffset=-3.8146973e-006;
 		};
 		class Item146
 		{
@@ -10588,8 +10589,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6730.4761,242.17401,4594.8999};
-				angles[]={6.2823396,4.4858708,0};
+				position[]={6736.5713,242.17108,4593.2705};
+				angles[]={6.2823396,4.4858708,-0};
 			};
 			side="Empty";
 			flags=4;
@@ -10687,18 +10688,18 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6877.0439,229.25174,4478.3794};
-						angles[]={0,1.7266068,0};
+						position[]={6877.0439,229.25186,4478.3799};
+						angles[]={0,1.7266018,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=2;
 					class Attributes
 					{
 						init="call{[this] call GRAD_civAnimations_fnc_takeCover;}";
 					};
-					id=1180;
-					type="LOP_Tak_Civ_Man_15";
-					atlOffset=0.5459137;
+					id=2280;
+					type="LOP_Tak_Civ_Man_16";
+					atlOffset=0.54600525;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -10749,7 +10750,7 @@ class Mission
 				dynamicSimulation=1;
 			};
 			id=1179;
-			atlOffset=0.5459137;
+			atlOffset=0.54600525;
 		};
 		class Item278
 		{
@@ -10763,18 +10764,18 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6878.7246,229.17145,4477.2144};
+						position[]={6878.7251,229.17159,4477.2148};
 						angles[]={0,0.31401965,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=2;
 					class Attributes
 					{
 						init="call{[this] call GRAD_civAnimations_fnc_takeCover;}";
 					};
-					id=1182;
-					type="LOP_Tak_Civ_Man_15";
-					atlOffset=0.5459137;
+					id=2283;
+					type="LOP_Tak_Civ_Random";
+					atlOffset=0.54600525;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -10825,7 +10826,7 @@ class Mission
 				dynamicSimulation=1;
 			};
 			id=1181;
-			atlOffset=0.5459137;
+			atlOffset=0.54600525;
 		};
 		class Item279
 		{
@@ -10839,18 +10840,18 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6876.6167,229.05049,4475.6318};
-						angles[]={0,3.4927065,0};
+						position[]={6876.6172,229.05058,4475.6318};
+						angles[]={0,3.4927006,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=2;
 					class Attributes
 					{
 						init="call{[this] call GRAD_civAnimations_fnc_takeCover;}";
 					};
-					id=1184;
-					type="LOP_Tak_Civ_Man_15";
-					atlOffset=0.5459137;
+					id=2284;
+					type="LOP_Tak_Civ_Random";
+					atlOffset=0.54600525;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -10901,7 +10902,7 @@ class Mission
 				dynamicSimulation=1;
 			};
 			id=1183;
-			atlOffset=0.5459137;
+			atlOffset=0.54600525;
 		};
 		class Item280
 		{
@@ -10991,18 +10992,18 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6877.5371,229.45059,4481.9194};
-						angles[]={0,1.9578453,0};
+						position[]={6877.5371,229.4507,4481.9199};
+						angles[]={0,1.9578406,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=2;
 					class Attributes
 					{
 						init="call{[this] call GRAD_civAnimations_fnc_takeCover;}";
 					};
-					id=1188;
-					type="LOP_Tak_Civ_Man_15";
-					atlOffset=0.5459137;
+					id=2281;
+					type="LOP_Tak_Civ_Man_04";
+					atlOffset=0.54600525;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -11053,7 +11054,7 @@ class Mission
 				dynamicSimulation=1;
 			};
 			id=1187;
-			atlOffset=0.5459137;
+			atlOffset=0.54600525;
 		};
 		class Item282
 		{
@@ -11067,18 +11068,18 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6880.8052,229.59186,4488.332};
+						position[]={6880.8052,229.59195,4488.332};
 						angles[]={0,0.31401965,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=2;
 					class Attributes
 					{
 						init="call{[this] call GRAD_civAnimations_fnc_takeCover;}";
 					};
-					id=1190;
-					type="LOP_Tak_Civ_Man_15";
-					atlOffset=0.5459137;
+					id=2282;
+					type="LOP_Tak_Civ_Man_02";
+					atlOffset=0.54600525;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -11129,7 +11130,7 @@ class Mission
 				dynamicSimulation=1;
 			};
 			id=1189;
-			atlOffset=0.5459137;
+			atlOffset=0.54600525;
 		};
 		class Item283
 		{

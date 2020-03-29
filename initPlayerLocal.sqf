@@ -1,3 +1,9 @@
+[] call GRAD_missionControl_fnc_setMyFrequency;
+[] call GRAD_missionControl_fnc_addModules;
+
+["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
+player addEventHandler ["HandleRating", {0}];
+
 if ( isMultiplayer &&
      !didJIP) then {
     titleText ["","BLACK FADED",999];
@@ -13,12 +19,6 @@ if ( isMultiplayer &&
         player action ["SwitchWeapon", player, player, 100];
     };
 };
-
-["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
-player addEventHandler ["HandleRating", {0}];
-
-[] call GRAD_missionControl_fnc_setMyFrequency;
-[] call GRAD_missionControl_fnc_addModules;
 
 if (didJIP) then {
 	waitUntil {

@@ -35,4 +35,4 @@ GRAD_enhancedDesert_ACTIVE = missionNamespace getVariable ["GRAD_enhancedDesert_
 
 } forEach allCurators;
 
-[] call GRAD_enhancedDesert_fnc_roadReflection;
+// [] call GRAD_enhancedDesert_fnc_roadReflection;
