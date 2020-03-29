@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={11596.688,34.823917,2488.1377};
-		dir[]={-0.062833525,-0.44552663,0.89312005};
-		up[]={-0.031269576,0.89524388,0.4444766};
-		aside[]={0.99758357,-3.2363459e-008,0.070181102};
+		pos[]={11568.116,42.036713,2476.1851};
+		dir[]={0.60649812,-0.6228019,0.49437511};
+		up[]={0.48276967,0.78235304,0.39351898};
+		aside[]={0.63185811,-1.1708471e-007,-0.77516192};
 	};
 };
 binarizationWanted=0;
@@ -3855,7 +3855,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11603.225,23.256433,2519.1658};
+				position[]={11603.225,23.029827,2519.1658};
 				angles[]={0.0035714714,4.0115972,0.0019834081};
 			};
 			side="Empty";
@@ -3866,14 +3866,13 @@ class Mission
 			};
 			id=801;
 			type="Land_CampingTable_white_F";
-			atlOffset=0.22660637;
 		};
 		class Item143
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11603.594,24.766163,2518.6101};
+				position[]={11603.597,24.538843,2518.7141};
 				angles[]={0.0035714714,5.6531839,0.0019834081};
 			};
 			side="Empty";
@@ -3885,7 +3884,6 @@ class Mission
 			};
 			id=802;
 			type="Vysilacka";
-			atlOffset=0.00034713745;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4195,8 +4193,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11604.223,22.980247,2519.6338};
-				angles[]={0.0035714714,5.6157794,0.0019834081};
+				position[]={11598.472,22.864252,2524.5457};
+				angles[]={0.006650324,0.011479914,6.2822089};
 			};
 			side="Empty";
 			flags=4;
@@ -4205,14 +4203,13 @@ class Mission
 			};
 			id=807;
 			type="TFAR_NATO_Radio_Crate";
-			atlOffset=0.077619553;
 		};
 		class Item146
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11602.723,23.814499,2519.594};
+				position[]={11602.723,23.587423,2519.594};
 				angles[]={0.0035714714,4.7814794,0.0019834081};
 			};
 			side="Empty";
@@ -4224,7 +4221,6 @@ class Mission
 			};
 			id=809;
 			type="Land_Laptop_unfolded_F";
-			atlOffset=0.00046920776;
 		};
 		class Item147
 		{
@@ -13281,7 +13277,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={11578.042,23.747772,2490.8179};
-				angles[]={0.00097738439,4.818418,0.0087266462};
+				angles[]={0.0009765625,3.237519,0.0087210098};
 			};
 			side="Empty";
 			flags=4;
